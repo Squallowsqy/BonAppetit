@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { RecipeImage } from "@/components/RecipeImage";
+import { formatEUR } from "@/lib/pricing";
 import type { Recipe } from "@/lib/types";
 
 const DAYS = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"] as const;
@@ -17,10 +18,16 @@ type Props = {
   recipes: Recipe[];
   /** Compact rail for mobile (horizontal). */
   variant?: "rail" | "board";
+  /** Ticket de caisse — signature homepage. */
+  receipt?: boolean;
 };
 
 /** Planning photo jour par jour — ouvre l’appétit à côté du hero. */
-export function WeekAppetiteBoard({ recipes, variant = "board" }: Props) {
+export function WeekAppetiteBoard({
+  recipes,
+  variant = "board",
+  receipt = false,
+}: Props) {
   const days = recipes.slice(0, 7).map((recipe, i) => ({
     recipe,
     short: DAYS[i],
@@ -59,6 +66,64 @@ export function WeekAppetiteBoard({ recipes, variant = "board" }: Props) {
           ))}
         </ul>
       </div>
+    );
+  }
+
+  if (receipt) {
+    const total = days.reduce((sum, d) => {
+      const c = d.recipe.costBase;
+      if (c == null) return sum;
+      return sum + c / (d.recipe.baseServings || 2);
+    }, 0);
+
+    return (
+      <aside
+        className="ba-receipt"
+        aria-label="Planning de la semaine type"
+      >
+        <div className="ba-receipt-head">
+          <p className="ba-receipt-store">SEMAINE TYPE</p>
+          <p className="ba-receipt-meta">7 dîners · tarif / pers.</p>
+        </div>
+        <ul className="ba-receipt-lines">
+          {days.map(({ recipe, short, full }, i) => {
+            const unit =
+              recipe.costBase != null
+                ? recipe.costBase / (recipe.baseServings || 2)
+                : null;
+            return (
+              <li key={recipe.id}>
+                <Link
+                  href={`/menu/recipes/${recipe.slug}`}
+                  className="ba-receipt-line"
+                  style={{ animationDelay: `${90 + i * 70}ms` }}
+                >
+                  <div className="ba-receipt-photo">
+                    <RecipeImage
+                      src={recipe.image}
+                      alt={recipe.title_fr}
+                      sizes="96px"
+                    />
+                  </div>
+                  <div className="ba-receipt-body">
+                    <span className="ba-receipt-day" aria-label={full}>
+                      {short}
+                    </span>
+                    <span className="ba-receipt-title">{recipe.title_fr}</span>
+                  </div>
+                  <span className="ba-receipt-price">
+                    {unit != null ? formatEUR(unit) : "—"}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="ba-receipt-foot">
+          <span>TOTAL EST.</span>
+          <span>{formatEUR(total)}</span>
+        </div>
+      </aside>
     );
   }
 

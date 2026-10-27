@@ -110,42 +110,488 @@ body {
   }
 }
 
-/* —— Home hero: copy left + planning photo à droite —— */
+/* —— Homepage: ticket de caisse / rayon froid —— */
+.ba-home {
+  --home-ink: #12181a;
+  --home-muted: #4a585c;
+  --home-porcelain: #e8eef0;
+  --home-paper: #f7f4ec;
+  --home-chlorophyll: #0f6b45;
+  --home-ticket: #f0c419;
+  --home-steel: #c5ced6;
+  --home-deep: #083528;
+  min-height: 100%;
+  color: var(--home-ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, color-mix(in srgb, var(--home-chlorophyll) 14%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 95% 20%, color-mix(in srgb, var(--home-ticket) 18%, transparent), transparent 50%),
+    linear-gradient(180deg, #dfe8ea 0%, var(--home-porcelain) 38%, #f3f6f7 100%);
+  font-family: var(--font-sans), "DM Sans", system-ui, sans-serif;
+}
+
+.ba-home-nav {
+  width: min(1180px, calc(100% - 1.5rem));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0 0.75rem;
+  position: relative;
+  z-index: 5;
+}
+
+.ba-home-nav-brand {
+  font-family: var(--font-display), "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+  color: var(--home-chlorophyll);
+  text-decoration: none;
+}
+
+.ba-home-nav-brand span {
+  color: var(--home-ticket);
+}
+
+.ba-home-nav-actions {
+  display: flex;
+  gap: 1.1rem;
+}
+
+.ba-home-nav-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--home-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.ba-home-nav-link:hover,
+.ba-home-nav-link:focus-visible {
+  color: var(--home-ink);
+  border-bottom-color: var(--home-ink);
+  outline: none;
+}
+
 .ba-home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(92vh, 820px);
+  padding: 0.5rem 0 2.5rem;
+}
+
+.ba-home-hero-plane {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.06);
+  filter: saturate(0.85) contrast(1.05);
+  animation: ba-home-drift 22s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.ba-home-hero-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      105deg,
+      color-mix(in srgb, var(--home-porcelain) 94%, white) 0%,
+      color-mix(in srgb, var(--home-porcelain) 88%, white) 42%,
+      color-mix(in srgb, var(--home-porcelain) 55%, transparent) 68%,
+      color-mix(in srgb, #0a2a1c 35%, transparent) 100%
+    );
+}
+
+.ba-home-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 1.5rem));
+  margin-inline: auto;
   display: grid;
-  gap: 1.75rem;
-  align-items: start;
+  gap: 2rem;
+  align-items: end;
+  padding-top: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .ba-home-hero-inner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 420px);
+    gap: 2.75rem;
+    align-items: center;
+    min-height: calc(min(92vh, 820px) - 5rem);
+    padding-top: 0;
+  }
+}
+
+.ba-home-hero-copy {
+  max-width: 34rem;
+  animation: ba-home-rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ba-home-brand {
+  font-family: var(--font-display), "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.25rem, 9vw, 5.75rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  color: var(--home-chlorophyll);
+  margin: 0;
+}
+
+.ba-home-brand span {
+  color: var(--home-ticket);
+}
+
+.ba-home-h1 {
+  margin: 1.35rem 0 0;
+  font-family: var(--font-display), "Bricolage Grotesque", sans-serif;
+  font-weight: 650;
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--home-ink);
+  max-width: 22ch;
+}
+
+.ba-home-lede {
+  margin: 0.85rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--home-muted);
+  max-width: 36ch;
+}
+
+.ba-home-lede-tight {
+  max-width: 42ch;
+}
+
+.ba-home-cta {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+}
+
+.ba-home-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.7rem 1.35rem;
+  border-radius: 10px;
+  background: var(--home-chlorophyll);
+  color: #f4fff8;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+  transition: background 160ms ease, transform 140ms ease;
+}
+
+.ba-home-btn-primary:hover {
+  background: var(--home-deep);
+}
+
+.ba-home-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.ba-home-btn-primary:focus-visible {
+  outline: 2px solid var(--home-ink);
+  outline-offset: 3px;
+}
+
+.ba-home-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0.55rem 0.15rem;
+  color: var(--home-ink);
+  font-weight: 650;
+  font-size: 0.98rem;
+  text-decoration: none;
+  border-bottom: 1.5px solid color-mix(in srgb, var(--home-ink) 35%, transparent);
+  transition: border-color 160ms ease;
+}
+
+.ba-home-btn-ghost:hover,
+.ba-home-btn-ghost:focus-visible {
+  border-bottom-color: var(--home-ink);
+  outline: none;
 }
 
 .ba-home-hero-side {
-  display: block;
   min-width: 0;
+  animation: ba-home-rise 800ms 120ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.ba-home-week-mobile {
-  display: none;
+/* Receipt signature */
+.ba-receipt {
+  background: var(--home-paper);
+  color: var(--home-ink);
+  border-radius: 4px 4px 12px 12px;
+  padding: 1rem 1rem 0.85rem;
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #000 6%, transparent),
+    0 18px 40px color-mix(in srgb, #083528 16%, transparent);
+  position: relative;
+  mask-image: radial-gradient(circle at 12px 100%, transparent 7px, #000 7.5px);
+  mask-size: 18px 100%;
+  mask-repeat: repeat-x;
+  mask-position: left bottom;
 }
 
-@media (min-width: 768px) {
-  .ba-home-hero {
-    grid-template-columns: minmax(0, 1.05fr) minmax(260px, 400px);
-    gap: 2.25rem 2.75rem;
-    align-items: start;
-  }
-
-  .ba-home-hero-side {
-    position: sticky;
-    top: 5.5rem;
-  }
+.ba-receipt::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--home-ticket) 0 10px,
+    var(--home-chlorophyll) 10px 20px
+  );
 }
 
-@media (max-width: 767px) {
-  /* Mobile : planning reste dans le hero, en dessous du texte (pas une 2e section). */
-  .ba-home-hero-side {
-    margin-top: 0.25rem;
-  }
+.ba-receipt-head {
+  padding: 0.55rem 0.15rem 0.7rem;
+  border-bottom: 1px dashed color-mix(in srgb, var(--home-ink) 22%, transparent);
 }
 
+.ba-receipt-store {
+  margin: 0;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.ba-receipt-meta {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--home-muted);
+}
+
+.ba-receipt-lines {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+}
+
+.ba-receipt-line {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0.55rem 0.1rem;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px dotted color-mix(in srgb, var(--home-ink) 14%, transparent);
+  opacity: 0;
+  animation: ba-week-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ba-receipt-line:hover .ba-receipt-title {
+  color: var(--home-chlorophyll);
+}
+
+.ba-receipt-photo {
+  width: 56px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--home-steel);
+}
+
+.ba-receipt-photo .ba-recipe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-receipt-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.ba-receipt-day {
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--home-chlorophyll);
+}
+
+.ba-receipt-title {
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 140ms ease;
+}
+
+.ba-receipt-price {
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ba-receipt-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.55rem;
+  padding: 0.65rem 0.15rem 0.85rem;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-top: 2px solid var(--home-ink);
+}
+
+.ba-home-stores {
+  width: min(1180px, calc(100% - 1.5rem));
+  margin: 0 auto;
+  padding: 1.75rem 0 1.25rem;
+  border-top: 1px solid color-mix(in srgb, var(--home-ink) 10%, transparent);
+}
+
+.ba-home-kicker {
+  margin: 0;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--home-muted);
+}
+
+.ba-home-store-list {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.35rem;
+}
+
+.ba-home-store-list a {
+  color: var(--home-ink);
+  font-weight: 650;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--home-ink) 25%, transparent);
+}
+
+.ba-home-store-list a:hover {
+  border-bottom-color: var(--home-chlorophyll);
+  color: var(--home-chlorophyll);
+}
+
+.ba-home-examples {
+  width: min(1180px, calc(100% - 1.5rem));
+  margin: 0 auto;
+  padding: 2rem 0 3.5rem;
+}
+
+.ba-home-h2 {
+  margin: 0;
+  font-family: var(--font-display), "Bricolage Grotesque", sans-serif;
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.ba-home-example-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid color-mix(in srgb, var(--home-ink) 12%, transparent);
+}
+
+.ba-home-example-list > li {
+  opacity: 0;
+  animation: ba-week-in 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  border-bottom: 1px solid color-mix(in srgb, var(--home-ink) 12%, transparent);
+}
+
+.ba-home-example-row {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding: 0.85rem 0.1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ba-home-example-photo {
+  width: 108px;
+  height: 76px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--home-steel);
+}
+
+.ba-home-example-photo .ba-recipe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-home-example-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.ba-home-example-price {
+  margin: 0.3rem 0 0;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--home-chlorophyll);
+  font-weight: 500;
+}
+
+.ba-home-examples-foot {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.1rem;
+  align-items: center;
+}
+
+.ba-home-footer-wrap {
+  width: min(1180px, calc(100% - 1.5rem));
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.ba-home-footer-wrap .ba-shell-wide {
+  width: 100%;
+}
+
+/* Legacy week board (menu / other) */
 .ba-week-board {
   position: relative;
 }
@@ -227,7 +673,6 @@ body {
   overflow: hidden;
 }
 
-/* Mobile horizontal appetite rail */
 .ba-week-rail-track {
   list-style: none;
   margin: 0;
@@ -299,11 +744,39 @@ body {
   }
 }
 
+@keyframes ba-home-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ba-home-drift {
+  from {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(-1.5%, 1%, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ba-week-board-row,
-  .ba-week-day-link {
+  .ba-week-day-link,
+  .ba-receipt-line,
+  .ba-home-example-list > li,
+  .ba-home-hero-copy,
+  .ba-home-hero-side {
     animation: none;
     opacity: 1;
+  }
+
+  .ba-home-hero-plane {
+    animation: none;
   }
 }
 

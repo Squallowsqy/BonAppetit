@@ -1,6 +1,7 @@
 import { recipes } from "@/lib/catalog";
 import { recipeCost, servingsFromHousehold } from "@/lib/pricing";
 import {
+  cosine,
   learnTasteProfile,
   recipeFeatures,
   scoreRecipe,
@@ -51,6 +52,161 @@ function breaksRedMeatRule(
 ) {
   if (!previous || !candidate) return false;
   return isRedMeatRecipe(previous) && isRedMeatRecipe(candidate);
+}
+
+function normalizeDishText(s: string): string {
+  return s
+    .toLowerCase()
+    .replace(/œ/g, "oe")
+    .replace(/æ/g, "ae")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+const FAMILY_STOP = new Set([
+  "de",
+  "du",
+  "des",
+  "au",
+  "aux",
+  "la",
+  "le",
+  "les",
+  "et",
+  "and",
+  "a",
+  "avec",
+  "sauce",
+  "facon",
+  "maison",
+  "notre",
+  "fameuse",
+  "express",
+  "gourmande",
+  "gourmand",
+  "legere",
+  "vivifiant",
+  "sur",
+  "en",
+  "pour",
+  "dans",
+  "son",
+  "sa",
+  "ses",
+  "aux",
+  "une",
+  "un",
+  "des",
+]);
+
+function dishStemFromWord(w: string): string | null {
+  if (/^(pave|paves)$/.test(w)) return "pave";
+  if (/^(nouille|nouilles|udon|ramen|wok)$/.test(w)) return "nouilles";
+  if (
+    /^(pate|pates|penne|rigatoni|spaghetti|tagliatelle|farfalle|casarecce|conchiglie|linguini|linguine|orzo)$/.test(
+      w
+    )
+  )
+    return "pates";
+  if (/^(bowl|bol)$/.test(w)) return "bowl";
+  if (/^(gratin|gratins)$/.test(w)) return "gratin";
+  if (/^(salade|salades)$/.test(w)) return "salade";
+  if (/^(poulet|dinde)$/.test(w)) return "volaille";
+  if (/^(boeuf|steak|bavette)$/.test(w)) return "boeuf";
+  if (/^(risotto|risottos)$/.test(w)) return "risotto";
+  if (/^(burger|burgers)$/.test(w)) return "burger";
+  if (/^(wrap|wraps|pita|pitas|naan|galette|galettes)$/.test(w)) return "wrap";
+  if (/^(curry|currys)$/.test(w)) return "curry";
+  if (/^(soupe|soupes|veloute|mijote|mijotes)$/.test(w)) return "mijote";
+  return null;
+}
+
+/** Clé de famille (anti-doublons sur le mois : un seul « pavé », « nouilles », etc.). */
+export function recipeFamilyKey(recipe: Recipe): string {
+  const words = normalizeDishText(recipe.title_fr)
+    .split(" ")
+    .filter((w) => w.length > 2 && !FAMILY_STOP.has(w));
+  for (const w of words) {
+    const mapped = dishStemFromWord(w);
+    if (mapped) return mapped;
+  }
+  return words[0] || recipe.id;
+}
+
+type ProteinBucket =
+  | "poulet"
+  | "boeuf"
+  | "porc"
+  | "veau"
+  | "agneau"
+  | "poisson"
+  | "crevette"
+  | "vege"
+  | "other";
+
+function proteinBucket(recipe: Recipe): ProteinBucket {
+  const raw = `${recipe.mainProtein || ""} ${recipe.title_fr} ${
+    recipe.description_fr || ""
+  }`.toLowerCase();
+  const blob = normalizeDishText(raw);
+  if (/(poulet|dinde|volaille)/.test(blob)) return "poulet";
+  if (/\bveau\b/.test(blob)) return "veau";
+  if (/(agneau|lamb)/.test(blob)) return "agneau";
+  if (/(b[oœ]uf|boeuf|beef|steak|bavette|hache)/.test(raw) || /boeuf/.test(blob))
+    return "boeuf";
+  if (/(porc|lardon|saucisse|chorizo|jambon|bacon)/.test(blob)) return "porc";
+  if (/(crevette|scampi)/.test(blob)) return "crevette";
+  if (/(saumon|cabillaud|poisson|merlu|thon|lieu)/.test(blob)) return "poisson";
+  if (
+    /(tofu|veget|vege|vegan|legumineuse|pois chiche|lentille)/.test(blob) ||
+    recipe.flags?.vegetarian
+  )
+    return "vege";
+  return "other";
+}
+
+/** Trop proche du plat précédent (même famille, même protéine, ou features très proches). */
+export function breaksAdjacentVariety(
+  previous: Recipe | null | undefined,
+  candidate: Recipe | null | undefined
+): boolean {
+  if (!previous || !candidate) return false;
+  if (previous.id === candidate.id) return true;
+  if (recipeFamilyKey(previous) === recipeFamilyKey(candidate)) return true;
+  const prevBucket = proteinBucket(previous);
+  const nextBucket = proteinBucket(candidate);
+  if (prevBucket !== "other" && prevBucket === nextBucket) return true;
+  const sim = cosine(recipeFeatures(previous), recipeFeatures(candidate));
+  return sim >= 0.78;
+}
+
+function familyAlreadyPicked(
+  candidate: Recipe,
+  picked: { recipe: Recipe }[],
+  usedFamilies: Set<string>
+): boolean {
+  const key = recipeFamilyKey(candidate);
+  if (usedFamilies.has(key)) return true;
+  return picked.some((p) => recipeFamilyKey(p.recipe) === key);
+}
+
+function breaksPlanRules(
+  previous: Recipe | null | undefined,
+  candidate: Recipe,
+  opts: {
+    picked: { recipe: Recipe }[];
+    used: Set<string>;
+    usedFamilies: Set<string>;
+    allowAdjacentRelax?: boolean;
+  }
+): boolean {
+  if (opts.used.has(candidate.id)) return true;
+  if (familyAlreadyPicked(candidate, opts.picked, opts.usedFamilies)) return true;
+  if (breaksRedMeatRule(previous, candidate)) return true;
+  if (!opts.allowAdjacentRelax && breaksAdjacentVariety(previous, candidate)) return true;
+  return false;
 }
 
 function matchesDiet(recipe: Recipe, diet: string) {
@@ -169,35 +325,50 @@ export function generateWeekPlan(answers: FunnelAnswers): WeekPlan {
   const source = scored.length >= n ? scored : fallback;
   const picked: { recipe: Recipe; cost: number }[] = [];
   const used = new Set<string>();
+  const usedFamilies = new Set<string>();
   let remaining = answers.budget;
+
+  const tryPick = (item: { recipe: Recipe; cost: number }, relax: boolean) => {
+    if (picked.length >= n) return false;
+    const prev = picked[picked.length - 1]?.recipe;
+    if (
+      breaksPlanRules(prev, item.recipe, {
+        picked,
+        used,
+        usedFamilies,
+        allowAdjacentRelax: relax,
+      })
+    ) {
+      return false;
+    }
+    picked.push(item);
+    used.add(item.recipe.id);
+    usedFamilies.add(recipeFamilyKey(item.recipe));
+    remaining -= item.cost;
+    return true;
+  };
 
   for (const item of source) {
     if (picked.length >= n) break;
-    if (used.has(item.recipe.id)) continue;
     const prev = picked[picked.length - 1]?.recipe;
-    if (breaksRedMeatRule(prev, item.recipe)) continue;
+    if (
+      breaksPlanRules(prev, item.recipe, { picked, used, usedFamilies })
+    )
+      continue;
     const slotsLeft = n - picked.length;
     const maxForThis = remaining - 0.8 * (slotsLeft - 1);
     if (item.cost <= Math.max(maxForThis, remaining / slotsLeft + 2)) {
-      picked.push(item);
-      used.add(item.recipe.id);
-      remaining -= item.cost;
+      tryPick(item, false);
     }
   }
   for (const item of source) {
     if (picked.length >= n) break;
-    if (used.has(item.recipe.id)) continue;
-    const prev = picked[picked.length - 1]?.recipe;
-    if (breaksRedMeatRule(prev, item.recipe)) continue;
-    picked.push(item);
-    used.add(item.recipe.id);
+    tryPick(item, false);
   }
-  // Dernier recours : remplir sans contrainte si pool trop petit
+  // Relâche uniquement l’adjacence protéine si le pool est trop serré — jamais les doublons famille
   for (const item of source) {
     if (picked.length >= n) break;
-    if (used.has(item.recipe.id)) continue;
-    picked.push(item);
-    used.add(item.recipe.id);
+    tryPick(item, true);
   }
 
   let total = picked.reduce((s, p) => s + p.cost, 0);
@@ -211,21 +382,29 @@ export function generateWeekPlan(answers: FunnelAnswers): WeekPlan {
     const current = picked[expensiveIdx];
     const prev = picked[expensiveIdx - 1]?.recipe;
     const next = picked[expensiveIdx + 1]?.recipe;
+    const others = picked.filter((_, i) => i !== expensiveIdx);
+    const otherFamilies = new Set(others.map((p) => recipeFamilyKey(p.recipe)));
+    const otherIds = new Set(others.map((p) => p.recipe.id));
     const replacement = source.find(
       (s) =>
-        !used.has(s.recipe.id) &&
+        !otherIds.has(s.recipe.id) &&
+        !otherFamilies.has(recipeFamilyKey(s.recipe)) &&
         s.cost < current.cost - 0.3 &&
         !breaksRedMeatRule(prev, s.recipe) &&
-        !breaksRedMeatRule(s.recipe, next)
+        !breaksRedMeatRule(s.recipe, next) &&
+        !breaksAdjacentVariety(prev, s.recipe) &&
+        !breaksAdjacentVariety(s.recipe, next)
     );
     if (!replacement) break;
     used.delete(current.recipe.id);
+    usedFamilies.delete(recipeFamilyKey(current.recipe));
     used.add(replacement.recipe.id);
+    usedFamilies.add(recipeFamilyKey(replacement.recipe));
     picked[expensiveIdx] = replacement;
     total = picked.reduce((s, p) => s + p.cost, 0);
   }
 
-  repairConsecutiveRedMeat(picked, source, used);
+  repairPlanVariety(picked, source, used, usedFamilies);
 
   const dinners = picked.slice(0, n).map((p, i) => toDinner(p, i, answers));
   return {
@@ -283,6 +462,7 @@ export function generateWeekPlanML(
 
   const picked: { recipe: Recipe; cost: number }[] = [];
   const used = new Set<string>();
+  const usedFamilies = new Set<string>();
   const pickedFeatures: FeatureVec[] = [];
   let remaining = answers.budget;
 
@@ -294,35 +474,51 @@ export function generateWeekPlanML(
     );
     const prev = picked[picked.length - 1]?.recipe;
 
-    const ranked = fallbackPool
-      .filter(
+    const eligible = (relax: boolean) =>
+      fallbackPool.filter(
         (x) =>
-          !used.has(x.recipe.id) &&
           x.cost <= Math.max(maxCost, budgetPerDinner * 0.55) &&
-          !breaksRedMeatRule(prev, x.recipe)
-      )
-      .map((x) => {
-        const s = scoreRecipe({
-          recipe: x.recipe,
-          profile,
-          recentIds,
-          pickedFeatures,
-          cost: x.cost,
-          budgetPerDinner,
-        });
-        return { ...x, ml: s };
-      })
-      .sort((a, b) => b.ml.score - a.ml.score);
+          !breaksPlanRules(prev, x.recipe, {
+            picked,
+            used,
+            usedFamilies,
+            allowAdjacentRelax: relax,
+          })
+      );
 
+    const rank = (list: typeof fallbackPool) =>
+      list
+        .map((x) => {
+          const s = scoreRecipe({
+            recipe: x.recipe,
+            profile,
+            recentIds,
+            pickedFeatures,
+            cost: x.cost,
+            budgetPerDinner,
+            adjacentRecipe: prev,
+          });
+          return { ...x, ml: s };
+        })
+        .sort((a, b) => b.ml.score - a.ml.score);
+
+    const ranked = rank(eligible(false));
     const choice =
       ranked[0] ||
+      rank(eligible(true))[0] ||
       fallbackPool.find(
-        (x) => !used.has(x.recipe.id) && !breaksRedMeatRule(prev, x.recipe)
-      ) ||
-      fallbackPool.find((x) => !used.has(x.recipe.id));
+        (x) =>
+          !breaksPlanRules(prev, x.recipe, {
+            picked,
+            used,
+            usedFamilies,
+            allowAdjacentRelax: true,
+          })
+      );
     if (!choice) break;
     picked.push({ recipe: choice.recipe, cost: choice.cost });
     used.add(choice.recipe.id);
+    usedFamilies.add(recipeFamilyKey(choice.recipe));
     pickedFeatures.push(recipeFeatures(choice.recipe));
     remaining -= choice.cost;
   }
@@ -339,13 +535,19 @@ export function generateWeekPlanML(
     const current = picked[expensiveIdx];
     const prev = picked[expensiveIdx - 1]?.recipe;
     const nextR = picked[expensiveIdx + 1]?.recipe;
+    const others = picked.filter((_, i) => i !== expensiveIdx);
+    const otherFamilies = new Set(others.map((p) => recipeFamilyKey(p.recipe)));
+    const otherIds = new Set(others.map((p) => p.recipe.id));
     const cheaper = fallbackPool
       .filter(
         (x) =>
-          !used.has(x.recipe.id) &&
+          !otherIds.has(x.recipe.id) &&
+          !otherFamilies.has(recipeFamilyKey(x.recipe)) &&
           x.cost < current.cost - 0.25 &&
           !breaksRedMeatRule(prev, x.recipe) &&
-          !breaksRedMeatRule(x.recipe, nextR)
+          !breaksRedMeatRule(x.recipe, nextR) &&
+          !breaksAdjacentVariety(prev, x.recipe) &&
+          !breaksAdjacentVariety(x.recipe, nextR)
       )
       .map((x) => {
         const without = pickedFeatures.filter((_, i) => i !== expensiveIdx);
@@ -358,19 +560,22 @@ export function generateWeekPlanML(
             pickedFeatures: without,
             cost: x.cost,
             budgetPerDinner,
+            adjacentRecipe: prev,
           }),
         };
       })
       .sort((a, b) => b.ml.score - a.ml.score)[0];
     if (!cheaper) break;
     used.delete(current.recipe.id);
+    usedFamilies.delete(recipeFamilyKey(current.recipe));
     used.add(cheaper.recipe.id);
+    usedFamilies.add(recipeFamilyKey(cheaper.recipe));
     picked[expensiveIdx] = { recipe: cheaper.recipe, cost: cheaper.cost };
     pickedFeatures[expensiveIdx] = recipeFeatures(cheaper.recipe);
     total = picked.reduce((s, p) => s + p.cost, 0);
   }
 
-  repairConsecutiveRedMeat(picked, fallbackPool, used);
+  repairPlanVariety(picked, fallbackPool, used, usedFamilies);
 
   const dinners = picked.slice(0, n).map((p, i) => toDinner(p, i, answers));
   return {
@@ -383,25 +588,57 @@ export function generateWeekPlanML(
   };
 }
 
-/** Remplace une viande rouge si elle colle à une autre (jours adjacents). */
-function repairConsecutiveRedMeat(
+/** Corrige doublons famille + enchaînements trop similaires / viande rouge. */
+function repairPlanVariety(
   picked: { recipe: Recipe; cost: number }[],
   pool: { recipe: Recipe; cost: number }[],
-  used: Set<string>
+  used: Set<string>,
+  usedFamilies: Set<string>
 ) {
-  for (let i = 1; i < picked.length; i++) {
-    if (!breaksRedMeatRule(picked[i - 1].recipe, picked[i].recipe)) continue;
-    const prevNext = picked[i + 1]?.recipe;
-    const replacement = pool.find(
-      (s) =>
-        !used.has(s.recipe.id) &&
-        !isRedMeatRecipe(s.recipe) &&
-        !breaksRedMeatRule(s.recipe, prevNext)
+  const seenFamilies = new Set<string>();
+  for (let i = 0; i < picked.length; i++) {
+    const prev = picked[i - 1]?.recipe;
+    const next = picked[i + 1]?.recipe;
+    const current = picked[i].recipe;
+    const fam = recipeFamilyKey(current);
+    const familyClash = seenFamilies.has(fam);
+    const adjacentClash =
+      breaksRedMeatRule(prev, current) ||
+      breaksAdjacentVariety(prev, current) ||
+      breaksAdjacentVariety(current, next);
+    if (!familyClash && !adjacentClash) {
+      seenFamilies.add(fam);
+      continue;
+    }
+
+    const blockedFamilies = new Set(
+      [...seenFamilies].filter((f) => f !== fam)
     );
-    if (!replacement) continue;
-    used.delete(picked[i].recipe.id);
+    for (let j = i + 1; j < picked.length; j++) {
+      blockedFamilies.add(recipeFamilyKey(picked[j].recipe));
+    }
+
+    const replacement = pool.find((s) => {
+      if (used.has(s.recipe.id) && s.recipe.id !== current.id) return false;
+      const key = recipeFamilyKey(s.recipe);
+      if (blockedFamilies.has(key)) return false;
+      if (s.recipe.id !== current.id && used.has(s.recipe.id)) return false;
+      if (breaksRedMeatRule(prev, s.recipe)) return false;
+      if (breaksRedMeatRule(s.recipe, next)) return false;
+      if (breaksAdjacentVariety(prev, s.recipe)) return false;
+      if (breaksAdjacentVariety(s.recipe, next)) return false;
+      return s.recipe.id !== current.id;
+    });
+    if (!replacement) {
+      seenFamilies.add(fam);
+      continue;
+    }
+    used.delete(current.id);
+    usedFamilies.delete(fam);
     used.add(replacement.recipe.id);
+    usedFamilies.add(recipeFamilyKey(replacement.recipe));
     picked[i] = replacement;
+    seenFamilies.add(recipeFamilyKey(replacement.recipe));
   }
 }
 
@@ -409,6 +646,12 @@ export function swapDinner(plan: WeekPlan, dateKey: string, signals?: TasteSigna
   const storeId = plan.answers.storeId!;
   const servings = plan.servings;
   const used = new Set(plan.dinners.map((d) => d.recipeId));
+  const usedFamilies = new Set(
+    plan.dinners
+      .map((d) => recipes.find((r) => r.id === d.recipeId))
+      .filter(Boolean)
+      .map((r) => recipeFamilyKey(r!))
+  );
   const targetIdx = plan.dinners.findIndex((d) => d.dateKey === dateKey);
   const target = targetIdx >= 0 ? plan.dinners[targetIdx] : undefined;
   if (!target) return plan;
@@ -420,17 +663,22 @@ export function swapDinner(plan: WeekPlan, dateKey: string, signals?: TasteSigna
     targetIdx < plan.dinners.length - 1
       ? recipeById.get(plan.dinners[targetIdx + 1].recipeId)
       : undefined;
+  const targetRecipe = recipeById.get(target.recipeId);
+  const targetFamily = targetRecipe ? recipeFamilyKey(targetRecipe) : null;
 
   const budgetPerDinner = plan.answers.budget / Math.max(1, plan.dinners.length);
   const poolBase = candidatePool(plan.answers)
     .map((r) => ({ recipe: r, cost: recipeCost(r, storeId, servings) }))
-    .filter(
-      (x) =>
-        x.cost > 0.5 &&
-        !used.has(x.recipe.id) &&
-        !breaksRedMeatRule(neighborPrev, x.recipe) &&
-        !breaksRedMeatRule(x.recipe, neighborNext)
-    );
+    .filter((x) => {
+      if (x.cost <= 0.5 || used.has(x.recipe.id)) return false;
+      const fam = recipeFamilyKey(x.recipe);
+      if (usedFamilies.has(fam) && fam !== targetFamily) return false;
+      if (breaksRedMeatRule(neighborPrev, x.recipe)) return false;
+      if (breaksRedMeatRule(x.recipe, neighborNext)) return false;
+      if (breaksAdjacentVariety(neighborPrev, x.recipe)) return false;
+      if (breaksAdjacentVariety(x.recipe, neighborNext)) return false;
+      return true;
+    });
 
   let next: { recipe: Recipe; cost: number } | undefined;
 

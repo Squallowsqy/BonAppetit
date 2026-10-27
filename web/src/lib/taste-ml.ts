@@ -224,6 +224,8 @@ export function scoreRecipe(opts: {
   pickedFeatures: FeatureVec[];
   cost: number;
   budgetPerDinner: number;
+  /** Plat précédent : pénalité forte si trop proche (anti « deux d’affilée »). */
+  adjacentRecipe?: Recipe | null;
 }): ScoredRecipe {
   const feats = recipeFeatures(opts.recipe);
   const taste = cosine(opts.profile, feats);
@@ -235,7 +237,12 @@ export function scoreRecipe(opts: {
   let varietyPenalty = 0;
   for (const pf of opts.pickedFeatures) {
     const sim = cosine(pf, feats);
-    if (sim > 0.72) varietyPenalty += (sim - 0.55) * 0.9;
+    if (sim > 0.65) varietyPenalty += (sim - 0.5) * 1.15;
+  }
+
+  if (opts.adjacentRecipe) {
+    const adj = cosine(recipeFeatures(opts.adjacentRecipe), feats);
+    if (adj > 0.55) varietyPenalty += (adj - 0.4) * 1.8;
   }
 
   // Store / budget affinity: prefer near target cost, not just cheapest
@@ -244,10 +251,10 @@ export function scoreRecipe(opts: {
   const storeFit = Math.max(0, 1 - rel * 0.85);
 
   const score =
-    taste * 0.52 +
-    novelty * 0.18 +
-    storeFit * 0.22 -
-    varietyPenalty * 0.35 +
+    taste * 0.48 +
+    novelty * 0.2 +
+    storeFit * 0.2 -
+    varietyPenalty * 0.45 +
     (feats.vibe_quick && opts.budgetPerDinner ? 0.02 : 0);
 
   return {

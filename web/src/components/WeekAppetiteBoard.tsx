@@ -82,7 +82,7 @@ export function WeekAppetiteBoard({
         aria-label="Planning de la semaine type"
       >
         <div className="ba-receipt-head">
-          <p className="ba-receipt-store">SEMAINE TYPE</p>
+          <p className="ba-receipt-store">SEMAINIER</p>
           <p className="ba-receipt-meta">7 dîners · tarif / pers.</p>
         </div>
         <ul className="ba-receipt-lines">

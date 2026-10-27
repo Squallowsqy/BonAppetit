@@ -177,8 +177,8 @@ body {
 .ba-home-hero {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
-  min-height: min(92vh, 820px);
+  overflow: visible;
+  min-height: min(88vh, 780px);
   padding: 0.5rem 0 2.5rem;
 }
 
@@ -213,18 +213,23 @@ body {
   width: min(1180px, calc(100% - 1.5rem));
   margin-inline: auto;
   display: grid;
-  gap: 2rem;
-  align-items: end;
-  padding-top: 1.5rem;
+  gap: 1.75rem;
+  align-items: start;
+  padding-top: 1.25rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .ba-home-hero-inner {
-    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 420px);
-    gap: 2.75rem;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 400px);
+    gap: 2.25rem 2.5rem;
     align-items: center;
-    min-height: calc(min(92vh, 820px) - 5rem);
-    padding-top: 0;
+    min-height: calc(min(88vh, 780px) - 4.5rem);
+    padding-top: 0.5rem;
+  }
+
+  .ba-home-hero-side {
+    position: sticky;
+    top: 5.25rem;
   }
 }
 
@@ -328,23 +333,25 @@ body {
 
 .ba-home-hero-side {
   min-width: 0;
-  animation: ba-home-rise 800ms 120ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  width: 100%;
+  max-width: 420px;
+  justify-self: stretch;
+  opacity: 1;
+  animation: ba-home-rise 800ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Receipt signature */
+/* Receipt / semainier — pas de mask (cassait la visibilité sur WebKit) */
 .ba-receipt {
   background: var(--home-paper);
   color: var(--home-ink);
-  border-radius: 4px 4px 12px 12px;
+  border-radius: 6px;
   padding: 1rem 1rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--home-ink) 12%, transparent);
   box-shadow:
-    0 1px 0 color-mix(in srgb, #000 6%, transparent),
-    0 18px 40px color-mix(in srgb, #083528 16%, transparent);
+    0 1px 0 color-mix(in srgb, #000 5%, transparent),
+    0 16px 36px color-mix(in srgb, #083528 14%, transparent);
   position: relative;
-  mask-image: radial-gradient(circle at 12px 100%, transparent 7px, #000 7.5px);
-  mask-size: 18px 100%;
-  mask-repeat: repeat-x;
-  mask-position: left bottom;
+  z-index: 3;
 }
 
 .ba-receipt::before {
@@ -394,7 +401,7 @@ body {
   text-decoration: none;
   color: inherit;
   border-bottom: 1px dotted color-mix(in srgb, var(--home-ink) 14%, transparent);
-  opacity: 0;
+  opacity: 1;
   animation: ba-week-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -746,8 +753,8 @@ body {
 
 @keyframes ba-home-rise {
   from {
-    opacity: 0;
-    transform: translateY(18px);
+    opacity: 0.35;
+    transform: translateY(14px);
   }
   to {
     opacity: 1;

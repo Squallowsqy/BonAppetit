@@ -61,13 +61,13 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="ba-home-hero-side">
+          <aside className="ba-home-hero-side" aria-label="Semainier">
             <WeekAppetiteBoard
               recipes={weekFallback}
               variant="board"
               receipt
             />
-          </div>
+          </aside>
         </div>
       </section>
 

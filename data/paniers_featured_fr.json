@@ -1,0 +1,864 @@
+[
+  {
+    "recipe_id": "r-104",
+    "slug": "spaghetti-carbonara-express",
+    "title_fr": "Spaghetti à la carbonara",
+    "emoji": "🍝",
+    "servings": 2,
+    "total_est_eur": 4.49,
+    "per_person_est_eur": 2.24,
+    "items": [
+      {
+        "ingredientId": "ing-spaghetti",
+        "name_fr": "Spaghetti",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 200.0,
+        "pack_qty": 500,
+        "pack_price_eur": 1.1,
+        "line_est_eur": 0.44
+      },
+      {
+        "ingredientId": "ing-lardons",
+        "name_fr": "Lardons fumés",
+        "aisle": "meat",
+        "unit": "g",
+        "qty": 140.0,
+        "pack_qty": 200,
+        "pack_price_eur": 2.5,
+        "line_est_eur": 1.75
+      },
+      {
+        "ingredientId": "ing-eggs",
+        "name_fr": "Œufs",
+        "aisle": "dairy",
+        "unit": "unit",
+        "qty": 3.0,
+        "pack_qty": 12,
+        "pack_price_eur": 3.4,
+        "line_est_eur": 0.85
+      },
+      {
+        "ingredientId": "ing-parmesan",
+        "name_fr": "Parmesan râpé",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 50.0,
+        "pack_qty": 70,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 1.36
+      },
+      {
+        "ingredientId": "ing-pepper",
+        "name_fr": "Poivre noir",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 2.0,
+        "pack_qty": 50,
+        "pack_price_eur": 2.2,
+        "line_est_eur": 0.09
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-837",
+    "slug": "poulet-teriyaki-riz-express",
+    "title_fr": "Poulet teriyaki sur riz",
+    "emoji": "🍗",
+    "servings": 2,
+    "total_est_eur": 5.18,
+    "per_person_est_eur": 2.59,
+    "items": [
+      {
+        "ingredientId": "ing-chicken-breast",
+        "name_fr": "Blanc de poulet",
+        "aisle": "meat",
+        "unit": "g",
+        "qty": 300.0,
+        "pack_qty": 500,
+        "pack_price_eur": 6.5,
+        "line_est_eur": 3.9
+      },
+      {
+        "ingredientId": "ing-rice",
+        "name_fr": "Riz basmati",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 150.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 3.5,
+        "line_est_eur": 0.53
+      },
+      {
+        "ingredientId": "ing-soy-sauce",
+        "name_fr": "Sauce soja",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 40.0,
+        "pack_qty": 250,
+        "pack_price_eur": 2.2,
+        "line_est_eur": 0.35
+      },
+      {
+        "ingredientId": "ing-honey",
+        "name_fr": "Miel",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 20.0,
+        "pack_qty": 250,
+        "pack_price_eur": 3.5,
+        "line_est_eur": 0.28
+      },
+      {
+        "ingredientId": "ing-sesame-seeds",
+        "name_fr": "Graines de sésame",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 8.0,
+        "pack_qty": 100,
+        "pack_price_eur": 1.5,
+        "line_est_eur": 0.12
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-851",
+    "slug": "wrap-poulet-cesar",
+    "title_fr": "Wrap poulet César",
+    "emoji": "🌯",
+    "servings": 2,
+    "total_est_eur": 5.99,
+    "per_person_est_eur": 2.99,
+    "items": [
+      {
+        "ingredientId": "ing-tortillas",
+        "name_fr": "Tortillas de blé",
+        "aisle": "bakery",
+        "unit": "unit",
+        "qty": 4.0,
+        "pack_qty": 8,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 0.95
+      },
+      {
+        "ingredientId": "ing-chicken-breast",
+        "name_fr": "Blanc de poulet",
+        "aisle": "meat",
+        "unit": "g",
+        "qty": 250.0,
+        "pack_qty": 500,
+        "pack_price_eur": 6.5,
+        "line_est_eur": 3.25
+      },
+      {
+        "ingredientId": "ing-lettuce",
+        "name_fr": "Salade verte",
+        "aisle": "produce",
+        "unit": "unit",
+        "qty": 0.5,
+        "pack_qty": 1,
+        "pack_price_eur": 1.3,
+        "line_est_eur": 0.65
+      },
+      {
+        "ingredientId": "ing-parmesan",
+        "name_fr": "Parmesan râpé",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 30.0,
+        "pack_qty": 70,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 0.81
+      },
+      {
+        "ingredientId": "ing-mayo",
+        "name_fr": "Mayonnaise",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 40.0,
+        "pack_qty": 235,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 0.32
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-951",
+    "slug": "nuggets-poulet-maison-frites-four",
+    "title_fr": "Nuggets de poulet maison et frites au four",
+    "emoji": "🍟",
+    "servings": 2,
+    "total_est_eur": 3.39,
+    "per_person_est_eur": 1.7,
+    "items": [
+      {
+        "ingredientId": "ing-chicken-thigh",
+        "name_fr": "Hauts de cuisse de poulet",
+        "aisle": "meat",
+        "unit": "g",
+        "qty": 190.0,
+        "pack_qty": 600,
+        "pack_price_eur": 5.5,
+        "line_est_eur": 1.74
+      },
+      {
+        "ingredientId": "ing-flour",
+        "name_fr": "Farine de blé",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 15.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1,
+        "line_est_eur": 0.01
+      },
+      {
+        "ingredientId": "ing-eggs",
+        "name_fr": "Œufs",
+        "aisle": "dairy",
+        "unit": "unit",
+        "qty": 1.0,
+        "pack_qty": 12,
+        "pack_price_eur": 3.4,
+        "line_est_eur": 0.28
+      },
+      {
+        "ingredientId": "ing-breadcrumbs",
+        "name_fr": "Chapelure",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 40.0,
+        "pack_qty": 250,
+        "pack_price_eur": 1.1,
+        "line_est_eur": 0.18
+      },
+      {
+        "ingredientId": "ing-paprika",
+        "name_fr": "Paprika fumé",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 2.0,
+        "pack_qty": 50,
+        "pack_price_eur": 1.8,
+        "line_est_eur": 0.07
+      },
+      {
+        "ingredientId": "ing-potato",
+        "name_fr": "Pomme de terre",
+        "aisle": "produce",
+        "unit": "g",
+        "qty": 500.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1.5,
+        "line_est_eur": 0.75
+      },
+      {
+        "ingredientId": "ing-vegetable-oil",
+        "name_fr": "Huile de tournesol",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 15.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 2.5,
+        "line_est_eur": 0.04
+      },
+      {
+        "ingredientId": "ing-carrot",
+        "name_fr": "Carotte",
+        "aisle": "produce",
+        "unit": "g",
+        "qty": 100.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1.5,
+        "line_est_eur": 0.15
+      },
+      {
+        "ingredientId": "ing-mayo",
+        "name_fr": "Mayonnaise",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 15.0,
+        "pack_qty": 235,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 0.12
+      },
+      {
+        "ingredientId": "ing-mustard",
+        "name_fr": "Moutarde de Dijon",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 5.0,
+        "pack_qty": 200,
+        "pack_price_eur": 1.8,
+        "line_est_eur": 0.05
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-909",
+    "slug": "croque-reblochon-tartiflette",
+    "title_fr": "Croque au reblochon façon tartiflette",
+    "emoji": "🧀",
+    "servings": 2,
+    "total_est_eur": 5.44,
+    "per_person_est_eur": 2.72,
+    "items": [
+      {
+        "ingredientId": "ing-bread",
+        "name_fr": "Pain de campagne",
+        "aisle": "bakery",
+        "unit": "g",
+        "qty": 200.0,
+        "pack_qty": 400,
+        "pack_price_eur": 2.2,
+        "line_est_eur": 1.1
+      },
+      {
+        "ingredientId": "ing-reblochon",
+        "name_fr": "Reblochon",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 200.0,
+        "pack_qty": 450,
+        "pack_price_eur": 5.5,
+        "line_est_eur": 2.44
+      },
+      {
+        "ingredientId": "ing-lardons",
+        "name_fr": "Lardons fumés",
+        "aisle": "meat",
+        "unit": "g",
+        "qty": 120.0,
+        "pack_qty": 200,
+        "pack_price_eur": 2.5,
+        "line_est_eur": 1.5
+      },
+      {
+        "ingredientId": "ing-onion",
+        "name_fr": "Oignon jaune",
+        "aisle": "produce",
+        "unit": "g",
+        "qty": 100.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 0.19
+      },
+      {
+        "ingredientId": "ing-butter",
+        "name_fr": "Beurre",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 20.0,
+        "pack_qty": 250,
+        "pack_price_eur": 2.6,
+        "line_est_eur": 0.21
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-834",
+    "slug": "curry-pois-chiches-epinards",
+    "title_fr": "Curry de pois chiches aux épinards et riz basmati",
+    "emoji": "🍛",
+    "servings": 2,
+    "total_est_eur": 4.22,
+    "per_person_est_eur": 2.11,
+    "items": [
+      {
+        "ingredientId": "ing-chickpeas",
+        "name_fr": "Pois chiches en boîte",
+        "aisle": "canned",
+        "unit": "g",
+        "qty": 400.0,
+        "pack_qty": 400,
+        "pack_price_eur": 0.9,
+        "line_est_eur": 0.9
+      },
+      {
+        "ingredientId": "ing-coconut-milk",
+        "name_fr": "Lait de coco",
+        "aisle": "canned",
+        "unit": "ml",
+        "qty": 150.0,
+        "pack_qty": 400,
+        "pack_price_eur": 1.4,
+        "line_est_eur": 0.52
+      },
+      {
+        "ingredientId": "ing-spinach-fresh",
+        "name_fr": "Épinards frais",
+        "aisle": "produce",
+        "unit": "g",
+        "qty": 200.0,
+        "pack_qty": 200,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 1.9
+      },
+      {
+        "ingredientId": "ing-onion",
+        "name_fr": "Oignon jaune",
+        "aisle": "produce",
+        "unit": "g",
+        "qty": 100.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 0.19
+      },
+      {
+        "ingredientId": "ing-curry-powder",
+        "name_fr": "Curry en poudre",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 8.0,
+        "pack_qty": 50,
+        "pack_price_eur": 1.8,
+        "line_est_eur": 0.29
+      },
+      {
+        "ingredientId": "ing-rice",
+        "name_fr": "Riz basmati",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 120.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 3.5,
+        "line_est_eur": 0.42
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-922",
+    "slug": "gratin-pates-thon",
+    "title_fr": "Gratin de pâtes au thon",
+    "emoji": "🐟",
+    "servings": 2,
+    "total_est_eur": 4.58,
+    "per_person_est_eur": 2.29,
+    "items": [
+      {
+        "ingredientId": "ing-penne",
+        "name_fr": "Penne",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 160.0,
+        "pack_qty": 500,
+        "pack_price_eur": 1.1,
+        "line_est_eur": 0.35
+      },
+      {
+        "ingredientId": "ing-canned-tuna",
+        "name_fr": "Thon au naturel",
+        "aisle": "canned",
+        "unit": "g",
+        "qty": 200.0,
+        "pack_qty": 140,
+        "pack_price_eur": 1.6,
+        "line_est_eur": 2.29
+      },
+      {
+        "ingredientId": "ing-milk",
+        "name_fr": "Lait demi-écrémé",
+        "aisle": "dairy",
+        "unit": "ml",
+        "qty": 350.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1.1,
+        "line_est_eur": 0.39
+      },
+      {
+        "ingredientId": "ing-butter",
+        "name_fr": "Beurre",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 30.0,
+        "pack_qty": 250,
+        "pack_price_eur": 2.6,
+        "line_est_eur": 0.31
+      },
+      {
+        "ingredientId": "ing-flour",
+        "name_fr": "Farine de blé",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 25.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1,
+        "line_est_eur": 0.03
+      },
+      {
+        "ingredientId": "ing-grated-cheese",
+        "name_fr": "Emmental râpé",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 80.0,
+        "pack_qty": 200,
+        "pack_price_eur": 2.2,
+        "line_est_eur": 0.88
+      },
+      {
+        "ingredientId": "ing-onion",
+        "name_fr": "Oignon jaune",
+        "aisle": "produce",
+        "unit": "g",
+        "qty": 80.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 0.15
+      },
+      {
+        "ingredientId": "ing-olive-oil",
+        "name_fr": "Huile d'olive",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 10.0,
+        "pack_qty": 750,
+        "pack_price_eur": 7.5,
+        "line_est_eur": 0.1
+      },
+      {
+        "ingredientId": "ing-salt",
+        "name_fr": "Sel",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 2.0,
+        "pack_qty": 500,
+        "pack_price_eur": 0.8,
+        "line_est_eur": 0.0
+      },
+      {
+        "ingredientId": "ing-pepper",
+        "name_fr": "Poivre noir",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 2.0,
+        "pack_qty": 50,
+        "pack_price_eur": 2.2,
+        "line_est_eur": 0.09
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-205",
+    "slug": "penne-gratinees-jambon-petits-pois",
+    "title_fr": "Penne gratinées au jambon et petits pois",
+    "emoji": "🧀",
+    "servings": 2,
+    "total_est_eur": 4.93,
+    "per_person_est_eur": 2.47,
+    "items": [
+      {
+        "ingredientId": "ing-penne",
+        "name_fr": "Penne",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 200.0,
+        "pack_qty": 500,
+        "pack_price_eur": 1.1,
+        "line_est_eur": 0.44
+      },
+      {
+        "ingredientId": "ing-ham",
+        "name_fr": "Jambon blanc",
+        "aisle": "meat",
+        "unit": "g",
+        "qty": 120.0,
+        "pack_qty": 160,
+        "pack_price_eur": 2.8,
+        "line_est_eur": 2.1
+      },
+      {
+        "ingredientId": "ing-cooking-cream",
+        "name_fr": "Crème liquide",
+        "aisle": "dairy",
+        "unit": "ml",
+        "qty": 200.0,
+        "pack_qty": 200,
+        "pack_price_eur": 1,
+        "line_est_eur": 1.0
+      },
+      {
+        "ingredientId": "ing-grated-cheese",
+        "name_fr": "Emmental râpé",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 100.0,
+        "pack_qty": 200,
+        "pack_price_eur": 2.2,
+        "line_est_eur": 1.1
+      },
+      {
+        "ingredientId": "ing-frozen-peas",
+        "name_fr": "Petits pois surgelés",
+        "aisle": "frozen",
+        "unit": "g",
+        "qty": 100.0,
+        "pack_qty": 750,
+        "pack_price_eur": 2.2,
+        "line_est_eur": 0.29
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-194",
+    "slug": "wraps-tofu-laque-hoisin",
+    "title_fr": "Wraps de tofu laqué au hoisin façon canard laqué",
+    "emoji": "🌯",
+    "servings": 2,
+    "total_est_eur": 5.98,
+    "per_person_est_eur": 2.99,
+    "items": [
+      {
+        "ingredientId": "ing-tofu",
+        "name_fr": "Tofu ferme",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 400.0,
+        "pack_qty": 400,
+        "pack_price_eur": 2.5,
+        "line_est_eur": 2.5
+      },
+      {
+        "ingredientId": "ing-hoisin",
+        "name_fr": "Sauce hoisin",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 50.0,
+        "pack_qty": 250,
+        "pack_price_eur": 2.6,
+        "line_est_eur": 0.52
+      },
+      {
+        "ingredientId": "ing-soy-sauce",
+        "name_fr": "Sauce soja",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 15.0,
+        "pack_qty": 250,
+        "pack_price_eur": 2.2,
+        "line_est_eur": 0.13
+      },
+      {
+        "ingredientId": "ing-tortillas",
+        "name_fr": "Tortillas de blé",
+        "aisle": "bakery",
+        "unit": "unit",
+        "qty": 4.0,
+        "pack_qty": 8,
+        "pack_price_eur": 1.9,
+        "line_est_eur": 0.95
+      },
+      {
+        "ingredientId": "ing-cucumber",
+        "name_fr": "Concombre",
+        "aisle": "produce",
+        "unit": "unit",
+        "qty": 1.0,
+        "pack_qty": 1,
+        "pack_price_eur": 1.1,
+        "line_est_eur": 1.1
+      },
+      {
+        "ingredientId": "ing-spring-onion",
+        "name_fr": "Oignons nouveaux",
+        "aisle": "produce",
+        "unit": "unit",
+        "qty": 3.0,
+        "pack_qty": 6,
+        "pack_price_eur": 1.2,
+        "line_est_eur": 0.6
+      },
+      {
+        "ingredientId": "ing-sesame-oil",
+        "name_fr": "Huile de sésame",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 10.0,
+        "pack_qty": 250,
+        "pack_price_eur": 3.5,
+        "line_est_eur": 0.14
+      },
+      {
+        "ingredientId": "ing-vegetable-oil",
+        "name_fr": "Huile de tournesol",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 15.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 2.5,
+        "line_est_eur": 0.04
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-959",
+    "slug": "crepes-completes-oeuf-fromage-carottes-rapees",
+    "title_fr": "Crêpes complètes œuf-fromage et carottes râpées",
+    "emoji": "🥞",
+    "servings": 2,
+    "total_est_eur": 2.66,
+    "per_person_est_eur": 1.33,
+    "items": [
+      {
+        "ingredientId": "ing-flour",
+        "name_fr": "Farine de blé",
+        "aisle": "dry",
+        "unit": "g",
+        "qty": 125.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1,
+        "line_est_eur": 0.12
+      },
+      {
+        "ingredientId": "ing-milk",
+        "name_fr": "Lait demi-écrémé",
+        "aisle": "dairy",
+        "unit": "ml",
+        "qty": 300.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1.1,
+        "line_est_eur": 0.33
+      },
+      {
+        "ingredientId": "ing-eggs",
+        "name_fr": "Œufs",
+        "aisle": "dairy",
+        "unit": "unit",
+        "qty": 5.0,
+        "pack_qty": 12,
+        "pack_price_eur": 3.4,
+        "line_est_eur": 1.42
+      },
+      {
+        "ingredientId": "ing-butter",
+        "name_fr": "Beurre",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 5.0,
+        "pack_qty": 250,
+        "pack_price_eur": 2.6,
+        "line_est_eur": 0.05
+      },
+      {
+        "ingredientId": "ing-grated-cheese",
+        "name_fr": "Emmental râpé",
+        "aisle": "dairy",
+        "unit": "g",
+        "qty": 40.0,
+        "pack_qty": 200,
+        "pack_price_eur": 2.2,
+        "line_est_eur": 0.44
+      },
+      {
+        "ingredientId": "ing-carrot",
+        "name_fr": "Carotte",
+        "aisle": "produce",
+        "unit": "g",
+        "qty": 150.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1.5,
+        "line_est_eur": 0.23
+      },
+      {
+        "ingredientId": "ing-mustard",
+        "name_fr": "Moutarde de Dijon",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 5.0,
+        "pack_qty": 200,
+        "pack_price_eur": 1.8,
+        "line_est_eur": 0.05
+      },
+      {
+        "ingredientId": "ing-wine-vinegar",
+        "name_fr": "Vinaigre de vin",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 5.0,
+        "pack_qty": 500,
+        "pack_price_eur": 1.5,
+        "line_est_eur": 0.01
+      },
+      {
+        "ingredientId": "ing-vegetable-oil",
+        "name_fr": "Huile de tournesol",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 5.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 2.5,
+        "line_est_eur": 0.01
+      }
+    ],
+    "missing_price": []
+  },
+  {
+    "recipe_id": "r-839",
+    "slug": "cuisses-poulet-paprika-four",
+    "title_fr": "Cuisses de poulet paprika au four",
+    "emoji": "🍗",
+    "servings": 2,
+    "total_est_eur": 4.83,
+    "per_person_est_eur": 2.42,
+    "items": [
+      {
+        "ingredientId": "ing-chicken-thigh",
+        "name_fr": "Hauts de cuisse de poulet",
+        "aisle": "meat",
+        "unit": "g",
+        "qty": 400.0,
+        "pack_qty": 600,
+        "pack_price_eur": 5.5,
+        "line_est_eur": 3.67
+      },
+      {
+        "ingredientId": "ing-potato",
+        "name_fr": "Pomme de terre",
+        "aisle": "produce",
+        "unit": "g",
+        "qty": 400.0,
+        "pack_qty": 1000,
+        "pack_price_eur": 1.5,
+        "line_est_eur": 0.6
+      },
+      {
+        "ingredientId": "ing-garlic",
+        "name_fr": "Gousses d'ail",
+        "aisle": "produce",
+        "unit": "unit",
+        "qty": 3.0,
+        "pack_qty": 10,
+        "pack_price_eur": 0.5,
+        "line_est_eur": 0.15
+      },
+      {
+        "ingredientId": "ing-paprika",
+        "name_fr": "Paprika fumé",
+        "aisle": "condiments",
+        "unit": "g",
+        "qty": 6.0,
+        "pack_qty": 50,
+        "pack_price_eur": 1.8,
+        "line_est_eur": 0.22
+      },
+      {
+        "ingredientId": "ing-olive-oil",
+        "name_fr": "Huile d'olive",
+        "aisle": "condiments",
+        "unit": "ml",
+        "qty": 20.0,
+        "pack_qty": 750,
+        "pack_price_eur": 7.5,
+        "line_est_eur": 0.2
+      }
+    ],
+    "missing_price": []
+  }
+]

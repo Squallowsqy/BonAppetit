@@ -1,0 +1,302 @@
+{
+  "country": "FR",
+  "ingredients_count": 229,
+  "recipes_count": 647,
+  "featured_count": 11,
+  "aisles": {
+    "produce": 53,
+    "meat": 19,
+    "fish": 9,
+    "dairy": 30,
+    "bakery": 7,
+    "dry": 38,
+    "canned": 19,
+    "condiments": 46,
+    "frozen": 6,
+    "beverages": 2
+  },
+  "ingredients_used_in_recipes": 225,
+  "ingredients_unused": 4,
+  "top_ingredients": [
+    {
+      "id": "ing-garlic",
+      "name_fr": "Gousses d'ail",
+      "recipes": 357
+    },
+    {
+      "id": "ing-olive-oil",
+      "name_fr": "Huile d'olive",
+      "recipes": 309
+    },
+    {
+      "id": "ing-onion",
+      "name_fr": "Oignon jaune",
+      "recipes": 246
+    },
+    {
+      "id": "ing-vegetable-oil",
+      "name_fr": "Huile de tournesol",
+      "recipes": 180
+    },
+    {
+      "id": "ing-rice",
+      "name_fr": "Riz basmati",
+      "recipes": 157
+    },
+    {
+      "id": "ing-lemon",
+      "name_fr": "Citron",
+      "recipes": 133
+    },
+    {
+      "id": "ing-cumin",
+      "name_fr": "Cumin moulu",
+      "recipes": 119
+    },
+    {
+      "id": "ing-eggs",
+      "name_fr": "Œufs",
+      "recipes": 115
+    },
+    {
+      "id": "ing-ginger",
+      "name_fr": "Gingembre frais",
+      "recipes": 102
+    },
+    {
+      "id": "ing-paprika",
+      "name_fr": "Paprika fumé",
+      "recipes": 100
+    },
+    {
+      "id": "ing-butter",
+      "name_fr": "Beurre",
+      "recipes": 99
+    },
+    {
+      "id": "ing-soy-sauce",
+      "name_fr": "Sauce soja",
+      "recipes": 96
+    },
+    {
+      "id": "ing-potato",
+      "name_fr": "Pomme de terre",
+      "recipes": 95
+    },
+    {
+      "id": "ing-cilantro",
+      "name_fr": "Coriandre fraîche",
+      "recipes": 88
+    },
+    {
+      "id": "ing-stock-cube",
+      "name_fr": "Bouillon cube",
+      "recipes": 85
+    },
+    {
+      "id": "ing-crushed-tomatoes",
+      "name_fr": "Tomates concassées en boîte",
+      "recipes": 84
+    },
+    {
+      "id": "ing-parsley",
+      "name_fr": "Persil frais",
+      "recipes": 78
+    },
+    {
+      "id": "ing-carrot",
+      "name_fr": "Carotte",
+      "recipes": 76
+    },
+    {
+      "id": "ing-spring-onion",
+      "name_fr": "Oignons nouveaux",
+      "recipes": 73
+    },
+    {
+      "id": "ing-lime",
+      "name_fr": "Citron vert",
+      "recipes": 68
+    },
+    {
+      "id": "ing-bell-pepper",
+      "name_fr": "Poivron",
+      "recipes": 66
+    },
+    {
+      "id": "ing-chicken-thigh",
+      "name_fr": "Hauts de cuisse de poulet",
+      "recipes": 65
+    },
+    {
+      "id": "ing-red-onion",
+      "name_fr": "Oignon rouge",
+      "recipes": 62
+    },
+    {
+      "id": "ing-flour",
+      "name_fr": "Farine de blé",
+      "recipes": 62
+    },
+    {
+      "id": "ing-grated-cheese",
+      "name_fr": "Emmental râpé",
+      "recipes": 55
+    },
+    {
+      "id": "ing-chicken-breast",
+      "name_fr": "Blanc de poulet",
+      "recipes": 54
+    },
+    {
+      "id": "ing-mustard",
+      "name_fr": "Moutarde de Dijon",
+      "recipes": 50
+    },
+    {
+      "id": "ing-parmesan",
+      "name_fr": "Parmesan râpé",
+      "recipes": 49
+    },
+    {
+      "id": "ing-greek-yogurt",
+      "name_fr": "Yaourt grec",
+      "recipes": 48
+    },
+    {
+      "id": "ing-milk",
+      "name_fr": "Lait demi-écrémé",
+      "recipes": 47
+    },
+    {
+      "id": "ing-cooking-cream",
+      "name_fr": "Crème liquide",
+      "recipes": 46
+    },
+    {
+      "id": "ing-sesame-oil",
+      "name_fr": "Huile de sésame",
+      "recipes": 45
+    },
+    {
+      "id": "ing-tomato",
+      "name_fr": "Tomate",
+      "recipes": 43
+    },
+    {
+      "id": "ing-cucumber",
+      "name_fr": "Concombre",
+      "recipes": 43
+    },
+    {
+      "id": "ing-chickpeas",
+      "name_fr": "Pois chiches en boîte",
+      "recipes": 43
+    },
+    {
+      "id": "ing-oregano",
+      "name_fr": "Origan séché",
+      "recipes": 41
+    },
+    {
+      "id": "ing-cherry-tomato",
+      "name_fr": "Tomates cerises",
+      "recipes": 40
+    },
+    {
+      "id": "ing-tomato-paste",
+      "name_fr": "Concentré de tomate",
+      "recipes": 40
+    },
+    {
+      "id": "ing-turmeric",
+      "name_fr": "Curcuma",
+      "recipes": 39
+    },
+    {
+      "id": "ing-ground-beef",
+      "name_fr": "Bœuf haché 5%",
+      "recipes": 38
+    }
+  ],
+  "featured_paniers_summary": [
+    {
+      "slug": "spaghetti-carbonara-express",
+      "title_fr": "Spaghetti à la carbonara",
+      "total_est_eur_2pers": 4.49,
+      "per_person_eur": 2.24,
+      "n_items": 5
+    },
+    {
+      "slug": "poulet-teriyaki-riz-express",
+      "title_fr": "Poulet teriyaki sur riz",
+      "total_est_eur_2pers": 5.18,
+      "per_person_eur": 2.59,
+      "n_items": 5
+    },
+    {
+      "slug": "wrap-poulet-cesar",
+      "title_fr": "Wrap poulet César",
+      "total_est_eur_2pers": 5.99,
+      "per_person_eur": 2.99,
+      "n_items": 5
+    },
+    {
+      "slug": "nuggets-poulet-maison-frites-four",
+      "title_fr": "Nuggets de poulet maison et frites au four",
+      "total_est_eur_2pers": 3.39,
+      "per_person_eur": 1.7,
+      "n_items": 10
+    },
+    {
+      "slug": "croque-reblochon-tartiflette",
+      "title_fr": "Croque au reblochon façon tartiflette",
+      "total_est_eur_2pers": 5.44,
+      "per_person_eur": 2.72,
+      "n_items": 5
+    },
+    {
+      "slug": "curry-pois-chiches-epinards",
+      "title_fr": "Curry de pois chiches aux épinards et riz basmati",
+      "total_est_eur_2pers": 4.22,
+      "per_person_eur": 2.11,
+      "n_items": 6
+    },
+    {
+      "slug": "gratin-pates-thon",
+      "title_fr": "Gratin de pâtes au thon",
+      "total_est_eur_2pers": 4.58,
+      "per_person_eur": 2.29,
+      "n_items": 10
+    },
+    {
+      "slug": "penne-gratinees-jambon-petits-pois",
+      "title_fr": "Penne gratinées au jambon et petits pois",
+      "total_est_eur_2pers": 4.93,
+      "per_person_eur": 2.47,
+      "n_items": 5
+    },
+    {
+      "slug": "wraps-tofu-laque-hoisin",
+      "title_fr": "Wraps de tofu laqué au hoisin façon canard laqué",
+      "total_est_eur_2pers": 5.98,
+      "per_person_eur": 2.99,
+      "n_items": 8
+    },
+    {
+      "slug": "crepes-completes-oeuf-fromage-carottes-rapees",
+      "title_fr": "Crêpes complètes œuf-fromage et carottes râpées",
+      "total_est_eur_2pers": 2.66,
+      "per_person_eur": 1.33,
+      "n_items": 9
+    },
+    {
+      "slug": "cuisses-poulet-paprika-four",
+      "title_fr": "Cuisses de poulet paprika au four",
+      "total_est_eur_2pers": 4.83,
+      "per_person_eur": 2.42,
+      "n_items": 5
+    }
+  ],
+  "price_note": "priceEUR du pack = prix de référence embarqué (calibration type enseigne générique FR), PAS du temps réel magasin."
+}

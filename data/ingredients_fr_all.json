@@ -1,0 +1,5303 @@
+[
+  {
+    "id": "ing-onion",
+    "name": {
+      "fr": "Oignon jaune",
+      "en": "Yellow onion",
+      "en-GB": "Brown onion"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 1.9,
+      "priceCHF": 2.45,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.2,
+      "priceGBP": 0.95,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-red-onion",
+    "name": {
+      "fr": "Oignon rouge",
+      "en": "Red onion"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.5,
+      "priceCHF": 1.95,
+      "priceCAD": 2.5,
+      "priceUSD": 1.79,
+      "priceAUD": 2.5,
+      "priceGBP": 0.48,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-garlic",
+    "name": {
+      "fr": "Gousses d'ail",
+      "en": "Garlic cloves"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 10,
+      "priceEUR": 0.5,
+      "priceCHF": 0.95,
+      "priceCAD": 0.67,
+      "priceUSD": 0.5,
+      "priceAUD": 0.8,
+      "priceGBP": 0.5
+    }
+  },
+  {
+    "id": "ing-shallot",
+    "name": {
+      "fr": "Échalote",
+      "en": "Shallot"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 250,
+      "priceEUR": 1.6,
+      "priceCHF": 2.1,
+      "priceCAD": 2.8,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 0.84,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-carrot",
+    "name": {
+      "fr": "Carotte",
+      "en": "Carrot"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 1.5,
+      "priceCHF": 1.95,
+      "priceCAD": 2.5,
+      "priceUSD": 1.79,
+      "priceAUD": 2.5,
+      "priceGBP": 0.69,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-potato",
+    "name": {
+      "fr": "Pomme de terre",
+      "en": "Potato"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 1.5,
+      "priceCHF": 1.95,
+      "priceCAD": 2.4,
+      "priceUSD": 1.99,
+      "priceAUD": 2.8,
+      "priceGBP": 0.93,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-sweet-potato",
+    "name": {
+      "fr": "Patate douce",
+      "en": "Sweet potato"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "sweet-potato"
+    ],
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 2.8,
+      "priceCHF": 3.65,
+      "priceCAD": 4,
+      "priceUSD": 2.99,
+      "priceAUD": 4.5,
+      "priceGBP": 1.19,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-tomato",
+    "name": {
+      "fr": "Tomate",
+      "en": "Tomato"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "raw-tomato"
+    ],
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 2.9,
+      "priceCHF": 3.75,
+      "priceCAD": 4.5,
+      "priceUSD": 3.49,
+      "priceAUD": 5,
+      "priceGBP": 3,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-cherry-tomato",
+    "name": {
+      "fr": "Tomates cerises",
+      "en": "Cherry tomatoes"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "raw-tomato"
+    ],
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "CH": 300,
+        "GB": 300
+      },
+      "priceEUR": 1.9,
+      "priceCHF": 4.7,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 3.5,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-zucchini",
+    "name": {
+      "fr": "Courgette",
+      "en": "Zucchini",
+      "en-GB": "Courgette"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "tags": [
+      "zucchini"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 0.9,
+      "priceCHF": 1.9,
+      "priceCAD": 1.5,
+      "priceUSD": 0.99,
+      "priceAUD": 1.5,
+      "priceGBP": 0.56
+    }
+  },
+  {
+    "id": "ing-eggplant",
+    "name": {
+      "fr": "Aubergine",
+      "en": "Eggplant",
+      "en-GB": "Aubergine"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "tags": [
+      "eggplant"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.5,
+      "priceCHF": 1.95,
+      "priceCAD": 2.5,
+      "priceUSD": 1.49,
+      "priceAUD": 2.5,
+      "priceGBP": 0.95
+    }
+  },
+  {
+    "id": "ing-bell-pepper",
+    "name": {
+      "fr": "Poivron",
+      "en": "Bell pepper",
+      "en-AU": "Capsicum",
+      "en-GB": "Sweet pepper"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "tags": [
+      "bell-pepper"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.2,
+      "priceCHF": 1.4,
+      "priceCAD": 2,
+      "priceUSD": 1.29,
+      "priceAUD": 2.2,
+      "priceGBP": 0.7
+    }
+  },
+  {
+    "id": "ing-broccoli",
+    "name": {
+      "fr": "Brocoli",
+      "en": "Broccoli"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "tags": [
+      "broccoli"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.8,
+      "priceCHF": 2.35,
+      "priceCAD": 3,
+      "priceUSD": 1.99,
+      "priceAUD": 3.5,
+      "priceGBP": 0.9
+    }
+  },
+  {
+    "id": "ing-cauliflower",
+    "name": {
+      "fr": "Chou-fleur",
+      "en": "Cauliflower"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "tags": [
+      "cabbage"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 2.5,
+      "priceCHF": 3.25,
+      "priceCAD": 4.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4.5,
+      "priceGBP": 1.18
+    }
+  },
+  {
+    "id": "ing-spinach-fresh",
+    "name": {
+      "fr": "Épinards frais",
+      "en": "Fresh spinach"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "spinach"
+    ],
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "CH": 500,
+        "GB": 220
+      },
+      "priceEUR": 1.9,
+      "priceCHF": 4.05,
+      "priceCAD": 3.5,
+      "priceUSD": 2.5,
+      "priceAUD": 3.5,
+      "priceGBP": 1.65
+    }
+  },
+  {
+    "id": "ing-lettuce",
+    "name": {
+      "fr": "Salade verte",
+      "en": "Lettuce"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.3,
+      "priceCHF": 1.7,
+      "priceCAD": 2.5,
+      "priceUSD": 1.79,
+      "priceAUD": 2.8,
+      "priceGBP": 0.89
+    }
+  },
+  {
+    "id": "ing-arugula",
+    "name": {
+      "fr": "Roquette",
+      "en": "Arugula",
+      "en-AU": "Rocket",
+      "en-GB": "Rocket"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 125,
+      "qtyByCountry": {
+        "CH": 80,
+        "GB": 60
+      },
+      "priceEUR": 1.7,
+      "priceCHF": 1.85,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-cucumber",
+    "name": {
+      "fr": "Concombre",
+      "en": "Cucumber"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.1,
+      "priceCHF": 1.55,
+      "priceCAD": 2,
+      "priceUSD": 0.99,
+      "priceAUD": 1.8,
+      "priceGBP": 0.99
+    }
+  },
+  {
+    "id": "ing-avocado",
+    "name": {
+      "fr": "Avocat",
+      "en": "Avocado"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "tags": [
+      "avocado"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.3,
+      "priceCHF": 1.85,
+      "priceCAD": 2,
+      "priceUSD": 1.25,
+      "priceAUD": 1.5,
+      "priceGBP": 0.69
+    }
+  },
+  {
+    "id": "ing-mushroom",
+    "name": {
+      "fr": "Champignons de Paris frais",
+      "en": "Fresh white mushrooms",
+      "fr-CA": "Champignons blancs frais",
+      "en-GB": "Fresh closed cup mushrooms"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "mushroom"
+    ],
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 400
+      },
+      "priceEUR": 1.7,
+      "priceCHF": 2.45,
+      "priceCAD": 2.8,
+      "priceUSD": 2.29,
+      "priceAUD": 3.5,
+      "priceGBP": 1.29
+    }
+  },
+  {
+    "id": "ing-leek",
+    "name": {
+      "fr": "Poireau",
+      "en": "Leek"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "leek"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 2.2,
+      "priceCHF": 2.85,
+      "priceCAD": 3.8,
+      "priceUSD": 2.49,
+      "priceAUD": 4,
+      "priceGBP": 1.37,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-celery",
+    "name": {
+      "fr": "Céleri branche",
+      "en": "Celery"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "celery"
+    ],
+    "pack": {
+      "qty": 400,
+      "priceEUR": 1.8,
+      "priceCHF": 2.35,
+      "priceCAD": 3,
+      "priceUSD": 1.99,
+      "priceAUD": 3,
+      "priceGBP": 0.69
+    }
+  },
+  {
+    "id": "ing-butternut",
+    "name": {
+      "fr": "Courge butternut",
+      "en": "Butternut squash"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 2.5,
+      "priceCHF": 3.25,
+      "priceCAD": 4,
+      "priceUSD": 2.49,
+      "priceAUD": 4.5,
+      "priceGBP": 1.5,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-green-beans",
+    "name": {
+      "fr": "Haricots verts frais",
+      "en": "Fresh green beans"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "green-beans"
+    ],
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "CH": 500
+      },
+      "priceEUR": 2.8,
+      "priceCHF": 3.65,
+      "priceCAD": 4.5,
+      "priceUSD": 3.29,
+      "priceAUD": 5,
+      "priceGBP": 1.48
+    }
+  },
+  {
+    "id": "ing-lemon",
+    "name": {
+      "fr": "Citron",
+      "en": "Lemon"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "priceEUR": 0.6,
+      "priceCHF": 0.4,
+      "priceCAD": 1,
+      "priceUSD": 0.75,
+      "priceAUD": 0.95,
+      "priceGBP": 0.37
+    }
+  },
+  {
+    "id": "ing-lime",
+    "name": {
+      "fr": "Citron vert",
+      "en": "Lime"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "qtyByCountry": {
+        "GB": 5
+      },
+      "priceEUR": 0.7,
+      "priceCHF": 0.9,
+      "priceCAD": 0.9,
+      "priceUSD": 0.55,
+      "priceAUD": 0.85,
+      "priceGBP": 1.15
+    }
+  },
+  {
+    "id": "ing-ginger",
+    "name": {
+      "fr": "Gingembre frais",
+      "en": "Fresh ginger"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 100,
+      "priceEUR": 0.9,
+      "priceCHF": 1.15,
+      "priceCAD": 1.5,
+      "priceUSD": 0.95,
+      "priceAUD": 1.45,
+      "priceGBP": 0.48,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-basil",
+    "name": {
+      "fr": "Basilic frais",
+      "en": "Fresh basil"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 20,
+      "qtyByCountry": {
+        "GB": 30
+      },
+      "priceEUR": 1.6,
+      "priceCHF": 2.25,
+      "priceCAD": 3,
+      "priceUSD": 2.5,
+      "priceAUD": 3.5,
+      "priceGBP": 0.5,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-parsley",
+    "name": {
+      "fr": "Persil frais",
+      "en": "Fresh parsley"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 30,
+      "priceEUR": 1.2,
+      "priceCHF": 1.65,
+      "priceCAD": 2,
+      "priceUSD": 1.49,
+      "priceAUD": 2.5,
+      "priceGBP": 0.5,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-cilantro",
+    "name": {
+      "fr": "Coriandre fraîche",
+      "en": "Fresh cilantro",
+      "en-AU": "Fresh coriander",
+      "en-GB": "Fresh coriander"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "cilantro"
+    ],
+    "pack": {
+      "qty": 30,
+      "priceEUR": 1.2,
+      "priceCHF": 1.65,
+      "priceCAD": 2,
+      "priceUSD": 1.29,
+      "priceAUD": 2.5,
+      "priceGBP": 0.5,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-mint",
+    "name": {
+      "fr": "Menthe fraîche",
+      "en": "Fresh mint"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "mint"
+    ],
+    "pack": {
+      "qty": 20,
+      "qtyByCountry": {
+        "GB": 30
+      },
+      "priceEUR": 1.3,
+      "priceCHF": 1.7,
+      "priceCAD": 2.2,
+      "priceUSD": 2,
+      "priceAUD": 3,
+      "priceGBP": 0.5,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-chives",
+    "name": {
+      "fr": "Ciboulette fraîche",
+      "en": "Fresh chives"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 20,
+      "priceEUR": 1.3,
+      "priceCHF": 1.65,
+      "priceCAD": 2.2,
+      "priceUSD": 2.29,
+      "priceAUD": 3,
+      "priceGBP": 0.5,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-thyme",
+    "name": {
+      "fr": "Thym frais",
+      "en": "Fresh thyme"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 20,
+      "priceEUR": 1.4,
+      "priceCHF": 1.8,
+      "priceCAD": 2.5,
+      "priceUSD": 2.5,
+      "priceAUD": 3.2,
+      "priceGBP": 1,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-rosemary",
+    "name": {
+      "fr": "Romarin frais",
+      "en": "Fresh rosemary"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 20,
+      "priceEUR": 1.4,
+      "priceCHF": 1.8,
+      "priceCAD": 2.5,
+      "priceUSD": 2.5,
+      "priceAUD": 3.2,
+      "priceGBP": 0.5,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-spring-onion",
+    "name": {
+      "fr": "Oignons nouveaux",
+      "en": "Green onions",
+      "fr-CA": "Oignons verts",
+      "en-AU": "Spring onions",
+      "en-GB": "Spring onions"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 6,
+      "priceEUR": 1.2,
+      "priceCHF": 1.55,
+      "priceCAD": 1.8,
+      "priceUSD": 0.99,
+      "priceAUD": 2,
+      "priceGBP": 0.69
+    }
+  },
+  {
+    "id": "ing-red-cabbage",
+    "name": {
+      "fr": "Chou rouge",
+      "en": "Red cabbage"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "cabbage"
+    ],
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 2,
+      "priceCHF": 2.6,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 4.5,
+      "priceGBP": 0.89,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-white-cabbage",
+    "name": {
+      "fr": "Chou blanc",
+      "en": "White cabbage"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "cabbage"
+    ],
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 1.8,
+      "priceCHF": 2.35,
+      "priceCAD": 3,
+      "priceUSD": 1.99,
+      "priceAUD": 3,
+      "priceGBP": 0.89,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-bean-sprouts",
+    "name": {
+      "fr": "Pousses de soja fraîches",
+      "en": "Fresh bean sprouts",
+      "fr-CA": "Fèves germées fraîches",
+      "en-GB": "Fresh beansprouts"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "allergens": [
+      "soy"
+    ],
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "GB": 300
+      },
+      "priceEUR": 1.4,
+      "priceCHF": 1.8,
+      "priceCAD": 2,
+      "priceUSD": 1.79,
+      "priceAUD": 2.5,
+      "priceGBP": 0.85
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-mango",
+    "name": {
+      "fr": "Mangue",
+      "en": "Mango"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.8,
+      "priceCHF": 2.35,
+      "priceCAD": 2.5,
+      "priceUSD": 1.29,
+      "priceAUD": 2.5,
+      "priceGBP": 0.95
+    }
+  },
+  {
+    "id": "ing-pak-choi",
+    "name": {
+      "fr": "Pak choï",
+      "en": "Bok choy",
+      "en-GB": "Pak choi"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "GB": 250
+      },
+      "priceEUR": 2.4,
+      "priceCHF": 3.1,
+      "priceCAD": 3.5,
+      "priceUSD": 2.79,
+      "priceAUD": 3.9,
+      "priceGBP": 1.55
+    }
+  },
+  {
+    "id": "ing-chicken-breast",
+    "name": {
+      "fr": "Blanc de poulet",
+      "en": "Chicken breast",
+      "fr-CA": "Poitrines de poulet",
+      "fr-CH": "Filets de poulet"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 23,
+      "kcal": 121
+    },
+    "pack": {
+      "qty": 500,
+      "qtyByCountry": {
+        "GB": 650
+      },
+      "priceEUR": 6.5,
+      "priceCHF": 11.5,
+      "priceCAD": 10,
+      "priceUSD": 6.49,
+      "priceAUD": 9.5,
+      "priceGBP": 4.9
+    }
+  },
+  {
+    "id": "ing-chicken-thigh",
+    "name": {
+      "fr": "Hauts de cuisse de poulet",
+      "en": "Chicken thighs"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 18,
+      "kcal": 165
+    },
+    "pack": {
+      "qty": 600,
+      "priceEUR": 5.5,
+      "priceCHF": 7.95,
+      "priceCAD": 8.5,
+      "priceUSD": 5.49,
+      "priceAUD": 7.8,
+      "priceGBP": 5.75
+    }
+  },
+  {
+    "id": "ing-ground-beef",
+    "name": {
+      "fr": "Bœuf haché 5%",
+      "en": "Lean ground beef",
+      "en-GB": "Lean beef mince"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 21,
+      "kcal": 130
+    },
+    "pack": {
+      "qty": 500,
+      "priceEUR": 8.5,
+      "priceCHF": 11.35,
+      "priceCAD": 12.5,
+      "priceUSD": 7.99,
+      "priceAUD": 13.5,
+      "priceGBP": 5.05
+    }
+  },
+  {
+    "id": "ing-beef-steak",
+    "name": {
+      "fr": "Steak de bœuf",
+      "en": "Beef steak"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 21.5,
+      "kcal": 140
+    },
+    "pack": {
+      "qty": 300,
+      "qtyByCountry": {
+        "GB": 255
+      },
+      "priceEUR": 6.5,
+      "priceCHF": 13.45,
+      "priceCAD": 11,
+      "priceUSD": 6.99,
+      "priceAUD": 10.5,
+      "priceGBP": 4.39
+    }
+  },
+  {
+    "id": "ing-beef-stew",
+    "name": {
+      "fr": "Bœuf à mijoter",
+      "en": "Stewing beef"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 20,
+      "kcal": 160
+    },
+    "pack": {
+      "qty": 600,
+      "qtyByCountry": {
+        "GB": 400
+      },
+      "priceEUR": 8.5,
+      "priceCHF": 24.5,
+      "priceCAD": 13,
+      "priceUSD": 8.49,
+      "priceAUD": 14,
+      "priceGBP": 4.8
+    }
+  },
+  {
+    "id": "ing-pork-tenderloin",
+    "name": {
+      "fr": "Filet mignon de porc",
+      "en": "Pork tenderloin",
+      "en-GB": "Pork fillet"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 21,
+      "kcal": 118
+    },
+    "pack": {
+      "qty": 500,
+      "priceEUR": 6.5,
+      "priceCHF": 14.05,
+      "priceCAD": 9,
+      "priceUSD": 6.49,
+      "priceAUD": 10,
+      "priceGBP": 4
+    }
+  },
+  {
+    "id": "ing-pork-chop",
+    "name": {
+      "fr": "Côtes de porc",
+      "en": "Pork chops"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 19.5,
+      "kcal": 185
+    },
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "GB": 450
+      },
+      "priceEUR": 4.5,
+      "priceCHF": 7.55,
+      "priceCAD": 7,
+      "priceUSD": 4.99,
+      "priceAUD": 7.5,
+      "priceGBP": 4.5
+    }
+  },
+  {
+    "id": "ing-pork-shoulder",
+    "name": {
+      "fr": "Épaule de porc",
+      "en": "Pork shoulder"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 18,
+      "kcal": 210
+    },
+    "pack": {
+      "qty": 1000,
+      "qtyByCountry": {
+        "GB": 700
+      },
+      "priceEUR": 8,
+      "priceCHF": 17.35,
+      "priceCAD": 11,
+      "priceUSD": 7.49,
+      "priceAUD": 12.5,
+      "priceGBP": 6.15
+    }
+  },
+  {
+    "id": "ing-lardons",
+    "name": {
+      "fr": "Lardons fumés",
+      "en": "Smoked bacon bits",
+      "fr-CA": "Bacon fumé en dés",
+      "en-GB": "Smoked bacon lardons"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 14.5,
+      "kcal": 290
+    },
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "CA": 375
+      },
+      "priceEUR": 2.5,
+      "priceCHF": 4.2,
+      "priceCAD": 5.5,
+      "priceUSD": 3.49,
+      "priceAUD": 4.8,
+      "priceGBP": 1.69
+    }
+  },
+  {
+    "id": "ing-sausage",
+    "name": {
+      "fr": "Saucisses de Toulouse",
+      "en": "Pork sausages",
+      "fr-CA": "Saucisses de porc",
+      "fr-CH": "Saucisses de porc"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 14.5,
+      "kcal": 290
+    },
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "GB": 454
+      },
+      "priceEUR": 4,
+      "priceCHF": 7.35,
+      "priceCAD": 6.5,
+      "priceUSD": 4.99,
+      "priceAUD": 7.5,
+      "priceGBP": 1.79
+    }
+  },
+  {
+    "id": "ing-ham",
+    "name": {
+      "fr": "Jambon blanc",
+      "en": "Cooked ham",
+      "fr-CA": "Jambon cuit tranché",
+      "fr-CH": "Jambon cuit"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 20.5,
+      "kcal": 110
+    },
+    "pack": {
+      "qty": 160,
+      "qtyByCountry": {
+        "GB": 120
+      },
+      "priceEUR": 2.8,
+      "priceCHF": 3.8,
+      "priceCAD": 4.5,
+      "priceUSD": 3.49,
+      "priceAUD": 5,
+      "priceGBP": 2.3
+    }
+  },
+  {
+    "id": "ing-turkey-cutlet",
+    "name": {
+      "fr": "Escalope de dinde",
+      "en": "Turkey cutlet",
+      "en-GB": "Turkey breast steaks"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 23.5,
+      "kcal": 105
+    },
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "GB": 380
+      },
+      "priceEUR": 5,
+      "priceCHF": 11.65,
+      "priceCAD": 8,
+      "priceUSD": 5.99,
+      "priceAUD": 9.5,
+      "priceGBP": 4.75
+    }
+  },
+  {
+    "id": "ing-lamb-shoulder",
+    "name": {
+      "fr": "Épaule d'agneau",
+      "en": "Lamb shoulder"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 18,
+      "kcal": 230
+    },
+    "pack": {
+      "qty": 600,
+      "qtyByCountry": {
+        "GB": 300
+      },
+      "priceEUR": 11,
+      "priceCHF": 19.8,
+      "priceCAD": 16,
+      "priceUSD": 11.99,
+      "priceAUD": 15,
+      "priceGBP": 6.5
+    }
+  },
+  {
+    "id": "ing-ground-lamb",
+    "name": {
+      "fr": "Agneau haché",
+      "en": "Ground lamb",
+      "en-GB": "Lamb mince"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 17.5,
+      "kcal": 240
+    },
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "GB": 500
+      },
+      "priceEUR": 7,
+      "priceCHF": 12.6,
+      "priceCAD": 10,
+      "priceUSD": 8.49,
+      "priceAUD": 11,
+      "priceGBP": 6.5
+    }
+  },
+  {
+    "id": "ing-chorizo",
+    "name": {
+      "fr": "Chorizo",
+      "en": "Chorizo"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 24,
+      "kcal": 375
+    },
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "GB": 225
+      },
+      "priceEUR": 3,
+      "priceCHF": 5.4,
+      "priceCAD": 5.5,
+      "priceUSD": 3.99,
+      "priceAUD": 6,
+      "priceGBP": 2.4
+    }
+  },
+  {
+    "id": "ing-ground-chicken",
+    "name": {
+      "fr": "Poulet haché",
+      "en": "Ground chicken",
+      "en-GB": "Chicken mince"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 20,
+      "kcal": 145
+    },
+    "pack": {
+      "qty": 450,
+      "qtyByCountry": {
+        "GB": 500
+      },
+      "priceEUR": 5.5,
+      "priceCHF": 8.7,
+      "priceCAD": 8,
+      "priceUSD": 5.99,
+      "priceAUD": 9,
+      "priceGBP": 2.49
+    }
+  },
+  {
+    "id": "ing-salmon",
+    "name": {
+      "fr": "Pavés de saumon",
+      "en": "Salmon fillets"
+    },
+    "unit": "g",
+    "aisle": "fish",
+    "allergens": [
+      "fish"
+    ],
+    "nutrition": {
+      "protein": 20,
+      "kcal": 195
+    },
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 240
+      },
+      "priceEUR": 6.5,
+      "priceCHF": 10.2,
+      "priceCAD": 10,
+      "priceUSD": 7.99,
+      "priceAUD": 11.5,
+      "priceGBP": 4.5
+    }
+  },
+  {
+    "id": "ing-cod",
+    "name": {
+      "fr": "Dos de cabillaud",
+      "en": "Cod fillets",
+      "fr-CA": "Filets de morue",
+      "fr-CH": "Filets de cabillaud"
+    },
+    "unit": "g",
+    "aisle": "fish",
+    "allergens": [
+      "fish"
+    ],
+    "nutrition": {
+      "protein": 18,
+      "kcal": 78
+    },
+    "pack": {
+      "qty": 300,
+      "qtyByCountry": {
+        "GB": 280
+      },
+      "priceEUR": 7,
+      "priceCHF": 13.3,
+      "priceCAD": 10.5,
+      "priceUSD": 8.49,
+      "priceAUD": 13,
+      "priceGBP": 8.15
+    }
+  },
+  {
+    "id": "ing-white-fish",
+    "name": {
+      "fr": "Filet de colin",
+      "en": "Pollock fillets",
+      "fr-CA": "Filets de goberge"
+    },
+    "unit": "g",
+    "aisle": "fish",
+    "allergens": [
+      "fish"
+    ],
+    "nutrition": {
+      "protein": 17.5,
+      "kcal": 80
+    },
+    "pack": {
+      "qty": 400,
+      "priceEUR": 5.5,
+      "priceCHF": 8.55,
+      "priceCAD": 8.5,
+      "priceUSD": 6.49,
+      "priceAUD": 10,
+      "priceGBP": 3
+    }
+  },
+  {
+    "id": "ing-shrimp",
+    "name": {
+      "fr": "Crevettes crues décortiquées",
+      "en": "Raw peeled shrimp",
+      "en-AU": "Raw peeled prawns",
+      "en-GB": "Raw peeled prawns"
+    },
+    "unit": "g",
+    "aisle": "fish",
+    "allergens": [
+      "shellfish"
+    ],
+    "nutrition": {
+      "protein": 20,
+      "kcal": 95
+    },
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "CA": 300,
+        "US": 340,
+        "CH": 300,
+        "GB": 150
+      },
+      "priceEUR": 4.5,
+      "priceCHF": 7.65,
+      "priceCAD": 7.45,
+      "priceUSD": 6.49,
+      "priceAUD": 8.5,
+      "priceGBP": 3.5
+    }
+  },
+  {
+    "id": "ing-mussels",
+    "name": {
+      "fr": "Moules fraîches",
+      "en": "Fresh mussels"
+    },
+    "unit": "g",
+    "aisle": "fish",
+    "allergens": [
+      "shellfish"
+    ],
+    "nutrition": {
+      "protein": 4,
+      "kcal": 26
+    },
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 4,
+      "priceCHF": 6.2,
+      "priceCAD": 6.5,
+      "priceUSD": 5.5,
+      "priceAUD": 7.5,
+      "priceGBP": 4.5
+    }
+  },
+  {
+    "id": "ing-trout",
+    "name": {
+      "fr": "Filets de truite",
+      "en": "Trout fillets"
+    },
+    "unit": "g",
+    "aisle": "fish",
+    "allergens": [
+      "fish"
+    ],
+    "nutrition": {
+      "protein": 20,
+      "kcal": 130
+    },
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 260
+      },
+      "priceEUR": 5.5,
+      "priceCHF": 8.55,
+      "priceCAD": 8,
+      "priceUSD": 6.5,
+      "priceAUD": 9.9,
+      "priceGBP": 6.45
+    }
+  },
+  {
+    "id": "ing-smoked-salmon",
+    "name": {
+      "fr": "Saumon fumé",
+      "en": "Smoked salmon"
+    },
+    "unit": "g",
+    "aisle": "fish",
+    "allergens": [
+      "fish"
+    ],
+    "nutrition": {
+      "protein": 22,
+      "kcal": 180
+    },
+    "pack": {
+      "qty": 120,
+      "qtyByCountry": {
+        "CH": 100,
+        "GB": 100
+      },
+      "priceEUR": 4.5,
+      "priceCHF": 7.1,
+      "priceCAD": 7.5,
+      "priceUSD": 6.5,
+      "priceAUD": 9.5,
+      "priceGBP": 3.8
+    }
+  },
+  {
+    "id": "ing-eggs",
+    "name": {
+      "fr": "Œufs",
+      "en": "Eggs"
+    },
+    "unit": "unit",
+    "aisle": "dairy",
+    "allergens": [
+      "eggs"
+    ],
+    "nutrition": {
+      "protein": 6.3,
+      "kcal": 70
+    },
+    "pack": {
+      "qty": 12,
+      "qtyByCountry": {
+        "CH": 10
+      },
+      "priceEUR": 3.4,
+      "priceCHF": 5.4,
+      "priceCAD": 4.8,
+      "priceUSD": 4.5,
+      "priceAUD": 5.5,
+      "priceGBP": 3.3
+    }
+  },
+  {
+    "id": "ing-butter",
+    "name": {
+      "fr": "Beurre",
+      "en": "Butter"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "staple": true,
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "CA": 454,
+        "US": 454
+      },
+      "priceEUR": 2.6,
+      "priceCHF": 3.95,
+      "priceCAD": 5.65,
+      "priceUSD": 3.8,
+      "priceAUD": 5.5,
+      "priceGBP": 1.85
+    }
+  },
+  {
+    "id": "ing-milk",
+    "name": {
+      "fr": "Lait demi-écrémé",
+      "en": "2% milk",
+      "fr-CA": "Lait 2 %",
+      "en-GB": "Semi-skimmed milk"
+    },
+    "unit": "ml",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "pack": {
+      "qty": 1000,
+      "qtyByCountry": {
+        "GB": 1136
+      },
+      "priceEUR": 1.1,
+      "priceCHF": 1.7,
+      "priceCAD": 2.8,
+      "priceUSD": 1.3,
+      "priceAUD": 1.8,
+      "priceGBP": 1.2
+    }
+  },
+  {
+    "id": "ing-cream",
+    "name": {
+      "fr": "Crème fraîche épaisse",
+      "en": "Crème fraîche",
+      "fr-CA": "Crème sure"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "CA": 500,
+        "GB": 300
+      },
+      "priceEUR": 1.3,
+      "priceCHF": 2.25,
+      "priceCAD": 3.99,
+      "priceUSD": 2.9,
+      "priceAUD": 3.8,
+      "priceGBP": 0.75
+    }
+  },
+  {
+    "id": "ing-cooking-cream",
+    "name": {
+      "fr": "Crème liquide",
+      "en": "Cooking cream",
+      "fr-CA": "Crème à cuisson",
+      "fr-CH": "Demi-crème",
+      "en-GB": "Double cream"
+    },
+    "unit": "ml",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "CA": 473,
+        "CH": 250,
+        "GB": 300
+      },
+      "priceEUR": 1,
+      "priceCHF": 1.65,
+      "priceCAD": 3.99,
+      "priceUSD": 1.9,
+      "priceAUD": 2.5,
+      "priceGBP": 1.7
+    }
+  },
+  {
+    "id": "ing-greek-yogurt",
+    "name": {
+      "fr": "Yaourt grec",
+      "en": "Greek yogurt",
+      "fr-CA": "Yogourt grec",
+      "fr-CH": "Yogourt grec",
+      "en-GB": "Greek yoghurt"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 4,
+      "kcal": 115
+    },
+    "pack": {
+      "qty": 450,
+      "qtyByCountry": {
+        "CA": 750,
+        "US": 907,
+        "GB": 500
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.3,
+      "priceCAD": 6.99,
+      "priceUSD": 5.99,
+      "priceAUD": 4.9,
+      "priceGBP": 1.15
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-mozzarella",
+    "name": {
+      "fr": "Mozzarella",
+      "en": "Mozzarella"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 18.5,
+      "kcal": 250
+    },
+    "pack": {
+      "qty": 125,
+      "priceEUR": 1.1,
+      "priceCHF": 1.65,
+      "priceCAD": 2.5,
+      "priceUSD": 1.9,
+      "priceAUD": 2.9,
+      "priceGBP": 1.3
+    }
+  },
+  {
+    "id": "ing-parmesan",
+    "name": {
+      "fr": "Parmesan râpé",
+      "en": "Grated parmesan"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 35,
+      "kcal": 390
+    },
+    "pack": {
+      "qty": 70,
+      "qtyByCountry": {
+        "CH": 75,
+        "GB": 100
+      },
+      "priceEUR": 1.9,
+      "priceCHF": 2.9,
+      "priceCAD": 3.8,
+      "priceUSD": 3,
+      "priceAUD": 4.5,
+      "priceGBP": 2.8
+    }
+  },
+  {
+    "id": "ing-cheddar",
+    "name": {
+      "fr": "Cheddar",
+      "en": "Cheddar"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 25,
+      "kcal": 400
+    },
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "CH": 350,
+        "GB": 400
+      },
+      "priceEUR": 2.5,
+      "priceCHF": 5.6,
+      "priceCAD": 5,
+      "priceUSD": 3.5,
+      "priceAUD": 5.5,
+      "priceGBP": 2.95
+    }
+  },
+  {
+    "id": "ing-grated-cheese",
+    "name": {
+      "fr": "Emmental râpé",
+      "en": "Shredded cheese",
+      "fr-CA": "Fromage râpé",
+      "en-GB": "Grated cheese"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 28,
+      "kcal": 375
+    },
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "GB": 250
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.3,
+      "priceCAD": 4.5,
+      "priceUSD": 3.29,
+      "priceAUD": 4.5,
+      "priceGBP": 2.5
+    }
+  },
+  {
+    "id": "ing-feta",
+    "name": {
+      "fr": "Feta",
+      "en": "Feta"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 15.5,
+      "kcal": 265
+    },
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "CH": 180
+      },
+      "priceEUR": 2.3,
+      "priceCHF": 3,
+      "priceCAD": 4.5,
+      "priceUSD": 3.79,
+      "priceAUD": 5.5,
+      "priceGBP": 2.25
+    }
+  },
+  {
+    "id": "ing-goat-cheese",
+    "name": {
+      "fr": "Fromage de chèvre",
+      "en": "Goat cheese"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "tags": [
+      "goat-cheese"
+    ],
+    "nutrition": {
+      "protein": 18,
+      "kcal": 290
+    },
+    "pack": {
+      "qty": 150,
+      "qtyByCountry": {
+        "GB": 125
+      },
+      "priceEUR": 2.4,
+      "priceCHF": 3.6,
+      "priceCAD": 5,
+      "priceUSD": 4.49,
+      "priceAUD": 6.5,
+      "priceGBP": 2.55
+    }
+  },
+  {
+    "id": "ing-blue-cheese",
+    "name": {
+      "fr": "Bleu / Roquefort",
+      "en": "Blue cheese"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "tags": [
+      "blue-cheese"
+    ],
+    "nutrition": {
+      "protein": 19,
+      "kcal": 350
+    },
+    "pack": {
+      "qty": 150,
+      "qtyByCountry": {
+        "GB": 220
+      },
+      "priceEUR": 2.8,
+      "priceCHF": 4.2,
+      "priceCAD": 5.5,
+      "priceUSD": 4.99,
+      "priceAUD": 7,
+      "priceGBP": 2.95
+    }
+  },
+  {
+    "id": "ing-ricotta",
+    "name": {
+      "fr": "Ricotta",
+      "en": "Ricotta"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 8.5,
+      "kcal": 145
+    },
+    "pack": {
+      "qty": 250,
+      "priceEUR": 1.9,
+      "priceCHF": 2.85,
+      "priceCAD": 4,
+      "priceUSD": 3.29,
+      "priceAUD": 4.5,
+      "priceGBP": 1.5
+    }
+  },
+  {
+    "id": "ing-halloumi",
+    "name": {
+      "fr": "Halloumi",
+      "en": "Halloumi"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 22,
+      "kcal": 320
+    },
+    "pack": {
+      "qty": 225,
+      "qtyByCountry": {
+        "CH": 250
+      },
+      "priceEUR": 3.2,
+      "priceCHF": 5.05,
+      "priceCAD": 6,
+      "priceUSD": 5.49,
+      "priceAUD": 7,
+      "priceGBP": 2.3
+    }
+  },
+  {
+    "id": "ing-tofu",
+    "name": {
+      "fr": "Tofu ferme",
+      "en": "Firm tofu"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "soy"
+    ],
+    "nutrition": {
+      "protein": 12.5,
+      "kcal": 120
+    },
+    "pack": {
+      "qty": 400,
+      "priceEUR": 2.5,
+      "priceCHF": 3.35,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4,
+      "priceGBP": 1.95
+    }
+  },
+  {
+    "id": "ing-puff-pastry",
+    "name": {
+      "fr": "Pâte feuilletée",
+      "en": "Puff pastry"
+    },
+    "unit": "unit",
+    "aisle": "dairy",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.6,
+      "priceCHF": 2.4,
+      "priceCAD": 4,
+      "priceUSD": 4.49,
+      "priceAUD": 5.5,
+      "priceGBP": 0.99
+    }
+  },
+  {
+    "id": "ing-shortcrust-pastry",
+    "name": {
+      "fr": "Pâte brisée",
+      "en": "Pie crust",
+      "fr-CA": "Croûte à tarte",
+      "en-AU": "Shortcrust pastry",
+      "en-GB": "Shortcrust pastry"
+    },
+    "unit": "unit",
+    "aisle": "dairy",
+    "allergens": [
+      "gluten"
+    ],
+    "compositionRisk": {
+      "possibleAllergens": [
+        "lactose"
+      ],
+      "possibleAnimalDerived": true
+    },
+    "pack": {
+      "qty": 1,
+      "qtyByCountry": {
+        "CA": 2,
+        "US": 2,
+        "AU": 5
+      },
+      "priceEUR": 1.3,
+      "priceCHF": 1.75,
+      "priceCAD": 3.5,
+      "priceUSD": 3.79,
+      "priceAUD": 4.8,
+      "priceGBP": 1.35
+    }
+  },
+  {
+    "id": "ing-pizza-dough",
+    "name": {
+      "fr": "Pâte à pizza",
+      "en": "Pizza dough"
+    },
+    "unit": "unit",
+    "aisle": "dairy",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.8,
+      "priceCHF": 2.7,
+      "priceCAD": 3.5,
+      "priceUSD": 3.49,
+      "priceAUD": 4,
+      "priceGBP": 2.75
+    }
+  },
+  {
+    "id": "ing-baguette",
+    "name": {
+      "fr": "Baguette",
+      "en": "Baguette"
+    },
+    "unit": "unit",
+    "aisle": "bakery",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.2,
+      "priceCHF": 1.85,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 1.35
+    }
+  },
+  {
+    "id": "ing-bread",
+    "name": {
+      "fr": "Pain de campagne",
+      "en": "Country bread",
+      "en-GB": "Crusty loaf"
+    },
+    "unit": "g",
+    "aisle": "bakery",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 400,
+      "priceEUR": 2.2,
+      "priceCHF": 3.4,
+      "priceCAD": 4,
+      "priceUSD": 3.99,
+      "priceAUD": 5.5,
+      "priceGBP": 2.1
+    }
+  },
+  {
+    "id": "ing-tortillas",
+    "name": {
+      "fr": "Tortillas de blé",
+      "en": "Flour tortillas",
+      "en-GB": "Tortilla wraps"
+    },
+    "unit": "unit",
+    "aisle": "bakery",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 8,
+      "priceEUR": 1.9,
+      "priceCHF": 3.9,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4,
+      "priceGBP": 1.4
+    }
+  },
+  {
+    "id": "ing-burger-buns",
+    "name": {
+      "fr": "Pains burger",
+      "en": "Burger buns"
+    },
+    "unit": "unit",
+    "aisle": "bakery",
+    "allergens": [
+      "gluten",
+      "sesame"
+    ],
+    "pack": {
+      "qty": 4,
+      "priceEUR": 1.8,
+      "priceCHF": 2.8,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 3.2,
+      "priceGBP": 0.99
+    }
+  },
+  {
+    "id": "ing-pita",
+    "name": {
+      "fr": "Pains pita",
+      "en": "Pita bread",
+      "en-GB": "Pitta bread"
+    },
+    "unit": "unit",
+    "aisle": "bakery",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 6,
+      "priceEUR": 1.5,
+      "priceCHF": 2.35,
+      "priceCAD": 3,
+      "priceUSD": 2.29,
+      "priceAUD": 3,
+      "priceGBP": 0.5
+    }
+  },
+  {
+    "id": "ing-rice",
+    "name": {
+      "fr": "Riz basmati",
+      "en": "Basmati rice"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 3.5,
+      "priceCHF": 4.85,
+      "priceCAD": 6,
+      "priceUSD": 4.49,
+      "priceAUD": 5.5,
+      "priceGBP": 1.8
+    }
+  },
+  {
+    "id": "ing-arborio-rice",
+    "name": {
+      "fr": "Riz arborio",
+      "en": "Arborio rice",
+      "en-GB": "Risotto rice"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 500,
+      "qtyByCountry": {
+        "GB": 1000
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.05,
+      "priceCAD": 4.5,
+      "priceUSD": 3.29,
+      "priceAUD": 4.2,
+      "priceGBP": 3.3
+    }
+  },
+  {
+    "id": "ing-spaghetti",
+    "name": {
+      "fr": "Spaghetti",
+      "en": "Spaghetti"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.1,
+      "priceCHF": 1.5,
+      "priceCAD": 2.5,
+      "priceUSD": 1.49,
+      "priceAUD": 2.2,
+      "priceGBP": 0.75
+    }
+  },
+  {
+    "id": "ing-penne",
+    "name": {
+      "fr": "Penne",
+      "en": "Penne"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.1,
+      "priceCHF": 1.5,
+      "priceCAD": 2.5,
+      "priceUSD": 1.49,
+      "priceAUD": 2.2,
+      "priceGBP": 0.69
+    }
+  },
+  {
+    "id": "ing-macaroni",
+    "name": {
+      "fr": "Coquillettes",
+      "en": "Elbow macaroni",
+      "fr-CA": "Macaroni",
+      "fr-CH": "Cornettes",
+      "en-AU": "Macaroni",
+      "en-GB": "Macaroni"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.1,
+      "priceCHF": 1.8,
+      "priceCAD": 2.5,
+      "priceUSD": 1.49,
+      "priceAUD": 2.2,
+      "priceGBP": 0.69
+    }
+  },
+  {
+    "id": "ing-lasagna-sheets",
+    "name": {
+      "fr": "Feuilles de lasagne",
+      "en": "Lasagna sheets",
+      "en-GB": "Lasagne sheets"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten",
+      "eggs"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.8,
+      "priceCHF": 2.5,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 3.2,
+      "priceGBP": 0.75
+    }
+  },
+  {
+    "id": "ing-egg-noodles",
+    "name": {
+      "fr": "Nouilles asiatiques",
+      "en": "Asian noodles"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten",
+      "eggs"
+    ],
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "GB": 250
+      },
+      "priceEUR": 1.9,
+      "priceCHF": 2.6,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.3,
+      "priceGBP": 0.95
+    }
+  },
+  {
+    "id": "ing-rice-noodles",
+    "name": {
+      "fr": "Nouilles de riz",
+      "en": "Rice noodles"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "GB": 300
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.05,
+      "priceCAD": 3.5,
+      "priceUSD": 2.79,
+      "priceAUD": 3.8,
+      "priceGBP": 1.15
+    }
+  },
+  {
+    "id": "ing-couscous",
+    "name": {
+      "fr": "Semoule de couscous",
+      "en": "Couscous"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.4,
+      "priceCHF": 1.95,
+      "priceCAD": 3,
+      "priceUSD": 1.79,
+      "priceAUD": 2.6,
+      "priceGBP": 1.19
+    }
+  },
+  {
+    "id": "ing-quinoa",
+    "name": {
+      "fr": "Quinoa",
+      "en": "Quinoa"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 500,
+      "qtyByCountry": {
+        "GB": 300
+      },
+      "priceEUR": 3.2,
+      "priceCHF": 4.4,
+      "priceCAD": 5.5,
+      "priceUSD": 4.29,
+      "priceAUD": 6,
+      "priceGBP": 3.1
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-bulgur",
+    "name": {
+      "fr": "Boulgour",
+      "en": "Bulgur"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.6,
+      "priceCHF": 2.2,
+      "priceCAD": 3,
+      "priceUSD": 2.19,
+      "priceAUD": 2.9,
+      "priceGBP": 2.1
+    }
+  },
+  {
+    "id": "ing-green-lentils",
+    "name": {
+      "fr": "Lentilles vertes",
+      "en": "Green lentils"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "nutrition": {
+      "protein": 24,
+      "kcal": 335
+    },
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.8,
+      "priceCHF": 3.25,
+      "priceCAD": 3.5,
+      "priceUSD": 2.79,
+      "priceAUD": 4.2,
+      "priceGBP": 2.1
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-red-lentils",
+    "name": {
+      "fr": "Lentilles corail",
+      "en": "Red lentils"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "nutrition": {
+      "protein": 24,
+      "kcal": 345
+    },
+    "pack": {
+      "qty": 500,
+      "priceEUR": 2,
+      "priceCHF": 2.75,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4.5,
+      "priceGBP": 2.1
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-flour",
+    "name": {
+      "fr": "Farine de blé",
+      "en": "All-purpose flour",
+      "en-AU": "Plain flour",
+      "en-GB": "Plain flour"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "staple": true,
+    "pack": {
+      "qty": 1000,
+      "qtyByCountry": {
+        "CA": 2500,
+        "US": 2270,
+        "GB": 1500
+      },
+      "priceEUR": 1,
+      "priceCHF": 1.4,
+      "priceCAD": 5.4,
+      "priceUSD": 2.75,
+      "priceAUD": 2.1,
+      "priceGBP": 0.8
+    }
+  },
+  {
+    "id": "ing-sugar",
+    "name": {
+      "fr": "Sucre",
+      "en": "Sugar"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "staple": true,
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 1.2,
+      "priceCHF": 1.65,
+      "priceCAD": 2.5,
+      "priceUSD": 1.69,
+      "priceAUD": 2.6,
+      "priceGBP": 1.09
+    }
+  },
+  {
+    "id": "ing-breadcrumbs",
+    "name": {
+      "fr": "Chapelure",
+      "en": "Breadcrumbs"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "staple": false,
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 227
+      },
+      "priceEUR": 1.1,
+      "priceCHF": 1.5,
+      "priceCAD": 2.5,
+      "priceUSD": 1.79,
+      "priceAUD": 2.6,
+      "priceGBP": 1.55
+    }
+  },
+  {
+    "id": "ing-polenta",
+    "name": {
+      "fr": "Polenta",
+      "en": "Polenta"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.5,
+      "priceCHF": 2.05,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.6,
+      "priceGBP": 1.27
+    }
+  },
+  {
+    "id": "ing-walnuts",
+    "name": {
+      "fr": "Cerneaux de noix",
+      "en": "Walnuts"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "nuts"
+    ],
+    "pack": {
+      "qty": 125,
+      "qtyByCountry": {
+        "GB": 250
+      },
+      "priceEUR": 2.5,
+      "priceCHF": 3.45,
+      "priceCAD": 4.5,
+      "priceUSD": 3.29,
+      "priceAUD": 4.8,
+      "priceGBP": 3.5
+    }
+  },
+  {
+    "id": "ing-almonds",
+    "name": {
+      "fr": "Amandes effilées",
+      "en": "Sliced almonds",
+      "en-GB": "Flaked almonds"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "nuts"
+    ],
+    "pack": {
+      "qty": 125,
+      "qtyByCountry": {
+        "GB": 100
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.05,
+      "priceCAD": 4,
+      "priceUSD": 3.19,
+      "priceAUD": 4.6,
+      "priceGBP": 1.8
+    }
+  },
+  {
+    "id": "ing-cashews",
+    "name": {
+      "fr": "Noix de cajou",
+      "en": "Cashews"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "nuts"
+    ],
+    "pack": {
+      "qty": 200,
+      "priceEUR": 3,
+      "priceCHF": 4.15,
+      "priceCAD": 5.5,
+      "priceUSD": 3.79,
+      "priceAUD": 5.6,
+      "priceGBP": 2.25
+    }
+  },
+  {
+    "id": "ing-peanuts",
+    "name": {
+      "fr": "Cacahuètes grillées",
+      "en": "Roasted peanuts",
+      "fr-CA": "Arachides grillées"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "peanut"
+    ],
+    "pack": {
+      "qty": 200,
+      "priceEUR": 1.8,
+      "priceCHF": 2.5,
+      "priceCAD": 3,
+      "priceUSD": 2.19,
+      "priceAUD": 3.2,
+      "priceGBP": 1.4
+    }
+  },
+  {
+    "id": "ing-sesame-seeds",
+    "name": {
+      "fr": "Graines de sésame",
+      "en": "Sesame seeds"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "sesame"
+    ],
+    "staple": false,
+    "pack": {
+      "qty": 100,
+      "priceEUR": 1.5,
+      "priceCHF": 2.05,
+      "priceCAD": 2.5,
+      "priceUSD": 1.99,
+      "priceAUD": 3,
+      "priceGBP": 1.27
+    }
+  },
+  {
+    "id": "ing-pine-nuts",
+    "name": {
+      "fr": "Pignons de pin",
+      "en": "Pine nuts"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "nuts"
+    ],
+    "pack": {
+      "qty": 80,
+      "qtyByCountry": {
+        "GB": 100
+      },
+      "priceEUR": 3.5,
+      "priceCHF": 4.85,
+      "priceCAD": 6,
+      "priceUSD": 4.99,
+      "priceAUD": 7.9,
+      "priceGBP": 3.95
+    }
+  },
+  {
+    "id": "ing-tortilla-chips",
+    "name": {
+      "fr": "Chips tortilla",
+      "en": "Tortilla chips"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 200,
+      "priceEUR": 1.7,
+      "priceCHF": 2.35,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 0.89
+    }
+  },
+  {
+    "id": "ing-taco-shells",
+    "name": {
+      "fr": "Coquilles tacos",
+      "en": "Taco shells"
+    },
+    "unit": "unit",
+    "aisle": "dry",
+    "pack": {
+      "qty": 12,
+      "priceEUR": 2.2,
+      "priceCHF": 3.05,
+      "priceCAD": 3.5,
+      "priceUSD": 2.79,
+      "priceAUD": 3.8,
+      "priceGBP": 2
+    }
+  },
+  {
+    "id": "ing-crushed-tomatoes",
+    "name": {
+      "fr": "Tomates concassées en boîte",
+      "en": "Canned crushed tomatoes",
+      "fr-CA": "Tomates broyées en conserve",
+      "en-GB": "Tinned chopped tomatoes"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "CA": 796
+      },
+      "priceEUR": 0.9,
+      "priceCHF": 1.65,
+      "priceCAD": 2.1,
+      "priceUSD": 1.29,
+      "priceAUD": 1.5,
+      "priceGBP": 0.47
+    }
+  },
+  {
+    "id": "ing-passata",
+    "name": {
+      "fr": "Coulis de tomates",
+      "en": "Tomato passata"
+    },
+    "unit": "ml",
+    "aisle": "canned",
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.2,
+      "priceCHF": 1.65,
+      "priceCAD": 2.5,
+      "priceUSD": 1.99,
+      "priceAUD": 2.2,
+      "priceGBP": 0.6
+    }
+  },
+  {
+    "id": "ing-tomato-paste",
+    "name": {
+      "fr": "Concentré de tomate",
+      "en": "Tomato paste",
+      "en-GB": "Tomato purée"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "staple": true,
+    "pack": {
+      "qty": 140,
+      "qtyByCountry": {
+        "GB": 200
+      },
+      "priceEUR": 0.8,
+      "priceCHF": 1.1,
+      "priceCAD": 1.5,
+      "priceUSD": 1.19,
+      "priceAUD": 1.4,
+      "priceGBP": 0.59
+    }
+  },
+  {
+    "id": "ing-chickpeas",
+    "name": {
+      "fr": "Pois chiches en boîte",
+      "en": "Canned chickpeas",
+      "en-GB": "Tinned chickpeas"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "nutrition": {
+      "protein": 4.5,
+      "kcal": 72
+    },
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "CA": 540,
+        "CH": 450
+      },
+      "priceEUR": 0.9,
+      "priceCHF": 2.2,
+      "priceCAD": 1.7,
+      "priceUSD": 1.19,
+      "priceAUD": 1.4,
+      "priceGBP": 0.41
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-red-beans",
+    "name": {
+      "fr": "Haricots rouges en boîte",
+      "en": "Canned red beans",
+      "en-GB": "Tinned kidney beans"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "nutrition": {
+      "protein": 4.7,
+      "kcal": 65
+    },
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "CA": 540,
+        "CH": 310
+      },
+      "priceEUR": 0.9,
+      "priceCHF": 0.95,
+      "priceCAD": 1.7,
+      "priceUSD": 1.19,
+      "priceAUD": 1.4,
+      "priceGBP": 0.39
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-white-beans",
+    "name": {
+      "fr": "Haricots blancs en boîte",
+      "en": "Canned white beans",
+      "en-GB": "Tinned white beans"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "nutrition": {
+      "protein": 4.2,
+      "kcal": 63
+    },
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "CA": 540
+      },
+      "priceEUR": 0.9,
+      "priceCHF": 1.25,
+      "priceCAD": 1.7,
+      "priceUSD": 1.19,
+      "priceAUD": 1.4,
+      "priceGBP": 0.45
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-black-beans",
+    "name": {
+      "fr": "Haricots noirs en boîte",
+      "en": "Canned black beans",
+      "en-GB": "Tinned black beans"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "nutrition": {
+      "protein": 4.5,
+      "kcal": 66
+    },
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "CA": 540
+      },
+      "priceEUR": 1.1,
+      "priceCHF": 1.5,
+      "priceCAD": 1.7,
+      "priceUSD": 1.29,
+      "priceAUD": 1.5,
+      "priceGBP": 0.46
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-corn",
+    "name": {
+      "fr": "Maïs doux en boîte",
+      "en": "Canned sweet corn",
+      "fr-CA": "Maïs en grains en conserve",
+      "en-GB": "Tinned sweetcorn"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "pack": {
+      "qty": 300,
+      "qtyByCountry": {
+        "CH": 440,
+        "GB": 325
+      },
+      "priceEUR": 1,
+      "priceCHF": 2.55,
+      "priceCAD": 1.8,
+      "priceUSD": 1.19,
+      "priceAUD": 1.6,
+      "priceGBP": 0.53
+    }
+  },
+  {
+    "id": "ing-canned-tuna",
+    "name": {
+      "fr": "Thon au naturel",
+      "en": "Canned tuna",
+      "en-GB": "Tinned tuna"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "allergens": [
+      "fish"
+    ],
+    "nutrition": {
+      "protein": 26,
+      "kcal": 116
+    },
+    "pack": {
+      "qty": 140,
+      "qtyByCountry": {
+        "CH": 155,
+        "GB": 145
+      },
+      "priceEUR": 1.6,
+      "priceCHF": 1.4,
+      "priceCAD": 2.5,
+      "priceUSD": 1.69,
+      "priceAUD": 2.2,
+      "priceGBP": 0.65
+    }
+  },
+  {
+    "id": "ing-coconut-milk",
+    "name": {
+      "fr": "Lait de coco",
+      "en": "Coconut milk"
+    },
+    "unit": "ml",
+    "aisle": "canned",
+    "tags": [
+      "coconut"
+    ],
+    "pack": {
+      "qty": 400,
+      "priceEUR": 1.4,
+      "priceCHF": 1.95,
+      "priceCAD": 2.5,
+      "priceUSD": 1.99,
+      "priceAUD": 2.3,
+      "priceGBP": 0.75
+    }
+  },
+  {
+    "id": "ing-olives-green",
+    "name": {
+      "fr": "Olives vertes",
+      "en": "Green olives"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "tags": [
+      "olive"
+    ],
+    "pack": {
+      "qty": 160,
+      "priceEUR": 1.5,
+      "priceCHF": 2.05,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 1.1
+    }
+  },
+  {
+    "id": "ing-olives-black",
+    "name": {
+      "fr": "Olives noires",
+      "en": "Black olives"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "tags": [
+      "olive"
+    ],
+    "pack": {
+      "qty": 160,
+      "priceEUR": 1.5,
+      "priceCHF": 2.05,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 1.1
+    }
+  },
+  {
+    "id": "ing-anchovies",
+    "name": {
+      "fr": "Anchois à l'huile",
+      "en": "Anchovies in oil"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "allergens": [
+      "fish"
+    ],
+    "tags": [
+      "anchovy"
+    ],
+    "nutrition": {
+      "protein": 25,
+      "kcal": 210
+    },
+    "pack": {
+      "qty": 50,
+      "priceEUR": 1.8,
+      "priceCHF": 2.5,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4,
+      "priceGBP": 1.65
+    }
+  },
+  {
+    "id": "ing-olive-oil",
+    "name": {
+      "fr": "Huile d'olive",
+      "en": "Olive oil"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 750,
+      "qtyByCountry": {
+        "GB": 1000
+      },
+      "priceEUR": 7.5,
+      "priceCHF": 10.65,
+      "priceCAD": 12,
+      "priceUSD": 9.49,
+      "priceAUD": 12.5,
+      "priceGBP": 7.75
+    }
+  },
+  {
+    "id": "ing-vegetable-oil",
+    "name": {
+      "fr": "Huile de tournesol",
+      "en": "Vegetable oil"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 2.5,
+      "priceCHF": 3.55,
+      "priceCAD": 4.5,
+      "priceUSD": 3.49,
+      "priceAUD": 4.8,
+      "priceGBP": 1.45
+    }
+  },
+  {
+    "id": "ing-sesame-oil",
+    "name": {
+      "fr": "Huile de sésame",
+      "en": "Sesame oil"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "allergens": [
+      "sesame"
+    ],
+    "staple": false,
+    "pack": {
+      "qty": 250,
+      "priceEUR": 3.5,
+      "priceCHF": 5.7,
+      "priceCAD": 5.5,
+      "priceUSD": 4.99,
+      "priceAUD": 6.5,
+      "priceGBP": 2.65
+    }
+  },
+  {
+    "id": "ing-balsamic",
+    "name": {
+      "fr": "Vinaigre balsamique",
+      "en": "Balsamic vinegar"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 250,
+      "priceEUR": 2.5,
+      "priceCHF": 3.55,
+      "priceCAD": 4.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4.2,
+      "priceGBP": 1.65
+    }
+  },
+  {
+    "id": "ing-wine-vinegar",
+    "name": {
+      "fr": "Vinaigre de vin",
+      "en": "Wine vinegar"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 500,
+      "qtyByCountry": {
+        "GB": 350
+      },
+      "priceEUR": 1.5,
+      "priceCHF": 2.15,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 1.55
+    }
+  },
+  {
+    "id": "ing-rice-vinegar",
+    "name": {
+      "fr": "Vinaigre de riz",
+      "en": "Rice vinegar"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "staple": false,
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 150
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.1,
+      "priceCAD": 3.5,
+      "priceUSD": 2.69,
+      "priceAUD": 3.8,
+      "priceGBP": 2.25
+    }
+  },
+  {
+    "id": "ing-soy-sauce",
+    "name": {
+      "fr": "Sauce soja",
+      "en": "Soy sauce"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "allergens": [
+      "soy",
+      "gluten"
+    ],
+    "staple": true,
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 150
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.1,
+      "priceCAD": 3.5,
+      "priceUSD": 2.79,
+      "priceAUD": 3.6,
+      "priceGBP": 0.55
+    }
+  },
+  {
+    "id": "ing-fish-sauce",
+    "name": {
+      "fr": "Sauce nuoc-mâm",
+      "en": "Fish sauce",
+      "fr-CA": "Sauce de poisson"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "allergens": [
+      "fish"
+    ],
+    "staple": false,
+    "pack": {
+      "qty": 200,
+      "priceEUR": 2.5,
+      "priceCHF": 3.55,
+      "priceCAD": 4,
+      "priceUSD": 2.99,
+      "priceAUD": 4,
+      "priceGBP": 1.85
+    }
+  },
+  {
+    "id": "ing-oyster-sauce",
+    "name": {
+      "fr": "Sauce huître",
+      "en": "Oyster sauce"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "allergens": [
+      "shellfish"
+    ],
+    "staple": false,
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 150
+      },
+      "priceEUR": 2.8,
+      "priceCHF": 4,
+      "priceCAD": 4,
+      "priceUSD": 3.19,
+      "priceAUD": 4.3,
+      "priceGBP": 1.65
+    }
+  },
+  {
+    "id": "ing-mustard",
+    "name": {
+      "fr": "Moutarde de Dijon",
+      "en": "Dijon mustard"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [
+      "mustard"
+    ],
+    "staple": true,
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "GB": 185
+      },
+      "priceEUR": 1.8,
+      "priceCHF": 2.55,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 3.2,
+      "priceGBP": 0.45
+    }
+  },
+  {
+    "id": "ing-mayo",
+    "name": {
+      "fr": "Mayonnaise",
+      "en": "Mayonnaise"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [
+      "eggs",
+      "mustard"
+    ],
+    "staple": true,
+    "pack": {
+      "qty": 235,
+      "priceEUR": 1.9,
+      "priceCHF": 2.7,
+      "priceCAD": 4,
+      "priceUSD": 3.49,
+      "priceAUD": 4.5,
+      "priceGBP": 1.39
+    }
+  },
+  {
+    "id": "ing-honey",
+    "name": {
+      "fr": "Miel",
+      "en": "Honey"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 340
+      },
+      "priceEUR": 3.5,
+      "priceCHF": 4.95,
+      "priceCAD": 5.5,
+      "priceUSD": 5.49,
+      "priceAUD": 6.5,
+      "priceGBP": 1.19
+    }
+  },
+  {
+    "id": "ing-maple-syrup",
+    "name": {
+      "fr": "Sirop d'érable",
+      "en": "Maple syrup"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "staple": false,
+    "pack": {
+      "qty": 250,
+      "priceEUR": 4.5,
+      "priceCHF": 6.4,
+      "priceCAD": 6,
+      "priceUSD": 6.99,
+      "priceAUD": 8.5,
+      "priceGBP": 6.85
+    }
+  },
+  {
+    "id": "ing-curry-paste",
+    "name": {
+      "fr": "Pâte de curry rouge",
+      "en": "Red curry paste"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "compositionRisk": {
+      "possibleAllergens": [
+        "shellfish"
+      ],
+      "possibleAnimalDerived": true
+    },
+    "pack": {
+      "qty": 110,
+      "qtyByCountry": {
+        "GB": 180
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.1,
+      "priceCAD": 3.5,
+      "priceUSD": 3.29,
+      "priceAUD": 4,
+      "priceGBP": 2.25
+    }
+  },
+  {
+    "id": "ing-curry-powder",
+    "name": {
+      "fr": "Curry en poudre",
+      "en": "Curry powder"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 50,
+      "qtyByCountry": {
+        "GB": 80
+      },
+      "priceEUR": 1.8,
+      "priceCHF": 2.55,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.2,
+      "priceGBP": 1.25
+    }
+  },
+  {
+    "id": "ing-garam-masala",
+    "name": {
+      "fr": "Garam masala",
+      "en": "Garam masala"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": false,
+    "pack": {
+      "qty": 50,
+      "qtyByCountry": {
+        "GB": 38
+      },
+      "priceEUR": 2,
+      "priceCHF": 2.85,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 3.8,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-paprika",
+    "name": {
+      "fr": "Paprika fumé",
+      "en": "Smoked paprika"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 50,
+      "qtyByCountry": {
+        "GB": 48
+      },
+      "priceEUR": 1.8,
+      "priceCHF": 2.55,
+      "priceCAD": 3,
+      "priceUSD": 2.79,
+      "priceAUD": 3.5,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-cumin",
+    "name": {
+      "fr": "Cumin moulu",
+      "en": "Ground cumin"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 40,
+      "priceEUR": 1.6,
+      "priceCHF": 2.25,
+      "priceCAD": 2.8,
+      "priceUSD": 2.29,
+      "priceAUD": 3,
+      "priceGBP": 1.17
+    }
+  },
+  {
+    "id": "ing-turmeric",
+    "name": {
+      "fr": "Curcuma",
+      "en": "Turmeric"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 40,
+      "qtyByCountry": {
+        "GB": 45
+      },
+      "priceEUR": 1.7,
+      "priceCHF": 2.4,
+      "priceCAD": 2.8,
+      "priceUSD": 2.49,
+      "priceAUD": 3.2,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-cinnamon",
+    "name": {
+      "fr": "Cannelle moulue",
+      "en": "Ground cinnamon"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 40,
+      "qtyByCountry": {
+        "GB": 36
+      },
+      "priceEUR": 1.6,
+      "priceCHF": 2.25,
+      "priceCAD": 2.8,
+      "priceUSD": 2.29,
+      "priceAUD": 3,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-nutmeg",
+    "name": {
+      "fr": "Noix de muscade moulue",
+      "en": "Ground nutmeg"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [],
+    "staple": true,
+    "pack": {
+      "qty": 40,
+      "qtyByCountry": {
+        "CH": 50,
+        "GB": 52
+      },
+      "priceEUR": 2.3,
+      "priceCHF": 2.25,
+      "priceCAD": 6.5,
+      "priceUSD": 3.59,
+      "priceAUD": 2.4,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-oregano",
+    "name": {
+      "fr": "Origan séché",
+      "en": "Dried oregano"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 20,
+      "qtyByCountry": {
+        "GB": 14
+      },
+      "priceEUR": 1.4,
+      "priceCHF": 2,
+      "priceCAD": 2.5,
+      "priceUSD": 2.19,
+      "priceAUD": 2.8,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-herbes-provence",
+    "name": {
+      "fr": "Herbes de Provence",
+      "en": "Herbes de Provence"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 30,
+      "qtyByCountry": {
+        "GB": 17
+      },
+      "priceEUR": 1.5,
+      "priceCHF": 2.15,
+      "priceCAD": 2.8,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-bay-leaves",
+    "name": {
+      "fr": "Feuilles de laurier",
+      "en": "Bay leaves"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 10,
+      "priceEUR": 1.3,
+      "priceCHF": 1.85,
+      "priceCAD": 2.5,
+      "priceUSD": 2.29,
+      "priceAUD": 3,
+      "priceGBP": 0.95
+    }
+  },
+  {
+    "id": "ing-chili-flakes",
+    "name": {
+      "fr": "Piment en flocons",
+      "en": "Chili flakes",
+      "en-GB": "Chilli flakes"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": false,
+    "pack": {
+      "qty": 40,
+      "qtyByCountry": {
+        "GB": 28
+      },
+      "priceEUR": 1.6,
+      "priceCHF": 2.25,
+      "priceCAD": 2.8,
+      "priceUSD": 2.49,
+      "priceAUD": 3.2,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-chili-powder",
+    "name": {
+      "fr": "Piment doux moulu",
+      "en": "Chili powder",
+      "en-GB": "Chilli powder"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": false,
+    "pack": {
+      "qty": 50,
+      "priceEUR": 1.7,
+      "priceCHF": 2.4,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.3,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-sriracha",
+    "name": {
+      "fr": "Sauce sriracha",
+      "en": "Sriracha"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "staple": false,
+    "pack": {
+      "qty": 250,
+      "priceEUR": 2.8,
+      "priceCHF": 4,
+      "priceCAD": 4.5,
+      "priceUSD": 3.49,
+      "priceAUD": 4.5,
+      "priceGBP": 3.14
+    }
+  },
+  {
+    "id": "ing-harissa",
+    "name": {
+      "fr": "Harissa",
+      "en": "Harissa"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": false,
+    "pack": {
+      "qty": 140,
+      "qtyByCountry": {
+        "GB": 90
+      },
+      "priceEUR": 1.9,
+      "priceCHF": 2.7,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4,
+      "priceGBP": 1.8
+    }
+  },
+  {
+    "id": "ing-tahini",
+    "name": {
+      "fr": "Tahini",
+      "en": "Tahini"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [
+      "sesame"
+    ],
+    "pack": {
+      "qty": 300,
+      "priceEUR": 3.8,
+      "priceCHF": 5.4,
+      "priceCAD": 6.5,
+      "priceUSD": 4.99,
+      "priceAUD": 6.5,
+      "priceGBP": 3.25
+    }
+  },
+  {
+    "id": "ing-pesto",
+    "name": {
+      "fr": "Pesto basilic",
+      "en": "Basil pesto"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [
+      "lactose",
+      "nuts"
+    ],
+    "pack": {
+      "qty": 190,
+      "priceEUR": 2.2,
+      "priceCHF": 4,
+      "priceCAD": 4,
+      "priceUSD": 3.49,
+      "priceAUD": 4.5,
+      "priceGBP": 0.89
+    }
+  },
+  {
+    "id": "ing-stock-cube",
+    "name": {
+      "fr": "Bouillon cube",
+      "en": "Stock cubes"
+    },
+    "unit": "unit",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 12,
+      "qtyByCountry": {
+        "GB": 10
+      },
+      "priceEUR": 1.8,
+      "priceCHF": 2.55,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3.2,
+      "priceGBP": 1
+    }
+  },
+  {
+    "id": "ing-veal-stock",
+    "name": {
+      "fr": "Fond de veau",
+      "en": "Brown gravy mix",
+      "fr-CA": "Sauce demi-glace (sachet)",
+      "fr-CH": "Sauce pour rôti liée",
+      "en-AU": "Gravy mix",
+      "en-GB": "Beef gravy granules"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [
+      "gluten"
+    ],
+    "compositionRisk": {
+      "possibleAllergens": [
+        "soy",
+        "lactose"
+      ]
+    },
+    "pack": {
+      "qty": 110,
+      "qtyByCountry": {
+        "CH": 200,
+        "CA": 34,
+        "US": 25,
+        "GB": 200
+      },
+      "priceEUR": 2.5,
+      "priceCHF": 4.7,
+      "priceCAD": 2.4,
+      "priceUSD": 0.79,
+      "priceAUD": 3,
+      "priceGBP": 0.66
+    }
+  },
+  {
+    "id": "ing-salt",
+    "name": {
+      "fr": "Sel",
+      "en": "Salt"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 500,
+      "priceEUR": 0.8,
+      "priceCHF": 1.15,
+      "priceCAD": 1.5,
+      "priceUSD": 0.99,
+      "priceAUD": 1.5,
+      "priceGBP": 0.58
+    }
+  },
+  {
+    "id": "ing-pepper",
+    "name": {
+      "fr": "Poivre noir",
+      "en": "Black pepper"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": true,
+    "pack": {
+      "qty": 50,
+      "priceEUR": 2.2,
+      "priceCHF": 3.1,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4,
+      "priceGBP": 1.6
+    }
+  },
+  {
+    "id": "ing-coconut-oil",
+    "name": {
+      "fr": "Huile de coco",
+      "en": "Coconut oil"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": false,
+    "tags": [
+      "coconut"
+    ],
+    "pack": {
+      "qty": 250,
+      "priceEUR": 3.5,
+      "priceCHF": 4.95,
+      "priceCAD": 6,
+      "priceUSD": 4.49,
+      "priceAUD": 6.5,
+      "priceGBP": 2.55
+    }
+  },
+  {
+    "id": "ing-bbq-sauce",
+    "name": {
+      "fr": "Sauce barbecue",
+      "en": "BBQ sauce"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "staple": false,
+    "pack": {
+      "qty": 300,
+      "priceEUR": 2,
+      "priceCHF": 2.85,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 1.46
+    }
+  },
+  {
+    "id": "ing-hoisin",
+    "name": {
+      "fr": "Sauce hoisin",
+      "en": "Hoisin sauce"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "allergens": [
+      "soy",
+      "sesame"
+    ],
+    "staple": false,
+    "pack": {
+      "qty": 250,
+      "priceEUR": 2.6,
+      "priceCHF": 3.7,
+      "priceCAD": 4,
+      "priceUSD": 3.29,
+      "priceAUD": 4.5,
+      "priceGBP": 1.88
+    }
+  },
+  {
+    "id": "ing-miso",
+    "name": {
+      "fr": "Pâte miso",
+      "en": "Miso paste"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [
+      "soy"
+    ],
+    "pack": {
+      "qty": 300,
+      "qtyByCountry": {
+        "GB": 100
+      },
+      "priceEUR": 3.9,
+      "priceCHF": 5.55,
+      "priceCAD": 6.5,
+      "priceUSD": 4.99,
+      "priceAUD": 6.5,
+      "priceGBP": 1.8
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-peanut-butter",
+    "name": {
+      "fr": "Beurre de cacahuète",
+      "en": "Peanut butter",
+      "fr-CA": "Beurre d'arachide"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [
+      "peanut"
+    ],
+    "staple": false,
+    "pack": {
+      "qty": 350,
+      "qtyByCountry": {
+        "GB": 340
+      },
+      "priceEUR": 2.8,
+      "priceCHF": 4,
+      "priceCAD": 4.5,
+      "priceUSD": 3.29,
+      "priceAUD": 4.8,
+      "priceGBP": 1.8
+    }
+  },
+  {
+    "id": "ing-frozen-peas",
+    "name": {
+      "fr": "Petits pois surgelés",
+      "en": "Frozen peas",
+      "fr-CA": "Petits pois congelés"
+    },
+    "unit": "g",
+    "aisle": "frozen",
+    "tags": [
+      "peas"
+    ],
+    "pack": {
+      "qty": 750,
+      "qtyByCountry": {
+        "GB": 1000
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 4.3,
+      "priceCAD": 4,
+      "priceUSD": 2.79,
+      "priceAUD": 4,
+      "priceGBP": 1.7
+    }
+  },
+  {
+    "id": "ing-frozen-spinach",
+    "name": {
+      "fr": "Épinards surgelés",
+      "en": "Frozen spinach",
+      "fr-CA": "Épinards congelés"
+    },
+    "unit": "g",
+    "aisle": "frozen",
+    "tags": [
+      "spinach"
+    ],
+    "pack": {
+      "qty": 600,
+      "priceEUR": 2,
+      "priceCHF": 2.8,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 1.16
+    }
+  },
+  {
+    "id": "ing-wok-vegetables",
+    "name": {
+      "fr": "Légumes pour wok surgelés",
+      "en": "Frozen stir-fry vegetables",
+      "fr-CA": "Légumes pour wok congelés"
+    },
+    "unit": "g",
+    "aisle": "frozen",
+    "pack": {
+      "qty": 750,
+      "priceEUR": 2.8,
+      "priceCHF": 3.9,
+      "priceCAD": 4.5,
+      "priceUSD": 3.49,
+      "priceAUD": 4.8,
+      "priceGBP": 1.62
+    }
+  },
+  {
+    "id": "ing-edamame",
+    "name": {
+      "fr": "Edamame surgelés",
+      "en": "Frozen edamame",
+      "fr-CA": "Edamame congelés"
+    },
+    "unit": "g",
+    "aisle": "frozen",
+    "allergens": [
+      "soy"
+    ],
+    "nutrition": {
+      "protein": 11,
+      "kcal": 120
+    },
+    "pack": {
+      "qty": 400,
+      "qtyByCountry": {
+        "GB": 600
+      },
+      "priceEUR": 2.8,
+      "priceCHF": 3.9,
+      "priceCAD": 4.5,
+      "priceUSD": 3.29,
+      "priceAUD": 4.5,
+      "priceGBP": 3.4
+    },
+    "tags": [
+      "gut"
+    ]
+  },
+  {
+    "id": "ing-frozen-green-beans",
+    "name": {
+      "fr": "Haricots verts surgelés",
+      "en": "Frozen green beans",
+      "fr-CA": "Haricots verts congelés"
+    },
+    "unit": "g",
+    "aisle": "frozen",
+    "tags": [
+      "green-beans"
+    ],
+    "pack": {
+      "qty": 750,
+      "qtyByCountry": {
+        "GB": 900
+      },
+      "priceEUR": 2.3,
+      "priceCHF": 3.2,
+      "priceCAD": 4,
+      "priceUSD": 2.79,
+      "priceAUD": 4,
+      "priceGBP": 1.07
+    }
+  },
+  {
+    "id": "ing-frozen-fries",
+    "name": {
+      "fr": "Frites surgelées",
+      "en": "Frozen fries",
+      "fr-CA": "Frites congelées",
+      "en-AU": "Frozen chips",
+      "en-GB": "Oven chips"
+    },
+    "unit": "g",
+    "aisle": "frozen",
+    "allergens": [],
+    "compositionRisk": {
+      "possibleAllergens": [
+        "gluten"
+      ]
+    },
+    "pack": {
+      "qty": 1000,
+      "qtyByCountry": {
+        "CA": 750,
+        "GB": 1500
+      },
+      "priceEUR": 2.6,
+      "priceCHF": 5.4,
+      "priceCAD": 3.6,
+      "priceUSD": 3.59,
+      "priceAUD": 3.6,
+      "priceGBP": 2.45
+    }
+  },
+  {
+    "id": "ing-white-wine",
+    "name": {
+      "fr": "Vin blanc sec (cuisine)",
+      "en": "Dry white wine"
+    },
+    "unit": "ml",
+    "aisle": "beverages",
+    "pack": {
+      "qty": 750,
+      "priceEUR": 3.5,
+      "priceCHF": 5.25,
+      "priceCAD": 9,
+      "priceUSD": 8.99,
+      "priceAUD": 10,
+      "priceGBP": 5.5
+    }
+  },
+  {
+    "id": "ing-tempeh",
+    "name": {
+      "fr": "Tempeh",
+      "en": "Tempeh"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "soy"
+    ],
+    "tags": [
+      "gut"
+    ],
+    "nutrition": {
+      "protein": 19,
+      "kcal": 190
+    },
+    "pack": {
+      "qty": 200,
+      "priceEUR": 2.8,
+      "priceCHF": 4.2,
+      "priceCAD": 4.5,
+      "priceUSD": 3.49,
+      "priceAUD": 5,
+      "priceGBP": 2.75
+    }
+  },
+  {
+    "id": "ing-seitan",
+    "name": {
+      "fr": "Seitan",
+      "en": "Seitan"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "gluten"
+    ],
+    "nutrition": {
+      "protein": 24,
+      "kcal": 150
+    },
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "GB": 225
+      },
+      "priceEUR": 3.2,
+      "priceCHF": 4.8,
+      "priceCAD": 5,
+      "priceUSD": 3.99,
+      "priceAUD": 5.5,
+      "priceGBP": 1.97
+    }
+  },
+  {
+    "id": "ing-skyr",
+    "name": {
+      "fr": "Skyr",
+      "en": "Skyr"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "tags": [
+      "gut"
+    ],
+    "nutrition": {
+      "protein": 11,
+      "kcal": 63
+    },
+    "pack": {
+      "qty": 450,
+      "priceEUR": 2.1,
+      "priceCHF": 3.15,
+      "priceCAD": 4,
+      "priceUSD": 2.79,
+      "priceAUD": 4.2,
+      "priceGBP": 1.66
+    }
+  },
+  {
+    "id": "ing-paneer",
+    "name": {
+      "fr": "Paneer",
+      "en": "Paneer"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 18.5,
+      "kcal": 300
+    },
+    "pack": {
+      "qty": 200,
+      "priceEUR": 3,
+      "priceCHF": 4.5,
+      "priceCAD": 5.5,
+      "priceUSD": 3.99,
+      "priceAUD": 5.5,
+      "priceGBP": 1.8
+    }
+  },
+  {
+    "id": "ing-cottage-cheese",
+    "name": {
+      "fr": "Fromage cottage",
+      "en": "Cottage cheese"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 12,
+      "kcal": 100
+    },
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "GB": 300
+      },
+      "priceEUR": 1.9,
+      "priceCHF": 1.85,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 3.5,
+      "priceGBP": 1.65
+    }
+  },
+  {
+    "id": "ing-smoked-tofu",
+    "name": {
+      "fr": "Tofu fumé",
+      "en": "Smoked tofu"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "soy"
+    ],
+    "nutrition": {
+      "protein": 16,
+      "kcal": 155
+    },
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "GB": 400
+      },
+      "priceEUR": 2.6,
+      "priceCHF": 3.9,
+      "priceCAD": 4.2,
+      "priceUSD": 3.29,
+      "priceAUD": 4.8,
+      "priceGBP": 2.5
+    }
+  },
+  {
+    "id": "ing-gnocchi",
+    "name": {
+      "fr": "Gnocchis frais",
+      "en": "Fresh gnocchi"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.8,
+      "priceCHF": 2.5,
+      "priceCAD": 3.5,
+      "priceUSD": 2.29,
+      "priceAUD": 3.5,
+      "priceGBP": 2
+    }
+  },
+  {
+    "id": "ing-tortellini",
+    "name": {
+      "fr": "Tortellini ricotta-épinards",
+      "en": "Ricotta & spinach tortellini"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "gluten",
+      "lactose",
+      "eggs"
+    ],
+    "pack": {
+      "qty": 300,
+      "priceEUR": 2.5,
+      "priceCHF": 3.75,
+      "priceCAD": 4.5,
+      "priceUSD": 3.49,
+      "priceAUD": 4.8,
+      "priceGBP": 2.25
+    }
+  },
+  {
+    "id": "ing-naan",
+    "name": {
+      "fr": "Pains naan",
+      "en": "Naan breads"
+    },
+    "unit": "unit",
+    "aisle": "bakery",
+    "allergens": [
+      "gluten",
+      "lactose"
+    ],
+    "pack": {
+      "qty": 2,
+      "priceEUR": 1.9,
+      "priceCHF": 2.95,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 3.8,
+      "priceGBP": 0.69
+    }
+  },
+  {
+    "id": "ing-kimchi",
+    "name": {
+      "fr": "Kimchi",
+      "en": "Kimchi"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "allergens": [
+      "fish"
+    ],
+    "tags": [
+      "gut"
+    ],
+    "pack": {
+      "qty": 300,
+      "priceEUR": 3.5,
+      "priceCHF": 4.85,
+      "priceCAD": 6,
+      "priceUSD": 4.49,
+      "priceAUD": 6.5,
+      "priceGBP": 3
+    }
+  },
+  {
+    "id": "ing-lentil-pasta",
+    "name": {
+      "fr": "Penne de lentilles corail",
+      "en": "Red lentil penne"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "tags": [
+      "gut"
+    ],
+    "pack": {
+      "qty": 250,
+      "priceEUR": 2.4,
+      "priceCHF": 3.3,
+      "priceCAD": 4,
+      "priceUSD": 2.99,
+      "priceAUD": 4.5,
+      "priceGBP": 1.9
+    }
+  },
+  {
+    "id": "ing-ground-turkey",
+    "name": {
+      "fr": "Dinde hachée",
+      "en": "Ground turkey",
+      "en-GB": "Turkey mince"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 20,
+      "kcal": 140
+    },
+    "pack": {
+      "qty": 450,
+      "qtyByCountry": {
+        "GB": 500
+      },
+      "priceEUR": 4.5,
+      "priceCHF": 8.1,
+      "priceCAD": 7,
+      "priceUSD": 5.49,
+      "priceAUD": 7.5,
+      "priceGBP": 4.75
+    }
+  },
+  {
+    "id": "ing-fennel",
+    "name": {
+      "fr": "Fenouil",
+      "en": "Fennel bulb"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.8,
+      "priceCHF": 2.35,
+      "priceCAD": 3,
+      "priceUSD": 2.29,
+      "priceAUD": 3.5,
+      "priceGBP": 1.25
+    }
+  },
+  {
+    "id": "ing-asparagus",
+    "name": {
+      "fr": "Asperges vertes fraîches",
+      "en": "Fresh green asparagus"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 500,
+      "qtyByCountry": {
+        "GB": 180
+      },
+      "priceEUR": 4.5,
+      "priceCHF": 5.85,
+      "priceCAD": 7,
+      "priceUSD": 4.99,
+      "priceAUD": 8,
+      "priceGBP": 1.7
+    }
+  },
+  {
+    "id": "ing-kale",
+    "name": {
+      "fr": "Chou kale",
+      "en": "Kale"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "cabbage"
+    ],
+    "pack": {
+      "qty": 300,
+      "qtyByCountry": {
+        "GB": 180
+      },
+      "priceEUR": 2.5,
+      "priceCHF": 3.25,
+      "priceCAD": 4,
+      "priceUSD": 2.79,
+      "priceAUD": 4,
+      "priceGBP": 0.8
+    }
+  },
+  {
+    "id": "ing-brussels-sprouts",
+    "name": {
+      "fr": "Choux de Bruxelles",
+      "en": "Brussels sprouts"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "cabbage"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 2.8,
+      "priceCHF": 3.65,
+      "priceCAD": 4.5,
+      "priceUSD": 3.49,
+      "priceAUD": 5,
+      "priceGBP": 0.89,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-beetroot",
+    "name": {
+      "fr": "Betteraves cuites",
+      "en": "Cooked beets",
+      "en-AU": "Cooked beetroot",
+      "en-GB": "Cooked beetroot"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "tags": [
+      "beetroot"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 2.5,
+      "priceCHF": 3.25,
+      "priceCAD": 4,
+      "priceUSD": 3.29,
+      "priceAUD": 4.5,
+      "priceGBP": 0.9
+    }
+  },
+  {
+    "id": "ing-pomegranate",
+    "name": {
+      "fr": "Grenade",
+      "en": "Pomegranate"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "priceEUR": 2.5,
+      "priceCHF": 3.25,
+      "priceCAD": 3.5,
+      "priceUSD": 2.5,
+      "priceAUD": 4,
+      "priceGBP": 1.33
+    }
+  },
+  {
+    "id": "ing-dill",
+    "name": {
+      "fr": "Aneth frais",
+      "en": "Fresh dill"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 20,
+      "priceEUR": 1.5,
+      "priceCHF": 1.95,
+      "priceCAD": 2.5,
+      "priceUSD": 2.19,
+      "priceAUD": 3,
+      "priceGBP": 0.48,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-radish",
+    "name": {
+      "fr": "Radis",
+      "en": "Radishes"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 240
+      },
+      "priceEUR": 1.5,
+      "priceCHF": 1.95,
+      "priceCAD": 2.5,
+      "priceUSD": 1.69,
+      "priceAUD": 2.5,
+      "priceGBP": 0.56
+    }
+  },
+  {
+    "id": "ing-snow-peas",
+    "name": {
+      "fr": "Pois gourmands",
+      "en": "Snow peas",
+      "fr-CA": "Pois mange-tout",
+      "en-GB": "Mangetout"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "GB": 180
+      },
+      "priceEUR": 2.5,
+      "priceCHF": 3.25,
+      "priceCAD": 4.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4.5,
+      "priceGBP": 1.6
+    }
+  },
+  {
+    "id": "ing-corn-cob",
+    "name": {
+      "fr": "Épi de maïs",
+      "en": "Corn on the cob"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1,
+      "priceCHF": 1.3,
+      "priceCAD": 1.8,
+      "priceUSD": 0.79,
+      "priceAUD": 1.5,
+      "priceGBP": 0.7
+    }
+  },
+  {
+    "id": "ing-duck-breast",
+    "name": {
+      "fr": "Magret de canard",
+      "en": "Duck breast"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 18,
+      "kcal": 290
+    },
+    "pack": {
+      "qty": 350,
+      "priceEUR": 9.5,
+      "priceCHF": 17.1,
+      "priceCAD": 15,
+      "priceUSD": 11.5,
+      "priceAUD": 16.5,
+      "priceGBP": 7.6
+    }
+  },
+  {
+    "id": "ing-merguez",
+    "name": {
+      "fr": "Merguez",
+      "en": "Merguez sausages"
+    },
+    "unit": "g",
+    "aisle": "meat",
+    "nutrition": {
+      "protein": 14.5,
+      "kcal": 280
+    },
+    "pack": {
+      "qty": 300,
+      "priceEUR": 4.5,
+      "priceCHF": 8.1,
+      "priceCAD": 7.5,
+      "priceUSD": 5.99,
+      "priceAUD": 8,
+      "priceGBP": 3.6
+    }
+  },
+  {
+    "id": "ing-scallops",
+    "name": {
+      "fr": "Noix de Saint-Jacques",
+      "en": "Scallops"
+    },
+    "unit": "g",
+    "aisle": "fish",
+    "allergens": [
+      "shellfish"
+    ],
+    "nutrition": {
+      "protein": 17,
+      "kcal": 85
+    },
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 150
+      },
+      "priceEUR": 12,
+      "priceCHF": 18.6,
+      "priceCAD": 18,
+      "priceUSD": 12.99,
+      "priceAUD": 19.5,
+      "priceGBP": 5
+    }
+  },
+  {
+    "id": "ing-tuna-steak",
+    "name": {
+      "fr": "Steaks de thon",
+      "en": "Tuna steaks"
+    },
+    "unit": "g",
+    "aisle": "fish",
+    "allergens": [
+      "fish"
+    ],
+    "nutrition": {
+      "protein": 23.5,
+      "kcal": 110
+    },
+    "pack": {
+      "qty": 250,
+      "priceEUR": 7.5,
+      "priceCHF": 11.65,
+      "priceCAD": 12,
+      "priceUSD": 8.99,
+      "priceAUD": 13.5,
+      "priceGBP": 7.8
+    }
+  },
+  {
+    "id": "ing-burrata",
+    "name": {
+      "fr": "Burrata",
+      "en": "Burrata"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 12,
+      "kcal": 280
+    },
+    "pack": {
+      "qty": 150,
+      "priceEUR": 2.9,
+      "priceCHF": 4.35,
+      "priceCAD": 5.5,
+      "priceUSD": 3.49,
+      "priceAUD": 5.5,
+      "priceGBP": 2.29
+    }
+  },
+  {
+    "id": "ing-mascarpone",
+    "name": {
+      "fr": "Mascarpone",
+      "en": "Mascarpone"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "pack": {
+      "qty": 250,
+      "priceEUR": 2.6,
+      "priceCHF": 3.9,
+      "priceCAD": 4.5,
+      "priceUSD": 3.29,
+      "priceAUD": 4.8,
+      "priceGBP": 2.25
+    }
+  },
+  {
+    "id": "ing-ciabatta",
+    "name": {
+      "fr": "Ciabatta",
+      "en": "Ciabatta"
+    },
+    "unit": "unit",
+    "aisle": "bakery",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 1,
+      "priceEUR": 1.6,
+      "priceCHF": 2.5,
+      "priceCAD": 3,
+      "priceUSD": 2.49,
+      "priceAUD": 3,
+      "priceGBP": 2.1
+    }
+  },
+  {
+    "id": "ing-orzo",
+    "name": {
+      "fr": "Orzo",
+      "en": "Orzo pasta"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 2.2,
+      "priceCHF": 3.05,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 3.8,
+      "priceGBP": 2.15
+    }
+  },
+  {
+    "id": "ing-soba",
+    "name": {
+      "fr": "Nouilles soba",
+      "en": "Soba noodles"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 250,
+      "priceEUR": 2.9,
+      "priceCHF": 4,
+      "priceCAD": 4.5,
+      "priceUSD": 3.29,
+      "priceAUD": 5,
+      "priceGBP": 2.47
+    }
+  },
+  {
+    "id": "ing-panko",
+    "name": {
+      "fr": "Chapelure panko",
+      "en": "Panko breadcrumbs"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "pack": {
+      "qty": 200,
+      "qtyByCountry": {
+        "GB": 150
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.05,
+      "priceCAD": 3.8,
+      "priceUSD": 2.49,
+      "priceAUD": 3.8,
+      "priceGBP": 2.1
+    }
+  },
+  {
+    "id": "ing-dried-apricots",
+    "name": {
+      "fr": "Abricots secs",
+      "en": "Dried apricots"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 250,
+      "priceEUR": 2.6,
+      "priceCHF": 3.6,
+      "priceCAD": 4,
+      "priceUSD": 2.99,
+      "priceAUD": 4.5,
+      "priceGBP": 2.8
+    }
+  },
+  {
+    "id": "ing-dates",
+    "name": {
+      "fr": "Dattes",
+      "en": "Dates"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 250,
+      "priceEUR": 3,
+      "priceCHF": 4.15,
+      "priceCAD": 5,
+      "priceUSD": 3.49,
+      "priceAUD": 5,
+      "priceGBP": 2.3
+    }
+  },
+  {
+    "id": "ing-raisins",
+    "name": {
+      "fr": "Raisins secs",
+      "en": "Raisins"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "tags": [
+      "raisins"
+    ],
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 500
+      },
+      "priceEUR": 1.8,
+      "priceCHF": 2.5,
+      "priceCAD": 3,
+      "priceUSD": 2.29,
+      "priceAUD": 3.2,
+      "priceGBP": 2.3
+    }
+  },
+  {
+    "id": "ing-pistachios",
+    "name": {
+      "fr": "Pistaches décortiquées",
+      "en": "Shelled pistachios"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "nuts"
+    ],
+    "pack": {
+      "qty": 125,
+      "priceEUR": 3.9,
+      "priceCHF": 5.4,
+      "priceCAD": 6,
+      "priceUSD": 4.49,
+      "priceAUD": 6.8,
+      "priceGBP": 3.32
+    }
+  },
+  {
+    "id": "ing-pearl-barley",
+    "name": {
+      "fr": "Orge perlé",
+      "en": "Pearl barley"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "allergens": [
+      "gluten"
+    ],
+    "tags": [
+      "gut"
+    ],
+    "pack": {
+      "qty": 500,
+      "priceEUR": 1.9,
+      "priceCHF": 2.6,
+      "priceCAD": 3,
+      "priceUSD": 2.19,
+      "priceAUD": 3.3,
+      "priceGBP": 1.2
+    }
+  },
+  {
+    "id": "ing-pumpkin-seeds",
+    "name": {
+      "fr": "Graines de courge",
+      "en": "Pumpkin seeds"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "GB": 150
+      },
+      "priceEUR": 2.8,
+      "priceCHF": 3.85,
+      "priceCAD": 4.5,
+      "priceUSD": 3.29,
+      "priceAUD": 5,
+      "priceGBP": 1.8
+    }
+  },
+  {
+    "id": "ing-nutritional-yeast",
+    "name": {
+      "fr": "Levure maltée",
+      "en": "Nutritional yeast"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 125,
+      "qtyByCountry": {
+        "GB": 100
+      },
+      "priceEUR": 3.5,
+      "priceCHF": 4.85,
+      "priceCAD": 6,
+      "priceUSD": 4.49,
+      "priceAUD": 6.5,
+      "priceGBP": 3.25
+    }
+  },
+  {
+    "id": "ing-sun-dried-tomatoes",
+    "name": {
+      "fr": "Tomates séchées à l'huile",
+      "en": "Sun-dried tomatoes in oil"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "pack": {
+      "qty": 280,
+      "priceEUR": 3.2,
+      "priceCHF": 4.4,
+      "priceCAD": 5,
+      "priceUSD": 3.99,
+      "priceAUD": 5.5,
+      "priceGBP": 2.5
+    }
+  },
+  {
+    "id": "ing-capers",
+    "name": {
+      "fr": "Câpres",
+      "en": "Capers"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "pack": {
+      "qty": 100,
+      "priceEUR": 1.6,
+      "priceCHF": 2.2,
+      "priceCAD": 2.8,
+      "priceUSD": 2.49,
+      "priceAUD": 3,
+      "priceGBP": 0.85
+    }
+  },
+  {
+    "id": "ing-artichoke-hearts",
+    "name": {
+      "fr": "Cœurs d'artichaut en conserve",
+      "en": "Canned artichoke hearts",
+      "en-GB": "Tinned artichoke hearts"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "pack": {
+      "qty": 280,
+      "priceEUR": 3.2,
+      "priceCHF": 4.4,
+      "priceCAD": 4.8,
+      "priceUSD": 3.79,
+      "priceAUD": 5.5,
+      "priceGBP": 2.5
+    }
+  },
+  {
+    "id": "ing-roasted-peppers",
+    "name": {
+      "fr": "Poivrons rôtis en bocal",
+      "en": "Jarred roasted peppers"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "tags": [
+      "bell-pepper"
+    ],
+    "pack": {
+      "qty": 290,
+      "priceEUR": 2.8,
+      "priceCHF": 3.85,
+      "priceCAD": 4.2,
+      "priceUSD": 3.49,
+      "priceAUD": 4.8,
+      "priceGBP": 2.5
+    }
+  },
+  {
+    "id": "ing-pickled-jalapenos",
+    "name": {
+      "fr": "Jalapeños marinés",
+      "en": "Pickled jalapeños"
+    },
+    "unit": "g",
+    "aisle": "canned",
+    "pack": {
+      "qty": 220,
+      "qtyByCountry": {
+        "GB": 300
+      },
+      "priceEUR": 2.2,
+      "priceCHF": 3.05,
+      "priceCAD": 3.2,
+      "priceUSD": 2.79,
+      "priceAUD": 3.8,
+      "priceGBP": 1.6
+    }
+  },
+  {
+    "id": "ing-fig-jam",
+    "name": {
+      "fr": "Confiture de figues",
+      "en": "Fig jam"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "pack": {
+      "qty": 250,
+      "priceEUR": 2.9,
+      "priceCHF": 4.1,
+      "priceCAD": 4.8,
+      "priceUSD": 3.99,
+      "priceAUD": 5.5,
+      "priceGBP": 2.12
+    }
+  },
+  {
+    "id": "ing-gochujang",
+    "name": {
+      "fr": "Pâte gochujang",
+      "en": "Gochujang paste"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [
+      "soy",
+      "gluten"
+    ],
+    "pack": {
+      "qty": 200,
+      "priceEUR": 3.8,
+      "priceCHF": 5.4,
+      "priceCAD": 5.5,
+      "priceUSD": 4.49,
+      "priceAUD": 6.5,
+      "priceGBP": 2.77
+    }
+  },
+  {
+    "id": "ing-chipotle-adobo",
+    "name": {
+      "fr": "Chipotles en adobo",
+      "en": "Chipotles in adobo"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "pack": {
+      "qty": 200,
+      "priceEUR": 2.8,
+      "priceCHF": 4,
+      "priceCAD": 3.5,
+      "priceUSD": 2.49,
+      "priceAUD": 4.5,
+      "priceGBP": 2.04
+    }
+  },
+  {
+    "id": "ing-sweet-chili",
+    "name": {
+      "fr": "Sauce sweet chili",
+      "en": "Sweet chili sauce",
+      "en-GB": "Sweet chilli sauce"
+    },
+    "unit": "ml",
+    "aisle": "condiments",
+    "pack": {
+      "qty": 250,
+      "priceEUR": 2.4,
+      "priceCHF": 3.4,
+      "priceCAD": 3.5,
+      "priceUSD": 2.99,
+      "priceAUD": 4,
+      "priceGBP": 2
+    }
+  },
+  {
+    "id": "ing-ras-el-hanout",
+    "name": {
+      "fr": "Ras el-hanout",
+      "en": "Ras el hanout"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "staple": false,
+    "pack": {
+      "qty": 40,
+      "priceEUR": 2,
+      "priceCHF": 2.85,
+      "priceCAD": 3.2,
+      "priceUSD": 2.99,
+      "priceAUD": 4.2,
+      "priceGBP": 1.46
+    }
+  },
+  {
+    "id": "ing-zaatar",
+    "name": {
+      "fr": "Za'atar",
+      "en": "Za'atar"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "allergens": [
+      "sesame"
+    ],
+    "staple": false,
+    "pack": {
+      "qty": 50,
+      "qtyByCountry": {
+        "GB": 35
+      },
+      "priceEUR": 2.5,
+      "priceCHF": 3.55,
+      "priceCAD": 4,
+      "priceUSD": 3.49,
+      "priceAUD": 4.8,
+      "priceGBP": 2
+    }
+  },
+  {
+    "id": "ing-endive",
+    "name": {
+      "fr": "Endives",
+      "en": "Endives",
+      "fr-BE": "Chicons",
+      "en-GB": "Chicory"
+    },
+    "unit": "g",
+    "aisle": "produce",
+    "pack": {
+      "qty": 500,
+      "priceEUR": 2.4,
+      "priceCHF": 3.1,
+      "priceCAD": 4,
+      "priceUSD": 2.99,
+      "priceAUD": 4.2,
+      "priceGBP": 1.27,
+      "divisible": true
+    }
+  },
+  {
+    "id": "ing-buckwheat-flour",
+    "name": {
+      "fr": "Farine de sarrasin",
+      "en": "Buckwheat flour"
+    },
+    "unit": "g",
+    "aisle": "dry",
+    "pack": {
+      "qty": 1000,
+      "priceEUR": 2.5,
+      "priceCHF": 3.45,
+      "priceCAD": 5,
+      "priceUSD": 3.49,
+      "priceAUD": 5,
+      "priceGBP": 3.8,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-reblochon",
+    "name": {
+      "fr": "Reblochon",
+      "en": "Reblochon cheese"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "unavailableIn": [
+      "US"
+    ],
+    "allergens": [
+      "lactose"
+    ],
+    "nutrition": {
+      "protein": 20,
+      "kcal": 330
+    },
+    "pack": {
+      "qty": 450,
+      "priceEUR": 5.5,
+      "priceCHF": 8.25,
+      "priceCAD": 9,
+      "priceUSD": 7.99,
+      "priceAUD": 11,
+      "priceGBP": 4.35,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-camembert",
+    "name": {
+      "fr": "Camembert",
+      "en": "Camembert"
+    },
+    "unit": "g",
+    "aisle": "dairy",
+    "allergens": [
+      "lactose"
+    ],
+    "pack": {
+      "qty": 250,
+      "qtyByCountry": {
+        "AU": 200
+      },
+      "priceEUR": 1.7,
+      "priceCHF": 4.7,
+      "priceCAD": 9.9,
+      "priceUSD": 8.29,
+      "priceAUD": 5.8,
+      "priceGBP": 3.15
+    }
+  },
+  {
+    "id": "ing-apple",
+    "name": {
+      "fr": "Pomme",
+      "en": "Apple"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "priceEUR": 0.5,
+      "priceCHF": 0.65,
+      "priceCAD": 0.8,
+      "priceUSD": 0.69,
+      "priceAUD": 0.9,
+      "priceGBP": 0.4,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-orange",
+    "name": {
+      "fr": "Orange",
+      "en": "Orange"
+    },
+    "unit": "unit",
+    "aisle": "produce",
+    "pack": {
+      "qty": 1,
+      "priceEUR": 0.6,
+      "priceCHF": 0.8,
+      "priceCAD": 0.9,
+      "priceUSD": 0.79,
+      "priceAUD": 1,
+      "priceGBP": 0.35,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-red-wine",
+    "name": {
+      "fr": "Vin rouge sec (cuisine)",
+      "en": "Dry red wine (cooking)"
+    },
+    "unit": "ml",
+    "aisle": "beverages",
+    "pack": {
+      "qty": 750,
+      "priceEUR": 3.5,
+      "priceCHF": 5.25,
+      "priceCAD": 9,
+      "priceUSD": 8.99,
+      "priceAUD": 10,
+      "priceGBP": 5.5,
+      "divisible": false
+    }
+  },
+  {
+    "id": "ing-green-curry-paste",
+    "name": {
+      "fr": "Pâte de curry vert",
+      "en": "Green curry paste"
+    },
+    "unit": "g",
+    "aisle": "condiments",
+    "compositionRisk": {
+      "possibleAllergens": [
+        "shellfish"
+      ],
+      "possibleAnimalDerived": true
+    },
+    "pack": {
+      "qty": 110,
+      "qtyByCountry": {
+        "GB": 180
+      },
+      "priceEUR": 2.4,
+      "priceCHF": 3.4,
+      "priceCAD": 3.6,
+      "priceUSD": 3.39,
+      "priceAUD": 4.2,
+      "priceGBP": 2.25,
+      "divisible": false
+    }
+  }
+]

@@ -1,0 +1,726 @@
+[
+  {
+    "id": "leclerc",
+    "name": "E.Leclerc",
+    "country": "FR",
+    "priceCoefficient": 0.88,
+    "logo": "/logos/stores/fr/leclerc.svg",
+    "brandColor": "#0066CC"
+  },
+  {
+    "id": "carrefour",
+    "name": "Carrefour",
+    "country": "FR",
+    "priceCoefficient": 1,
+    "logo": "/logos/stores/fr/carrefour.svg",
+    "brandColor": "#004E9F"
+  },
+  {
+    "id": "intermarche",
+    "name": "Intermarché",
+    "country": "FR",
+    "priceCoefficient": 0.95,
+    "logo": "/logos/stores/fr/intermarche.svg",
+    "brandColor": "#EE1C25"
+  },
+  {
+    "id": "super-u",
+    "name": "Super U",
+    "country": "FR",
+    "priceCoefficient": 0.97,
+    "logo": "/logos/stores/fr/super-u.png",
+    "brandColor": "#CC0033"
+  },
+  {
+    "id": "lidl",
+    "name": "Lidl",
+    "country": "FR",
+    "priceCoefficient": 0.82,
+    "logo": "/logos/stores/fr/lidl.svg",
+    "brandColor": "#0050AA"
+  },
+  {
+    "id": "auchan",
+    "name": "Auchan",
+    "country": "FR",
+    "priceCoefficient": 0.93,
+    "logo": "/logos/stores/fr/auchan.svg",
+    "brandColor": "#E0001A"
+  },
+  {
+    "id": "aldi",
+    "name": "ALDI",
+    "country": "FR",
+    "priceCoefficient": 0.82,
+    "logo": "/logos/stores/fr/aldi.svg",
+    "brandColor": "#00005F"
+  },
+  {
+    "id": "netto",
+    "name": "Netto",
+    "country": "FR",
+    "priceCoefficient": 0.84,
+    "logo": "/logos/stores/fr/netto.svg",
+    "brandColor": "#E2001A"
+  },
+  {
+    "id": "monoprix",
+    "name": "Monoprix",
+    "country": "FR",
+    "priceCoefficient": 1.22,
+    "logo": "/logos/stores/fr/monoprix.svg",
+    "brandColor": "#E5004C"
+  },
+  {
+    "id": "grand-frais",
+    "name": "Grand Frais",
+    "country": "FR",
+    "priceCoefficient": 1.12,
+    "logo": "/logos/stores/fr/grand-frais.png",
+    "brandColor": "#009E60"
+  },
+  {
+    "id": "franprix",
+    "name": "Franprix",
+    "country": "FR",
+    "priceCoefficient": 1.17,
+    "logo": "/logos/stores/fr/franprix.svg",
+    "brandColor": "#EC6237"
+  },
+  {
+    "id": "picard",
+    "name": "Picard",
+    "country": "FR",
+    "priceCoefficient": 1.15,
+    "logo": "/logos/stores/fr/picard.png",
+    "brandColor": "#005BBB"
+  },
+  {
+    "id": "biocoop",
+    "name": "Biocoop",
+    "country": "FR",
+    "priceCoefficient": 1.4,
+    "logo": "/logos/stores/fr/biocoop.svg",
+    "brandColor": "#0032A0"
+  },
+  {
+    "id": "colruyt",
+    "name": "Colruyt",
+    "country": "BE",
+    "priceCoefficient": 0.9,
+    "logo": "/logos/stores/be/colruyt.svg",
+    "brandColor": "#ED7119",
+    "excludedFromComparison": true
+  },
+  {
+    "id": "delhaize",
+    "name": "Delhaize",
+    "country": "BE",
+    "priceCoefficient": 1.05,
+    "logo": "/logos/stores/be/delhaize.svg",
+    "brandColor": "#E22426"
+  },
+  {
+    "id": "carrefour-be",
+    "name": "Carrefour",
+    "country": "BE",
+    "priceCoefficient": 1.02,
+    "logo": "/logos/stores/be/carrefour-be.svg",
+    "brandColor": "#004E9F"
+  },
+  {
+    "id": "aldi-be",
+    "name": "ALDI",
+    "country": "BE",
+    "priceCoefficient": 0.79,
+    "logo": "/logos/stores/be/aldi-be.svg",
+    "brandColor": "#00005F"
+  },
+  {
+    "id": "lidl-be",
+    "name": "Lidl",
+    "country": "BE",
+    "priceCoefficient": 0.81,
+    "logo": "/logos/stores/be/lidl-be.svg",
+    "brandColor": "#0050AA"
+  },
+  {
+    "id": "intermarche-be",
+    "name": "Intermarché",
+    "country": "BE",
+    "priceCoefficient": 1.01,
+    "logo": "/logos/stores/be/intermarche-be.svg",
+    "brandColor": "#EE1C25"
+  },
+  {
+    "id": "albert-heijn",
+    "name": "Albert Heijn",
+    "country": "BE",
+    "priceCoefficient": 0.92,
+    "logo": "/logos/stores/be/albert-heijn.svg",
+    "brandColor": "#00A0E2"
+  },
+  {
+    "id": "okay",
+    "name": "OKay",
+    "country": "BE",
+    "priceCoefficient": 0.96,
+    "logo": "/logos/stores/be/okay.png",
+    "brandColor": "#003CA4",
+    "excludedFromComparison": true
+  },
+  {
+    "id": "spar-be",
+    "name": "SPAR",
+    "country": "BE",
+    "priceCoefficient": 1.1,
+    "logo": "/logos/stores/be/spar-be.svg",
+    "brandColor": "#CD2528",
+    "excludedFromComparison": true
+  },
+  {
+    "id": "jumbo",
+    "name": "Jumbo",
+    "country": "BE",
+    "priceCoefficient": 0.93,
+    "logo": "/logos/stores/be/jumbo.svg",
+    "brandColor": "#1D1D1B"
+  },
+  {
+    "id": "bio-planet",
+    "name": "Bio-Planet",
+    "country": "BE",
+    "priceCoefficient": 1.3,
+    "logo": "/logos/stores/be/bio-planet.png",
+    "brandColor": "#376FB7",
+    "excludedFromComparison": true
+  },
+  {
+    "id": "migros",
+    "name": "Migros",
+    "country": "CH",
+    "priceCoefficient": 0.98,
+    "logo": "/logos/stores/ch/migros.svg",
+    "brandColor": "#FF6600"
+  },
+  {
+    "id": "coop",
+    "name": "Coop",
+    "country": "CH",
+    "priceCoefficient": 1.02,
+    "logo": "/logos/stores/ch/coop.svg",
+    "brandColor": "#FF5404"
+  },
+  {
+    "id": "denner",
+    "name": "Denner",
+    "country": "CH",
+    "priceCoefficient": 0.93,
+    "logo": "/logos/stores/ch/denner.svg",
+    "brandColor": "#E3000B"
+  },
+  {
+    "id": "aldi-ch",
+    "name": "ALDI",
+    "country": "CH",
+    "priceCoefficient": 0.85,
+    "logo": "/logos/stores/ch/aldi-ch.svg",
+    "brandColor": "#00417D"
+  },
+  {
+    "id": "lidl-ch",
+    "name": "Lidl",
+    "country": "CH",
+    "priceCoefficient": 0.85,
+    "logo": "/logos/stores/ch/lidl-ch.svg",
+    "brandColor": "#0050AA"
+  },
+  {
+    "id": "volg",
+    "name": "Volg",
+    "country": "CH",
+    "priceCoefficient": 1.25,
+    "logo": "/logos/stores/ch/volg.svg",
+    "brandColor": "#004982"
+  },
+  {
+    "id": "spar-ch",
+    "name": "SPAR",
+    "country": "CH",
+    "priceCoefficient": 1.12,
+    "logo": "/logos/stores/ch/spar-ch.svg",
+    "brandColor": "#CD2528"
+  },
+  {
+    "id": "manor-food",
+    "name": "Manor Food",
+    "country": "CH",
+    "priceCoefficient": 1.15,
+    "logo": "/logos/stores/ch/manor-food.svg",
+    "brandColor": "#DA291C"
+  },
+  {
+    "id": "walmart",
+    "name": "Walmart",
+    "country": "CA",
+    "priceCoefficient": 0.88,
+    "logo": "/logos/stores/ca/walmart.svg",
+    "brandColor": "#0071CE"
+  },
+  {
+    "id": "costco",
+    "name": "Costco",
+    "country": "CA",
+    "priceCoefficient": 0.82,
+    "logo": "/logos/stores/ca/costco.svg",
+    "brandColor": "#E31837"
+  },
+  {
+    "id": "no-frills",
+    "name": "No Frills",
+    "country": "CA",
+    "priceCoefficient": 0.85,
+    "logo": "/logos/stores/ca/no-frills.svg",
+    "brandColor": "#F6C500"
+  },
+  {
+    "id": "loblaws",
+    "name": "Loblaws",
+    "country": "CA",
+    "priceCoefficient": 1.08,
+    "logo": "/logos/stores/ca/loblaws.svg",
+    "brandColor": "#EE2E24"
+  },
+  {
+    "id": "superstore",
+    "name": "Real Canadian Superstore",
+    "country": "CA",
+    "priceCoefficient": 0.9,
+    "logo": "/logos/stores/ca/superstore.png",
+    "brandColor": "#D71920"
+  },
+  {
+    "id": "metro",
+    "name": "Metro",
+    "country": "CA",
+    "priceCoefficient": 1.05,
+    "logo": "/logos/stores/ca/metro.svg",
+    "brandColor": "#E11931"
+  },
+  {
+    "id": "sobeys",
+    "name": "Sobeys",
+    "country": "CA",
+    "priceCoefficient": 1.06,
+    "logo": "/logos/stores/ca/sobeys.svg",
+    "brandColor": "#007749"
+  },
+  {
+    "id": "maxi",
+    "name": "Maxi",
+    "country": "CA",
+    "priceCoefficient": 0.86,
+    "logo": "/logos/stores/ca/maxi.svg",
+    "brandColor": "#003DA5"
+  },
+  {
+    "id": "iga",
+    "name": "IGA",
+    "country": "CA",
+    "priceCoefficient": 1.1,
+    "logo": "/logos/stores/ca/iga.svg",
+    "brandColor": "#C8102E"
+  },
+  {
+    "id": "save-on-foods",
+    "name": "Save-On-Foods",
+    "country": "CA",
+    "priceCoefficient": 1.04,
+    "logo": "/logos/stores/ca/save-on-foods.svg",
+    "brandColor": "#62BB46"
+  },
+  {
+    "id": "food-basics",
+    "name": "Food Basics",
+    "country": "CA",
+    "priceCoefficient": 0.87,
+    "logo": "/logos/stores/ca/food-basics.png",
+    "brandColor": "#008542"
+  },
+  {
+    "id": "freshco",
+    "name": "FreshCo",
+    "country": "CA",
+    "priceCoefficient": 0.89,
+    "logo": "/logos/stores/ca/freshco.svg",
+    "brandColor": "#8DC63F"
+  },
+  {
+    "id": "provigo",
+    "name": "Provigo",
+    "country": "CA",
+    "priceCoefficient": 1.06,
+    "logo": "/logos/stores/ca/provigo.svg",
+    "brandColor": "#F28900"
+  },
+  {
+    "id": "super-c",
+    "name": "Super C",
+    "country": "CA",
+    "priceCoefficient": 0.9,
+    "logo": "/logos/stores/ca/super-c.png",
+    "brandColor": "#EE3124"
+  },
+  {
+    "id": "safeway-ca",
+    "name": "Safeway",
+    "country": "CA",
+    "priceCoefficient": 1.08,
+    "logo": "/logos/stores/ca/safeway-ca.svg",
+    "brandColor": "#E11B22"
+  },
+  {
+    "id": "co-op",
+    "name": "Co-op",
+    "country": "CA",
+    "priceCoefficient": 1.05,
+    "logo": "/logos/stores/ca/co-op.svg",
+    "brandColor": "#D50E40"
+  },
+  {
+    "id": "whole-foods-ca",
+    "name": "Whole Foods",
+    "country": "CA",
+    "priceCoefficient": 1.3,
+    "logo": "/logos/stores/ca/whole-foods-ca.svg",
+    "brandColor": "#006F46"
+  },
+  {
+    "id": "choices",
+    "name": "Choices Markets",
+    "country": "CA",
+    "priceCoefficient": 1.25,
+    "logo": "/logos/stores/ca/choices.svg",
+    "brandColor": "#155F34"
+  },
+  {
+    "id": "walmart-us",
+    "name": "Walmart",
+    "country": "US",
+    "priceCoefficient": 0.86,
+    "logo": "/logos/stores/us/walmart-us.svg",
+    "brandColor": "#0071CE"
+  },
+  {
+    "id": "kroger",
+    "name": "Kroger",
+    "country": "US",
+    "priceCoefficient": 0.98,
+    "logo": "/logos/stores/us/kroger.svg",
+    "brandColor": "#004990"
+  },
+  {
+    "id": "costco-us",
+    "name": "Costco",
+    "country": "US",
+    "priceCoefficient": 0.88,
+    "logo": "/logos/stores/us/costco-us.svg",
+    "brandColor": "#E31837"
+  },
+  {
+    "id": "aldi-us",
+    "name": "ALDI",
+    "country": "US",
+    "priceCoefficient": 0.82,
+    "logo": "/logos/stores/us/aldi-us.svg",
+    "brandColor": "#00417D"
+  },
+  {
+    "id": "albertsons",
+    "name": "Albertsons",
+    "country": "US",
+    "priceCoefficient": 1.03,
+    "logo": "/logos/stores/us/albertsons.svg",
+    "brandColor": "#00539F"
+  },
+  {
+    "id": "publix",
+    "name": "Publix",
+    "country": "US",
+    "priceCoefficient": 1.05,
+    "logo": "/logos/stores/us/publix.svg",
+    "brandColor": "#006B3F"
+  },
+  {
+    "id": "target",
+    "name": "Target",
+    "country": "US",
+    "priceCoefficient": 1,
+    "logo": "/logos/stores/us/target.svg",
+    "brandColor": "#CC0000"
+  },
+  {
+    "id": "h-e-b",
+    "name": "H-E-B",
+    "country": "US",
+    "priceCoefficient": 0.95,
+    "logo": "/logos/stores/us/h-e-b.svg",
+    "brandColor": "#E1251B"
+  },
+  {
+    "id": "safeway",
+    "name": "Safeway",
+    "country": "US",
+    "priceCoefficient": 1.02,
+    "logo": "/logos/stores/us/safeway.svg",
+    "brandColor": "#E11B22"
+  },
+  {
+    "id": "sams-club",
+    "name": "Sam's Club",
+    "country": "US",
+    "priceCoefficient": 0.87,
+    "logo": "/logos/stores/us/sams-club.svg",
+    "brandColor": "#0B6CFF"
+  },
+  {
+    "id": "meijer",
+    "name": "Meijer",
+    "country": "US",
+    "priceCoefficient": 0.92,
+    "logo": "/logos/stores/us/meijer.svg",
+    "brandColor": "#DD1321"
+  },
+  {
+    "id": "trader-joes",
+    "name": "Trader Joe’s",
+    "country": "US",
+    "priceCoefficient": 0.93,
+    "logo": "/logos/stores/us/trader-joes.svg",
+    "brandColor": "#B5121B"
+  },
+  {
+    "id": "whole-foods",
+    "name": "Whole Foods",
+    "country": "US",
+    "priceCoefficient": 1.25,
+    "logo": "/logos/stores/us/whole-foods.svg",
+    "brandColor": "#006F46"
+  },
+  {
+    "id": "food-lion",
+    "name": "Food Lion",
+    "country": "US",
+    "priceCoefficient": 0.96,
+    "logo": "/logos/stores/us/food-lion.svg",
+    "brandColor": "#005695"
+  },
+  {
+    "id": "shoprite",
+    "name": "ShopRite",
+    "country": "US",
+    "priceCoefficient": 0.94,
+    "logo": "/logos/stores/us/shoprite.png",
+    "brandColor": "#ED1B2E"
+  },
+  {
+    "id": "stop-shop",
+    "name": "Stop & Shop",
+    "country": "US",
+    "priceCoefficient": 1.07,
+    "logo": "/logos/stores/us/stop-shop.svg",
+    "brandColor": "#781D7E"
+  },
+  {
+    "id": "wegmans",
+    "name": "Wegmans",
+    "country": "US",
+    "priceCoefficient": 1,
+    "logo": "/logos/stores/us/wegmans.svg",
+    "brandColor": "#CA1F27"
+  },
+  {
+    "id": "hy-vee",
+    "name": "Hy-Vee",
+    "country": "US",
+    "priceCoefficient": 1.03,
+    "logo": "/logos/stores/us/hy-vee.svg",
+    "brandColor": "#E2231A"
+  },
+  {
+    "id": "sprouts",
+    "name": "Sprouts",
+    "country": "US",
+    "priceCoefficient": 1.08,
+    "logo": "/logos/stores/us/sprouts.png",
+    "brandColor": "#2A783A"
+  },
+  {
+    "id": "winco",
+    "name": "WinCo Foods",
+    "country": "US",
+    "priceCoefficient": 0.82,
+    "logo": "/logos/stores/us/winco.svg",
+    "brandColor": "#AA1F23"
+  },
+  {
+    "id": "woolworths",
+    "name": "Woolworths",
+    "country": "AU",
+    "priceCoefficient": 1.02,
+    "logo": "/logos/stores/au/woolworths.svg",
+    "brandColor": "#178841"
+  },
+  {
+    "id": "coles",
+    "name": "Coles",
+    "country": "AU",
+    "priceCoefficient": 1.01,
+    "logo": "/logos/stores/au/coles.svg",
+    "brandColor": "#E01A22"
+  },
+  {
+    "id": "aldi-au",
+    "name": "ALDI",
+    "country": "AU",
+    "priceCoefficient": 0.82,
+    "logo": "/logos/stores/au/aldi-au.svg",
+    "brandColor": "#001E5E"
+  },
+  {
+    "id": "iga-au",
+    "name": "IGA",
+    "country": "AU",
+    "priceCoefficient": 1.15,
+    "logo": "/logos/stores/au/iga-au.svg",
+    "brandColor": "#ED1C24"
+  },
+  {
+    "id": "costco-au",
+    "name": "Costco",
+    "country": "AU",
+    "priceCoefficient": 0.85,
+    "logo": "/logos/stores/au/costco-au.svg",
+    "brandColor": "#E31837"
+  },
+  {
+    "id": "foodworks",
+    "name": "FoodWorks",
+    "country": "AU",
+    "priceCoefficient": 1.08,
+    "logo": "/logos/stores/au/foodworks.svg",
+    "brandColor": "#FC8220"
+  },
+  {
+    "id": "foodland",
+    "name": "Foodland",
+    "country": "AU",
+    "priceCoefficient": 1.06,
+    "logo": "/logos/stores/au/foodland.svg",
+    "brandColor": "#004B93"
+  },
+  {
+    "id": "drakes",
+    "name": "Drakes",
+    "country": "AU",
+    "priceCoefficient": 1.07,
+    "logo": "/logos/stores/au/drakes.svg",
+    "brandColor": "#1A1A1A"
+  },
+  {
+    "id": "harris-farm",
+    "name": "Harris Farm",
+    "country": "AU",
+    "priceCoefficient": 1.2,
+    "logo": "/logos/stores/au/harris-farm.png",
+    "brandColor": "#005545"
+  },
+  {
+    "id": "tesco",
+    "name": "Tesco",
+    "country": "GB",
+    "priceCoefficient": 1,
+    "logo": "/logos/stores/gb/tesco.svg",
+    "brandColor": "#E62432"
+  },
+  {
+    "id": "sainsburys",
+    "name": "Sainsbury's",
+    "country": "GB",
+    "priceCoefficient": 1.01,
+    "logo": "/logos/stores/gb/sainsburys.svg",
+    "brandColor": "#F47320"
+  },
+  {
+    "id": "asda",
+    "name": "Asda",
+    "country": "GB",
+    "priceCoefficient": 0.99,
+    "logo": "/logos/stores/gb/asda.svg",
+    "brandColor": "#6FB946"
+  },
+  {
+    "id": "aldi-gb",
+    "name": "ALDI",
+    "country": "GB",
+    "priceCoefficient": 0.86,
+    "logo": "/logos/stores/gb/aldi-gb.svg",
+    "brandColor": "#001E5E"
+  },
+  {
+    "id": "lidl-gb",
+    "name": "Lidl",
+    "country": "GB",
+    "priceCoefficient": 0.87,
+    "logo": "/logos/stores/gb/lidl-gb.svg",
+    "brandColor": "#0050AA"
+  },
+  {
+    "id": "morrisons",
+    "name": "Morrisons",
+    "country": "GB",
+    "priceCoefficient": 1.02,
+    "logo": "/logos/stores/gb/morrisons.svg",
+    "brandColor": "#00624B"
+  },
+  {
+    "id": "coop-gb",
+    "name": "Co-op",
+    "country": "GB",
+    "priceCoefficient": 1.1,
+    "logo": "/logos/stores/gb/coop-gb.svg",
+    "brandColor": "#01B1DD"
+  },
+  {
+    "id": "waitrose",
+    "name": "Waitrose",
+    "country": "GB",
+    "priceCoefficient": 1.2,
+    "logo": "/logos/stores/gb/waitrose.svg",
+    "brandColor": "#5C8018"
+  },
+  {
+    "id": "marks-spencer",
+    "name": "M&S Food",
+    "country": "GB",
+    "priceCoefficient": 1.18,
+    "logo": "/logos/stores/gb/marks-spencer.svg",
+    "brandColor": "#000000"
+  },
+  {
+    "id": "ocado",
+    "name": "Ocado",
+    "country": "GB",
+    "priceCoefficient": 1.11,
+    "logo": "/logos/stores/gb/ocado.svg",
+    "brandColor": "#474C4C"
+  },
+  {
+    "id": "iceland",
+    "name": "Iceland",
+    "country": "GB",
+    "priceCoefficient": 1.02,
+    "logo": "/logos/stores/gb/iceland.svg",
+    "brandColor": "#CC092F"
+  }
+]

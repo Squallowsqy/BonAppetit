@@ -46,7 +46,7 @@ export default function HomePage() {
               BonAppétit<span>!</span>
             </p>
             <h1 className="ba-home-h1">
-              Des dîners calés sur ton magasin et ton budget.
+              Enfin ! Des repas calés sur ton magasin et ton budget.
             </h1>
             <p className="ba-home-lede">
               Menu + liste de courses en deux minutes. Gratuit, sans abonnement.

@@ -1,24 +1,24 @@
-import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { AuthSessionProvider } from "@/components/AuthSessionProvider";
 import "./globals.css";
 
-const display = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["500", "600", "700"],
-});
-
-const body = Manrope({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["400", "500", "600", "700", "800"],
-});
-
 export const metadata: Metadata = {
-  title: "BonAppétit ! — des dîners pile dans ton budget",
+  title: "BonAppétit !",
   description:
-    "Choisis ton magasin et ton budget. BonAppétit ! compose ta semaine de dîners et ta liste de courses. Gratuit.",
+    "Des dîners calés sur ton magasin et ton budget. Gratuit, sans abonnement.",
   applicationName: "BonAppétit !",
+  appleWebApp: {
+    capable: true,
+    title: "BonAppétit !",
+    statusBarStyle: "default",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f2f2f7",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -28,8 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${display.variable} ${body.variable} antialiased`}>
-        {children}
+      <body className="antialiased">
+        <AuthSessionProvider>{children}</AuthSessionProvider>
       </body>
     </html>
   );

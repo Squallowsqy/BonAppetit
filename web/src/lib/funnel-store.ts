@@ -8,8 +8,9 @@ export const FUNNEL_STEPS = [
   "welcome",
   "store",
   "household",
-  "spend",
   "dinners",
+  "horizon",
+  "spend",
   "diet",
   "protein",
   "vibes",
@@ -30,6 +31,7 @@ export const defaultAnswers: FunnelAnswers = {
   children: 0,
   budget: 45,
   dinners: 5,
+  horizon: "week",
   diet: "omnivore",
   protein: "balanced",
   vibes: ["comfort"],
@@ -44,16 +46,18 @@ export const defaultAnswers: FunnelAnswers = {
 type FunnelState = {
   stepIndex: number;
   answers: FunnelAnswers;
+  /** Brouillon de menu (non garanti sans compte). */
   plan: WeekPlan | null;
+  /** true si le brouillon a été poussé dans le coffre compte. */
+  planSaved: boolean;
   groceryChecked: Record<string, boolean>;
-  favorites: string[];
   setStepIndex: (i: number) => void;
   next: () => void;
   back: () => void;
   patchAnswers: (patch: Partial<FunnelAnswers>) => void;
   setPlan: (plan: WeekPlan | null) => void;
+  markPlanSaved: () => void;
   toggleGrocery: (key: string) => void;
-  toggleFavorite: (recipeId: string) => void;
   resetFunnel: () => void;
 };
 
@@ -63,13 +67,16 @@ export const useFunnelStore = create<FunnelState>()(
       stepIndex: 0,
       answers: defaultAnswers,
       plan: null,
+      planSaved: false,
       groceryChecked: {},
-      favorites: [],
-      setStepIndex: (i) => set({ stepIndex: Math.max(0, Math.min(i, FUNNEL_STEPS.length - 1)) }),
-      next: () => set({ stepIndex: Math.min(get().stepIndex + 1, FUNNEL_STEPS.length - 1) }),
+      setStepIndex: (i) =>
+        set({ stepIndex: Math.max(0, Math.min(i, FUNNEL_STEPS.length - 1)) }),
+      next: () =>
+        set({ stepIndex: Math.min(get().stepIndex + 1, FUNNEL_STEPS.length - 1) }),
       back: () => set({ stepIndex: Math.max(get().stepIndex - 1, 0) }),
       patchAnswers: (patch) => set({ answers: { ...get().answers, ...patch } }),
-      setPlan: (plan) => set({ plan, groceryChecked: {} }),
+      setPlan: (plan) => set({ plan, groceryChecked: {}, planSaved: false }),
+      markPlanSaved: () => set({ planSaved: true }),
       toggleGrocery: (key) =>
         set({
           groceryChecked: {
@@ -77,22 +84,30 @@ export const useFunnelStore = create<FunnelState>()(
             [key]: !get().groceryChecked[key],
           },
         }),
-      toggleFavorite: (recipeId) => {
-        const fav = get().favorites;
-        set({
-          favorites: fav.includes(recipeId)
-            ? fav.filter((id) => id !== recipeId)
-            : [...fav, recipeId],
-        });
-      },
       resetFunnel: () =>
         set({
           stepIndex: 0,
           answers: defaultAnswers,
           plan: null,
+          planSaved: false,
           groceryChecked: {},
         }),
     }),
-    { name: "bonappetit-funnel-v1" }
+    {
+      name: "bonappetit-funnel-v3",
+      version: 3,
+      migrate: (persisted) => {
+        const p = persisted as { answers?: Partial<FunnelAnswers> } | undefined;
+        if (!p?.answers) return p as never;
+        return {
+          ...p,
+          answers: {
+            ...defaultAnswers,
+            ...p.answers,
+            horizon: p.answers.horizon || "week",
+          },
+        } as never;
+      },
+    }
   )
 );

@@ -3,16 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --basil: #1b5e3b;
-  --basil-deep: #0f3d27;
-  --saffron: #f0b429;
-  --tomato: #d94f30;
-  --ink: #161616;
-  --paper: #f7f4ef;
-  --mist: #e8efe9;
-  --line: rgba(22, 22, 22, 0.12);
-  --background: var(--paper);
-  --foreground: var(--ink);
+  /* Brand */
+  --basil: #1d7a4a;
+  --basil-deep: #145c37;
+  --saffron: #ffcc00;
+  --tomato: #ff3b30;
+
+  /* Apple-like system surfaces */
+  --bg: #f2f2f7;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-solid: #ffffff;
+  --label: #1c1c1e;
+  --secondary-label: rgba(60, 60, 67, 0.6);
+  --tertiary-label: rgba(60, 60, 67, 0.3);
+  --separator: rgba(60, 60, 67, 0.12);
+  --fill: rgba(120, 120, 128, 0.12);
+  --tint: var(--basil);
+
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  color-scheme: light;
+  font: 100% / 1.47 -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html,
@@ -21,81 +36,257 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(240, 180, 41, 0.18), transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, rgba(27, 94, 59, 0.12), transparent 50%),
-    var(--paper);
-  font-family: var(--font-body), system-ui, sans-serif;
+  color: var(--label);
+  background: var(--bg);
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(240, 180, 41, 0.35);
+  background: color-mix(in srgb, var(--basil) 28%, white);
 }
 
-.font-display {
-  font-family: var(--font-display), Georgia, serif;
+/* —— Typography —— */
+.ba-display {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
 }
 
+.ba-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.ba-headline {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.ba-body {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--secondary-label);
+}
+
+.ba-caption {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: -0.008em;
+  color: var(--secondary-label);
+}
+
+.ba-footnote {
+  font-size: 0.8125rem;
+  color: var(--tertiary-label);
+}
+
+/* —— Layout —— */
 .ba-shell {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(680px, calc(100% - 1.25rem));
   margin-inline: auto;
 }
 
-.ba-card {
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(8px);
+.ba-shell-wide {
+  width: min(980px, calc(100% - 1.25rem));
+  margin-inline: auto;
 }
 
-.ba-btn {
-  display: inline-flex;
+@media (min-width: 480px) {
+  .ba-shell {
+    width: min(680px, calc(100% - 2rem));
+  }
+  .ba-shell-wide {
+    width: min(980px, calc(100% - 2rem));
+  }
+}
+
+@media (min-width: 1100px) {
+  .ba-shell-wide {
+    width: min(1120px, calc(100% - 2.5rem));
+  }
+}
+
+/* —— Home hero: copy + week photo board —— */
+.ba-home-hero {
+  display: grid;
+  gap: 1.5rem;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  border-radius: 999px;
-  padding: 0.85rem 1.35rem;
-  font-weight: 650;
-  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
 }
 
-.ba-btn:hover {
-  transform: translateY(-1px);
+.ba-home-hero-side {
+  display: none;
 }
 
-.ba-btn-primary {
-  background: var(--basil);
-  color: white;
+.ba-home-week-mobile {
+  display: block;
 }
 
-.ba-btn-primary:hover {
-  background: var(--basil-deep);
+@media (min-width: 900px) {
+  .ba-home-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .ba-home-hero-side {
+    display: block;
+  }
+
+  .ba-home-week-mobile {
+    display: none;
+  }
 }
 
-.ba-btn-ghost {
-  background: transparent;
-  border: 1px solid var(--line);
-  color: var(--ink);
+.ba-week-board {
+  position: relative;
 }
 
-.ba-chip {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.55rem 0.95rem;
-  background: white;
-  transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+.ba-week-board-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--secondary-label);
+  margin-bottom: 0.65rem;
+  padding-inline: 0.15rem;
 }
 
-.ba-chip[data-active="true"] {
-  background: var(--basil);
-  border-color: var(--basil);
-  color: white;
+.ba-week-board-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
 }
 
-@keyframes rise-in {
+.ba-week-board-row {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 72px;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0;
+  animation: ba-week-in 480ms cubic-bezier(0.32, 0.72, 0, 1) both;
+  transition: transform 140ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ba-week-board-row:hover {
+  transform: translateX(3px);
+}
+
+.ba-week-board-row:active {
+  transform: scale(0.985);
+}
+
+.ba-week-board-photo {
+  width: 118px;
+  height: 78px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--fill);
+  box-shadow: 0 1px 0 color-mix(in srgb, #000 4%, transparent);
+}
+
+.ba-week-board-meta {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ba-week-board-day {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--basil);
+}
+
+.ba-week-board-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--label);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Mobile horizontal appetite rail */
+.ba-week-rail-track {
+  list-style: none;
+  margin: 0;
+  padding: 0.15rem 0 0.35rem;
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.ba-week-rail-track::-webkit-scrollbar {
+  display: none;
+}
+
+.ba-week-rail-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.ba-week-day-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 148px;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0;
+  animation: ba-week-in 460ms cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+.ba-week-day-photo {
+  width: 148px;
+  height: 112px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--fill);
+}
+
+.ba-week-day-tag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--basil);
+}
+
+.ba-week-day-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--label);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes ba-week-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -103,16 +294,576 @@ body {
   }
 }
 
-.rise {
-  animation: rise-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+@media (prefers-reduced-motion: reduce) {
+  .ba-week-board-row,
+  .ba-week-day-link {
+    animation: none;
+    opacity: 1;
+  }
 }
 
-.rise-delay-1 {
-  animation-delay: 80ms;
+/* —— Legal footer & pages —— */
+.ba-legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
 }
-.rise-delay-2 {
-  animation-delay: 160ms;
+
+.ba-legal-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--secondary-label);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
 }
-.rise-delay-3 {
-  animation-delay: 240ms;
+
+.ba-legal-link:hover {
+  color: var(--basil);
+}
+
+.ba-legal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 62ch;
+}
+
+.ba-legal-body p {
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--secondary-label);
+}
+
+.ba-legal-body strong {
+  color: var(--label);
+  font-weight: 600;
+}
+
+/* —— Materials —— */
+.ba-material {
+  background: var(--surface);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.ba-material-thick {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+}
+
+.ba-hairline {
+  box-shadow: 0 0.5px 0 0 var(--separator);
+}
+
+.ba-grouped {
+  background: var(--surface-solid);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.04);
+}
+
+.ba-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  min-height: 44px;
+  background: var(--surface-solid);
+  border-bottom: 0.5px solid var(--separator);
+}
+
+@media (min-width: 480px) {
+  .ba-row {
+    padding: 0.875rem 1rem;
+  }
+}
+
+.ba-row:last-child {
+  border-bottom: none;
+}
+
+/* —— Controls: response on press —— */
+.ba-press {
+  transition: transform 100ms ease-out, opacity 100ms ease-out;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.ba-press:active {
+  transform: scale(0.97);
+}
+
+.ba-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 50px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 14px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform 100ms ease-out, filter 120ms ease, background 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.ba-btn:active {
+  transform: scale(0.97);
+}
+
+.ba-btn:disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.ba-btn-primary {
+  background: var(--basil);
+  color: #fff;
+}
+
+.ba-btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.ba-btn-tinted {
+  background: color-mix(in srgb, var(--basil) 12%, white);
+  color: var(--basil-deep);
+}
+
+.ba-btn-plain {
+  background: transparent;
+  color: var(--basil);
+  min-height: 44px;
+  padding-inline: 0.5rem;
+}
+
+.ba-btn-apple {
+  background: #000;
+  color: #fff;
+}
+
+.ba-btn-apple:hover {
+  filter: brightness(1.08);
+}
+
+.ba-btn-google {
+  background: #fff;
+  color: #1f1f1f;
+  border: 1px solid color-mix(in srgb, var(--label) 16%, transparent);
+  box-shadow: 0 1px 2px color-mix(in srgb, #000 6%, transparent);
+}
+
+.ba-btn-google:hover {
+  background: color-mix(in srgb, var(--fill) 70%, white);
+}
+
+.ba-oauth-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block: 0.15rem 0.1rem;
+  color: var(--secondary-label);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.ba-oauth-divider::before,
+.ba-oauth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: color-mix(in srgb, var(--label) 12%, transparent);
+}
+
+.ba-oauth-divider span {
+  flex-shrink: 0;
+}
+
+.ba-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 980px;
+  background: var(--fill);
+  color: var(--label);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: transform 100ms ease-out, background 140ms ease, color 140ms ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.ba-chip:active {
+  transform: scale(0.97);
+}
+
+.ba-chip[data-active="true"] {
+  background: var(--basil);
+  color: #fff;
+}
+
+/* —— Progress —— */
+.ba-progress {
+  height: 3px;
+  background: var(--fill);
+  overflow: hidden;
+}
+
+.ba-progress > i {
+  display: block;
+  height: 100%;
+  background: var(--basil);
+  border-radius: 3px;
+  transition: width 400ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* —— Motion utilities —— */
+.ba-fade-up {
+  animation: ba-fade-up 420ms cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+@keyframes ba-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ba-press:active,
+  .ba-btn:active,
+  .ba-chip:active {
+    transform: none;
+  }
+
+  .ba-fade-up {
+    animation: ba-fade 200ms ease both;
+  }
+
+  .ba-progress > i {
+    transition: none;
+  }
+
+  @keyframes ba-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .ba-material,
+  .ba-material-thick {
+    background: #fff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+
+/* —— Recipe imagery (Pimzi-like large thumbs) —— */
+.ba-recipe-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: linear-gradient(145deg, #e8f5ee 0%, #f7f3e8 55%, #f0ebe3 100%);
+}
+
+.ba-recipe-img-fallback {
+  background:
+    radial-gradient(circle at 30% 35%, color-mix(in srgb, var(--basil) 18%, white), transparent 55%),
+    radial-gradient(circle at 70% 70%, color-mix(in srgb, var(--saffron) 22%, white), transparent 50%),
+    linear-gradient(145deg, #e8f5ee, #f7f3e8);
+}
+
+.ba-recipe-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--surface-solid);
+  box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 479px) {
+  .ba-recipe-hero {
+    aspect-ratio: 5 / 4;
+    border-radius: 14px;
+    width: calc(100% + 1.25rem);
+    margin-left: -0.625rem;
+    margin-right: -0.625rem;
+    border-radius: 0;
+  }
+}
+
+/* Large list thumbnails — meal-kit style */
+.ba-recipe-thumb {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--fill);
+}
+
+.ba-recipe-thumb-lg {
+  width: 112px;
+  height: 112px;
+  border-radius: 16px;
+}
+
+@media (min-width: 480px) {
+  .ba-recipe-thumb {
+    width: 112px;
+    height: 112px;
+    border-radius: 16px;
+  }
+  .ba-recipe-thumb-lg {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+@media (min-width: 768px) {
+  .ba-recipe-thumb {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.ba-recipe-card-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Meal rows with large photo */
+.ba-meal-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+@media (min-width: 400px) {
+  .ba-meal-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.ba-meal-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  min-height: 112px;
+}
+
+@media (min-width: 480px) {
+  .ba-meal-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+@media (min-width: 400px) {
+  .ba-meal-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.ba-meal-row {
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    min-height: 128px;
+  }
+}
+
+/* —— Groceries (mobile-first) —— */
+.ba-grocery-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 0.65rem 0 0.75rem;
+  margin: 0 -0.15rem;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.ba-grocery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ba-grocery-actions .ba-btn {
+  flex: 1 1 calc(50% - 0.5rem);
+  min-width: 0;
+  min-height: 42px;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.875rem;
+  border-radius: 12px;
+}
+
+@media (min-width: 480px) {
+  .ba-grocery-actions .ba-btn {
+    flex: 0 1 auto;
+  }
+}
+
+.ba-grocery-toolbar .ba-btn {
+  flex: 1 1 calc(50% - 0.5rem);
+  min-width: 0;
+  min-height: 42px;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.875rem;
+  border-radius: 12px;
+}
+
+@media (min-width: 480px) {
+  .ba-grocery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ba-grocery-actions .ba-btn {
+  flex: 1 1 calc(50% - 0.5rem);
+  min-width: 0;
+  min-height: 42px;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.875rem;
+  border-radius: 12px;
+}
+
+@media (min-width: 480px) {
+  .ba-grocery-actions .ba-btn {
+    flex: 0 1 auto;
+  }
+}
+
+.ba-grocery-toolbar .ba-btn {
+    flex: 0 1 auto;
+    min-height: 44px;
+  }
+}
+
+.ba-grocery-aisle {
+  position: sticky;
+  top: 3.6rem;
+  z-index: 10;
+  background: var(--bg);
+  padding: 0.45rem 0.25rem;
+  margin: 0;
+}
+
+.ba-grocery-item {
+  gap: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  align-items: flex-start;
+}
+
+.ba-grocery-item .ba-headline {
+  font-size: 0.98rem;
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.ba-grocery-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  flex-shrink: 0;
+  max-width: 30%;
+  text-align: right;
+}
+
+@media (max-width: 359px) {
+  .ba-grocery-meta .ba-price {
+    font-size: 0.75rem;
+  }
+  .ba-recipe-thumb {
+    width: 84px;
+    height: 84px;
+    border-radius: 12px;
+  }
+  .ba-meal-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+@media (min-width: 400px) {
+  .ba-meal-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.ba-meal-row {
+    min-height: 100px;
+    padding: 0.65rem 0.7rem;
+    gap: 0.65rem;
+  }
+}
+
+/* Prevent horizontal bleed on small phones */
+.ba-shell,
+.ba-shell-wide {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.ba-grouped {
+  max-width: 100%;
+}
+
+/* —— Forms —— */
+.ba-input {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--separator);
+  background: var(--bg);
+  padding: 0.65rem 0.85rem;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--label);
+  outline: none;
+}
+.ba-input:focus {
+  border-color: color-mix(in srgb, var(--basil) 55%, var(--separator));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--basil) 18%, transparent);
 }

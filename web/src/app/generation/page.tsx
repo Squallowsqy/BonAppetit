@@ -31,6 +31,7 @@ export default function GenerationPage() {
   const [msg, setMsg] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [modeLabel, setModeLabel] = useState("classic");
+  const [attempt, setAttempt] = useState(0);
   const reduce = useReducedMotion();
 
   const messages =
@@ -41,6 +42,9 @@ export default function GenerationPage() {
       router.replace("/quiz");
       return;
     }
+
+    setError(null);
+    setMsg(0);
 
     const tick = setInterval(() => {
       setMsg((m) => Math.min(m + 1, messages.length - 1));
@@ -70,7 +74,12 @@ export default function GenerationPage() {
         router.replace("/reveal");
       } catch (e) {
         if (!cancelled) {
-          setError(e instanceof Error ? e.message : "Erreur de génération");
+          clearInterval(tick);
+          setError(
+            e instanceof Error && e.message !== "Erreur"
+              ? e.message
+              : "Impossible de générer le menu pour l’instant."
+          );
         }
       }
     })();
@@ -79,7 +88,16 @@ export default function GenerationPage() {
       cancelled = true;
       clearInterval(tick);
     };
-  }, [answers, router, setPlan, sessionUserId, getTasteSignals, forceMl, messages.length]);
+  }, [
+    answers,
+    router,
+    setPlan,
+    sessionUserId,
+    getTasteSignals,
+    forceMl,
+    messages.length,
+    attempt,
+  ]);
 
   return (
     <main className="ba-shell flex min-h-screen flex-col items-center justify-center text-center">
@@ -90,27 +108,54 @@ export default function GenerationPage() {
         {modeLabel === "ml" ? "Menu intelligent" : "Menu budget"}
       </p>
 
-      <motion.div
-        className="mt-8 h-1 w-40 overflow-hidden rounded-full bg-[var(--fill)]"
-        aria-hidden
-      >
+      {!error && (
         <motion.div
-          className="h-full rounded-full bg-[var(--basil)]"
-          initial={{ width: "12%" }}
-          animate={
-            reduce
-              ? { opacity: [0.5, 1, 0.5] }
-              : { width: ["12%", "78%", "42%", "92%"] }
-          }
-          transition={
-            reduce
-              ? { duration: 1.2, repeat: Infinity }
-              : { duration: 2.2, repeat: Infinity, ease: [0.32, 0.72, 0, 1] }
-          }
-        />
-      </motion.div>
+          className="mt-8 h-1 w-40 overflow-hidden rounded-full bg-[var(--fill)]"
+          aria-hidden
+        >
+          <motion.div
+            className="h-full rounded-full bg-[var(--basil)]"
+            initial={{ width: "12%" }}
+            animate={
+              reduce
+                ? { opacity: [0.5, 1, 0.5] }
+                : { width: ["12%", "78%", "42%", "92%"] }
+            }
+            transition={
+              reduce
+                ? { duration: 1.2, repeat: Infinity }
+                : { duration: 2.2, repeat: Infinity, ease: [0.32, 0.72, 0, 1] }
+            }
+          />
+        </motion.div>
+      )}
 
-      <p className="ba-body mt-6 text-[1.05rem]">{error || messages[msg]}</p>
+      <p
+        className={`ba-body mt-6 text-[1.05rem] ${error ? "text-[var(--tomato)]" : ""}`}
+        role={error ? "alert" : "status"}
+        aria-live="polite"
+      >
+        {error || messages[msg]}
+      </p>
+
+      {error && (
+        <div className="mt-6 flex w-full max-w-[22rem] flex-col gap-2 sm:flex-row">
+          <button
+            type="button"
+            className="ba-btn ba-btn-primary flex-1"
+            onClick={() => setAttempt((a) => a + 1)}
+          >
+            Réessayer
+          </button>
+          <button
+            type="button"
+            className="ba-btn ba-btn-tinted flex-1"
+            onClick={() => router.push("/quiz")}
+          >
+            Modifier mes réponses
+          </button>
+        </div>
+      )}
     </main>
   );
 }

@@ -176,7 +176,7 @@ export default function SettingsPage() {
       </ul>
 
       <div className="mt-6 flex flex-col gap-2 sm:flex-row">
-        <Link href="/quiz" className="ba-btn ba-btn-primary flex-1">
+        <Link href="/quiz?restart=1" className="ba-btn ba-btn-primary flex-1">
           Refaire le quiz
         </Link>
         <button

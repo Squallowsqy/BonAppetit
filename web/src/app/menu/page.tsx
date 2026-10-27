@@ -31,6 +31,7 @@ export default function MenuWeekPage() {
   const setRating = useAuthStore((s) => s.setRating);
   const { requireAuth } = useRequireAuth();
   const [swapping, setSwapping] = useState<string | null>(null);
+  const [swapError, setSwapError] = useState<string | null>(null);
   const store = plan ? getStore(plan.answers.storeId || "") : null;
   const horizon = planHorizon(plan);
   const weeks = useMemo(
@@ -65,6 +66,7 @@ export default function MenuWeekPage() {
     if (!plan) return;
     const previous = plan.dinners.find((d) => d.dateKey === dateKey);
     setSwapping(dateKey);
+    setSwapError(null);
     try {
       const taste = sessionUserId ? getTasteSignals() : null;
       const res = await fetch("/api/swap", {
@@ -76,7 +78,11 @@ export default function MenuWeekPage() {
       if (res.ok) {
         if (previous && sessionUserId) recordTaste("swap_out", previous.recipeId);
         setPlan(data);
+      } else {
+        setSwapError("Pas d’autre plat compatible pour ce soir. Réessaie plus tard.");
       }
+    } catch {
+      setSwapError("Connexion interrompue, le plat n’a pas été changé.");
     } finally {
       setSwapping(null);
     }
@@ -107,19 +113,24 @@ export default function MenuWeekPage() {
       </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
-        <Link href="/generation?mode=ml" className="ba-btn ba-btn-primary !min-h-9 !px-3 !text-[0.875rem]">
-          Menu intelligent
+        <Link href="/menu/groceries" className="ba-btn ba-btn-primary !min-h-9 !px-3 !text-[0.875rem]">
+          {groceryListTitle(horizon)} →
         </Link>
-        <Link href="/quiz" className="ba-btn ba-btn-tinted !min-h-9 !px-3 !text-[0.875rem]">
-          Nouveau quiz
+        <Link href="/generation?mode=ml" className="ba-btn ba-btn-tinted !min-h-9 !px-3 !text-[0.875rem]">
+          Regénérer le menu
         </Link>
-        <Link href="/menu/groceries" className="ba-btn ba-btn-tinted !min-h-9 !px-3 !text-[0.875rem]">
-          {groceryListTitle(horizon)}
+        <Link href="/quiz?restart=1" className="ba-btn ba-btn-tinted !min-h-9 !px-3 !text-[0.875rem]">
+          Refaire le quiz
         </Link>
       </div>
       <p className="ba-footnote mt-2 px-1">
-        Le menu intelligent apprend de tes favoris et paniers pour varier les plats selon ton enseigne.
+        « Regénérer » garde tes réponses et tient compte de tes notes, favoris et paniers pour varier les plats.
       </p>
+      {swapError && (
+        <p className="mt-3 text-[0.9rem] font-semibold text-[var(--tomato)]" role="alert">
+          {swapError}
+        </p>
+      )}
 
       {weeks.map((group) => (
         <div key={group.label} className="mt-5">
@@ -179,7 +190,7 @@ export default function MenuWeekPage() {
                       disabled={swapping === d.dateKey}
                       onClick={() => onSwap(d.dateKey)}
                     >
-                      {swapping === d.dateKey ? "…" : "Swap"}
+                      {swapping === d.dateKey ? "…" : "Changer"}
                     </button>
                     <button
                       type="button"

@@ -27,6 +27,7 @@ export default function RevealPage() {
   const logged = useAuthStore((s) => s.sessionUserId);
   const { requireAuth } = useRequireAuth();
   const [swapping, setSwapping] = useState<string | null>(null);
+  const [swapError, setSwapError] = useState<string | null>(null);
   const [savedFlash, setSavedFlash] = useState(false);
   const store = plan ? getStore(plan.answers.storeId || "") : null;
 
@@ -48,6 +49,7 @@ export default function RevealPage() {
     if (!plan) return;
     const previous = plan.dinners.find((d) => d.dateKey === dateKey);
     setSwapping(dateKey);
+    setSwapError(null);
     try {
       const taste = logged ? getTasteSignals() : null;
       const res = await fetch("/api/swap", {
@@ -59,7 +61,11 @@ export default function RevealPage() {
       if (res.ok) {
         if (previous && logged) recordTaste("swap_out", previous.recipeId);
         setPlan(data);
+      } else {
+        setSwapError("Pas d’autre plat compatible pour ce soir. Réessaie plus tard.");
       }
+    } catch {
+      setSwapError("Connexion interrompue, le plat n’a pas été changé.");
     } finally {
       setSwapping(null);
     }
@@ -154,6 +160,12 @@ export default function RevealPage() {
           {underBudget ? " ✓" : " — swap un plat"}
         </p>
         <p className="ba-footnote mt-1">Estimation ±10%</p>
+
+        {swapError && (
+          <p className="mt-3 text-[0.9rem] font-semibold text-[var(--tomato)]" role="alert">
+            {swapError}
+          </p>
+        )}
 
         {!logged && (
           <div className="mt-4 rounded-[12px] bg-[color-mix(in_srgb,var(--saffron)_18%,white)] px-4 py-3">

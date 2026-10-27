@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HomeCta } from "@/components/HomeCta";
 import { RecipeImage } from "@/components/RecipeImage";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WeekAppetiteBoard } from "@/components/WeekAppetiteBoard";
@@ -51,14 +52,7 @@ export default function HomePage() {
             <p className="ba-home-lede">
               Menu + liste de courses en deux minutes. Gratuit, sans abonnement.
             </p>
-            <div className="ba-home-cta">
-              <Link href="/quiz" className="ba-home-btn-primary">
-                Créer mon menu
-              </Link>
-              <a href="#exemples" className="ba-home-btn-ghost">
-                Voir des prix
-              </a>
-            </div>
+            <HomeCta />
           </div>
 
           <aside className="ba-home-hero-side" aria-label="Semainier">

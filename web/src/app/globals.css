@@ -283,6 +283,16 @@ body {
   align-items: center;
 }
 
+.ba-home-cta-note {
+  flex-basis: 100%;
+  margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--home-muted);
+}
+
 .ba-home-btn-primary {
   display: inline-flex;
   align-items: center;

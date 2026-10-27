@@ -4,8 +4,8 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { FunnelAnswers, WeekPlan } from "@/lib/types";
 
+/** Étapes utiles à la génération uniquement (skill/equipment retirés : non utilisés). */
 export const FUNNEL_STEPS = [
-  "welcome",
   "store",
   "household",
   "dinners",
@@ -17,8 +17,6 @@ export const FUNNEL_STEPS = [
   "allergens",
   "dislikes",
   "time",
-  "skill",
-  "equipment",
   "goal",
   "recap",
 ] as const;
@@ -95,16 +93,24 @@ export const useFunnelStore = create<FunnelState>()(
     }),
     {
       name: "bonappetit-funnel-v3",
-      version: 3,
+      version: 4,
       migrate: (persisted) => {
-        const p = persisted as { answers?: Partial<FunnelAnswers> } | undefined;
-        if (!p?.answers) return p as never;
+        const p = persisted as
+          | { answers?: Partial<FunnelAnswers>; stepIndex?: number }
+          | undefined;
+        if (!p) return p as never;
+        const maxIdx = FUNNEL_STEPS.length - 1;
+        const stepIndex =
+          typeof p.stepIndex === "number"
+            ? Math.max(0, Math.min(p.stepIndex, maxIdx))
+            : 0;
         return {
           ...p,
+          stepIndex,
           answers: {
             ...defaultAnswers,
-            ...p.answers,
-            horizon: p.answers.horizon || "week",
+            ...(p.answers || {}),
+            horizon: p.answers?.horizon || "week",
           },
         } as never;
       },

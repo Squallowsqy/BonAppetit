@@ -201,8 +201,22 @@ export default function GroceriesPage() {
           ? ` · ${plan.dinners.length} dîners`
           : ""}
       </p>
+      {lines.length > 0 && (
+        <div
+          className="ba-progress mt-3 rounded-full"
+          role="progressbar"
+          aria-label="Avancement des courses"
+          aria-valuemin={0}
+          aria-valuemax={lines.length}
+          aria-valuenow={lines.length - remaining}
+        >
+          <i style={{ width: `${((lines.length - remaining) / lines.length) * 100}%` }} />
+        </div>
+      )}
       {flash && (
-        <p className="mt-2 text-[0.9rem] font-semibold text-[var(--basil)]">{flash}</p>
+        <p className="mt-2 text-[0.9rem] font-semibold text-[var(--basil)]" role="status">
+          {flash}
+        </p>
       )}
 
       <div className="ba-grocery-toolbar mt-3">
@@ -260,7 +274,7 @@ export default function GroceriesPage() {
                         className="ba-btn ba-btn-tinted !min-h-8 !px-3 !text-[0.8125rem]"
                         onClick={() => openBasketWeek(g.basketId)}
                       >
-                        Rouvrir la semaine
+                        Rouvrir le menu
                       </button>
                     )}
                     <button
@@ -304,7 +318,11 @@ export default function GroceriesPage() {
         </button>
       </div>
 
-      {loading && <p className="ba-caption mt-3">Chargement…</p>}
+      {loading && (
+        <p className="ba-caption mt-3" role="status">
+          Calcul de la liste…
+        </p>
+      )}
 
       <div className="mt-4 space-y-4 pb-4">
         {Object.entries(byAisle).map(([aisle, items]) => (

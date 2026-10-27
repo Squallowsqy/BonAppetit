@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FadeIn } from "@/components/FadeIn";
 import { RecipeImage } from "@/components/RecipeImage";
@@ -30,6 +30,27 @@ export default function RevealPage() {
   const [swapError, setSwapError] = useState<string | null>(null);
   const [savedFlash, setSavedFlash] = useState(false);
   const store = plan ? getStore(plan.answers.storeId || "") : null;
+
+  // Complète les photos manquantes pour pouvoir visualiser avant sauvegarde
+  useEffect(() => {
+    if (!plan?.dinners?.length) return;
+    if (plan.dinners.every((d) => d.image)) return;
+    const ids = plan.dinners.map((d) => d.recipeId).join(",");
+    fetch(`/api/recipes?ids=${ids}`)
+      .then((r) => r.json())
+      .then((list: { id: string; image?: string | null }[]) => {
+        if (!Array.isArray(list)) return;
+        const byId = new Map(list.map((x) => [x.id, x.image]));
+        const dinners = plan.dinners.map((d) => ({
+          ...d,
+          image: d.image || byId.get(d.recipeId) || null,
+        }));
+        if (dinners.some((d, i) => d.image !== plan.dinners[i].image)) {
+          setPlan({ ...plan, dinners });
+        }
+      })
+      .catch(() => {});
+  }, [plan, setPlan]);
 
   const underBudget = useMemo(() => {
     if (!plan) return true;
@@ -159,7 +180,10 @@ export default function RevealPage() {
           {formatEUR(plan.answers.budget)}
           {underBudget ? " ✓" : " — swap un plat"}
         </p>
-        <p className="ba-footnote mt-1">Estimation ±10%</p>
+        <p className="ba-footnote mt-1">
+          Estimation ±10% · touche un plat pour voir la recette avant de
+          sauvegarder
+        </p>
 
         {swapError && (
           <p className="mt-3 text-[0.9rem] font-semibold text-[var(--tomato)]" role="alert">
@@ -197,18 +221,32 @@ export default function RevealPage() {
                     key={d.dateKey}
                     className="ba-row ba-meal-row justify-between !items-center gap-3"
                   >
-                    <div className="flex min-w-0 flex-1 items-center gap-3">
+                    <Link
+                      href={`/menu/recipes/${d.slug}?from=reveal`}
+                      className="ba-press flex min-w-0 flex-1 items-center gap-3"
+                      aria-label={`Voir la recette : ${d.title_fr}`}
+                    >
                       <div className="ba-recipe-thumb">
-                        <RecipeImage src={d.image} alt={d.title_fr} />
+                        <RecipeImage src={d.image} alt="" />
                       </div>
                       <div className="min-w-0">
                         <p className="ba-caption">{dayLabel}</p>
-                        <p className="ba-headline truncate">{d.title_fr}</p>
+                        <p className="ba-headline truncate text-[var(--label)]">
+                          {d.title_fr}
+                        </p>
                         <p className="mt-0.5 text-[0.9rem] font-semibold tabular-nums text-[var(--basil)]">
                           {formatEUR(d.cost)}
+                          {d.prepMin ? (
+                            <span className="ml-1.5 font-medium text-[var(--secondary-label)]">
+                              · {d.prepMin} min
+                            </span>
+                          ) : null}
+                        </p>
+                        <p className="ba-caption mt-0.5 text-[var(--basil)]">
+                          Voir la recette ›
                         </p>
                       </div>
-                    </div>
+                    </Link>
                     <button
                       type="button"
                       className="ba-btn ba-btn-tinted !min-h-9 shrink-0 !px-3 !py-1.5 !text-[0.875rem]"

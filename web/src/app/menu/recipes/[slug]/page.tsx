@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { use, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { FadeIn } from "@/components/FadeIn";
 import { RecipeImage } from "@/components/RecipeImage";
 import { RecipeNav, type RecipeNavItem } from "@/components/RecipeNav";
@@ -44,6 +45,12 @@ export default function RecipeDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = use(params);
+  const searchParams = useSearchParams();
+  const fromReveal = searchParams.get("from") === "reveal";
+  const hrefSuffix = fromReveal ? "?from=reveal" : "";
+  const backHref = fromReveal ? "/reveal" : "/menu/recipes";
+  const backLabel = fromReveal ? "← Ton menu" : "← Recettes";
+
   const { plan } = useFunnelStore();
   const favorites = useAuthStore(selectFavorites);
   const ratings = useAuthStore(selectRatings);
@@ -121,7 +128,7 @@ export default function RecipeDetailPage({
     return (
       <section className="py-8">
         <p className="ba-body">Recette introuvable.</p>
-        <Link href="/menu/recipes" className="ba-btn ba-btn-plain mt-4">
+        <Link href={backHref} className="ba-btn ba-btn-plain mt-4">
           Retour
         </Link>
       </section>
@@ -139,11 +146,12 @@ export default function RecipeDetailPage({
 
   const recipeId = recipe.id;
   const recipeSlug = recipe.slug;
+  const authNext = `/menu/recipes/${recipeSlug}${hrefSuffix}`;
 
   function onToggleFavorite() {
     if (
       !requireAuth({
-        next: `/menu/recipes/${recipeSlug}`,
+        next: authNext,
         intent: "favorite",
         recipeId,
       })
@@ -156,7 +164,7 @@ export default function RecipeDetailPage({
   function onRate(stars: RecipeRating) {
     if (
       !requireAuth({
-        next: `/menu/recipes/${recipeSlug}`,
+        next: authNext,
         intent: "rate",
         recipeId,
       })
@@ -168,9 +176,14 @@ export default function RecipeDetailPage({
 
   return (
     <FadeIn className="py-4">
-      <Link href="/menu/recipes" className="ba-btn ba-btn-plain !px-0">
-        ← Recettes
+      <Link href={backHref} className="ba-btn ba-btn-plain !px-0">
+        {backLabel}
       </Link>
+      {fromReveal ? (
+        <p className="ba-caption mt-1">
+          Aperçu avant sauvegarde · ingrédients et étapes ci-dessous
+        </p>
+      ) : null}
 
       <div className="ba-recipe-hero mt-3">
         <RecipeImage src={recipe.image} alt={recipe.title_fr} />
@@ -244,7 +257,18 @@ export default function RecipeDetailPage({
         </>
       )}
 
-      <RecipeNav items={navItems} currentSlug={slug} />
+      <RecipeNav
+        items={navItems}
+        currentSlug={slug}
+        hrefSuffix={hrefSuffix}
+      />
+      {fromReveal ? (
+        <div className="mt-6">
+          <Link href="/reveal" className="ba-btn ba-btn-primary w-full">
+            Retour au menu · sauvegarder
+          </Link>
+        </div>
+      ) : null}
     </FadeIn>
   );
 }

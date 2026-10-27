@@ -11,9 +11,11 @@ export type RecipeNavItem = {
 type Props = {
   items: RecipeNavItem[];
   currentSlug: string;
+  /** Suffixe query (ex. `?from=reveal`) conservé entre plats. */
+  hrefSuffix?: string;
 };
 
-export function RecipeNav({ items, currentSlug }: Props) {
+export function RecipeNav({ items, currentSlug, hrefSuffix = "" }: Props) {
   if (items.length < 2) return null;
   const idx = items.findIndex((x) => x.slug === currentSlug);
   if (idx < 0) return null;
@@ -29,7 +31,7 @@ export function RecipeNav({ items, currentSlug }: Props) {
       <div className="flex items-stretch gap-2">
         {prev ? (
           <Link
-            href={`/menu/recipes/${prev.slug}`}
+            href={`/menu/recipes/${prev.slug}${hrefSuffix}`}
             className="ba-btn ba-btn-tinted min-w-0 flex-1 !h-auto !min-h-[3.25rem] flex-col !items-start !gap-0.5 !px-3.5 !py-2.5"
           >
             <span className="ba-caption">← {prev.label || "Précédente"}</span>
@@ -42,7 +44,7 @@ export function RecipeNav({ items, currentSlug }: Props) {
         )}
         {next ? (
           <Link
-            href={`/menu/recipes/${next.slug}`}
+            href={`/menu/recipes/${next.slug}${hrefSuffix}`}
             className="ba-btn ba-btn-tinted min-w-0 flex-1 !h-auto !min-h-[3.25rem] flex-col !items-end !gap-0.5 !px-3.5 !py-2.5"
           >
             <span className="ba-caption">{next.label || "Suivante"} →</span>

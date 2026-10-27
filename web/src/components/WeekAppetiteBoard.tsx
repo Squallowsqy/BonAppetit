@@ -64,14 +64,14 @@ export function WeekAppetiteBoard({ recipes, variant = "board" }: Props) {
 
   return (
     <aside className="ba-week-board" aria-label="Planning de la semaine">
-      <p className="ba-week-board-eyebrow">Semaine type</p>
+      <p className="ba-week-board-eyebrow">Planning · semaine type</p>
       <ul className="ba-week-board-list">
         {days.map(({ recipe, short, full }, i) => (
           <li key={recipe.id}>
             <Link
               href={`/menu/recipes/${recipe.slug}`}
               className="ba-week-board-row"
-              style={{ animationDelay: `${120 + i * 70}ms` }}
+              style={{ animationDelay: `${80 + i * 55}ms` }}
             >
               <div className="ba-week-board-photo">
                 <RecipeImage

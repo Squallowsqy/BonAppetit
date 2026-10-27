@@ -22,7 +22,7 @@ export default function HomePage() {
         }
       />
 
-      {/* Hero split — brand left, week photos right */}
+      {/* Hero : marque à gauche, planning photo à droite (≥768px) */}
       <section className="ba-shell-wide ba-home-hero ba-fade-up pt-6 pb-10 md:pt-10 md:pb-14">
         <div className="ba-home-hero-copy">
           <p className="ba-display text-[clamp(3rem,8vw,5.25rem)] text-[var(--basil)]">
@@ -30,7 +30,7 @@ export default function HomePage() {
             <span className="text-[var(--saffron)]">!</span>
           </p>
           <h1 className="ba-title mt-4 max-w-[22ch] text-[1.5rem] text-[var(--label)] md:text-[1.75rem]">
-            Des dîners calés sur ton magasin et ton budget.
+            Enfin des repas calés sur ton magasin et ton budget.
           </h1>
           <p className="ba-body mt-3 max-w-[34ch]">
             Gratuit. Sans abonnement. Menu + liste de courses en deux minutes.
@@ -46,13 +46,14 @@ export default function HomePage() {
         </div>
 
         <div className="ba-home-hero-side">
-          <WeekAppetiteBoard recipes={weekFallback} variant="board" />
+          {/* Board vertical à droite dès tablette ; rail horizontal sur mobile */}
+          <div className="hidden min-[768px]:block">
+            <WeekAppetiteBoard recipes={weekFallback} variant="board" />
+          </div>
+          <div className="min-[768px]:hidden">
+            <WeekAppetiteBoard recipes={weekFallback} variant="rail" />
+          </div>
         </div>
-      </section>
-
-      {/* Mobile week rail (board is desktop-only) */}
-      <section className="ba-shell-wide ba-home-week-mobile pb-10">
-        <WeekAppetiteBoard recipes={weekFallback} variant="rail" />
       </section>
 
       {/* Stores */}

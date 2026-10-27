@@ -39,34 +39,99 @@ function persistNav(list: RecipeCard[]) {
   }
 }
 
+function parsePayload(raw: unknown, requestedPage: number): PagePayload {
+  if (Array.isArray(raw)) {
+    const items = raw as RecipeCard[];
+    return {
+      items,
+      total: items.length,
+      page: 1,
+      pageCount: 1,
+      hasMore: false,
+    };
+  }
+  const data = (raw || {}) as Partial<PagePayload> & { recipes?: RecipeCard[] };
+  const items = data.items || data.recipes || [];
+  const total = typeof data.total === "number" ? data.total : items.length;
+  const page = data.page || requestedPage;
+  const pageCount =
+    data.pageCount ||
+    Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const hasMore =
+    typeof data.hasMore === "boolean"
+      ? data.hasMore
+      : page * PAGE_SIZE < total;
+  return { items, total, page, pageCount, hasMore };
+}
+
 export default function RecipesPage() {
   const { plan } = useFunnelStore();
   const [explore, setExplore] = useState<RecipeCard[]>([]);
   const [page, setPage] = useState(1);
-  const [pageCount, setPageCount] = useState(1);
   const [total, setTotal] = useState(0);
+  const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const loadPage = useCallback(async (p: number) => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/recipes?limit=${PAGE_SIZE}&page=${p}`);
-      const data = (await res.json()) as PagePayload;
-      setExplore(data.items || []);
-      setPage(data.page || p);
-      setPageCount(data.pageCount || 1);
-      setTotal(data.total || 0);
-      persistNav(data.items || []);
-    } catch {
-      setExplore([]);
-    } finally {
-      setLoading(false);
-    }
+  const fetchPage = useCallback(async (p: number) => {
+    const res = await fetch(`/api/recipes?limit=${PAGE_SIZE}&page=${p}`);
+    if (!res.ok) throw new Error("fetch failed");
+    const raw = await res.json();
+    return parsePayload(raw, p);
   }, []);
 
   useEffect(() => {
-    void loadPage(1);
-  }, [loadPage]);
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    void fetchPage(1)
+      .then((data) => {
+        if (cancelled) return;
+        setExplore(data.items);
+        setPage(data.page);
+        setTotal(data.total);
+        setHasMore(data.hasMore);
+        persistNav(data.items);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setExplore([]);
+        setError("Impossible de charger les recettes.");
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [fetchPage]);
+
+  async function onLoadMore() {
+    if (loadingMore || !hasMore) return;
+    setLoadingMore(true);
+    setError(null);
+    try {
+      const next = page + 1;
+      const data = await fetchPage(next);
+      setExplore((prev) => {
+        const seen = new Set(prev.map((r) => r.id));
+        const merged = [...prev];
+        for (const item of data.items) {
+          if (!seen.has(item.id)) merged.push(item);
+        }
+        persistNav(merged);
+        return merged;
+      });
+      setPage(data.page);
+      setTotal(data.total);
+      setHasMore(data.hasMore);
+    } catch {
+      setError("Chargement interrompu. Réessaie.");
+    } finally {
+      setLoadingMore(false);
+    }
+  }
 
   return (
     <FadeIn className="py-4">
@@ -100,10 +165,12 @@ export default function RecipesPage() {
       <div className="mt-8">
         <div className="mb-2 flex items-baseline justify-between gap-3 px-1">
           <p className="ba-caption uppercase tracking-[0.04em]">Explorer</p>
-          <p className="ba-footnote">
+          <p className="ba-footnote tabular-nums">
             {total
-              ? `${Math.min((page - 1) * PAGE_SIZE + 1, total)}–${Math.min(page * PAGE_SIZE, total)} / ${total}`
-              : ""}
+              ? `${explore.length} / ${total}`
+              : explore.length
+                ? `${explore.length}`
+                : ""}
           </p>
         </div>
 
@@ -136,36 +203,31 @@ export default function RecipesPage() {
           </ul>
         )}
 
-        {pageCount > 1 ? (
-          <div className="mt-5 flex items-center gap-2">
-            <button
-              type="button"
-              className="ba-btn ba-btn-tinted flex-1 !min-h-11"
-              disabled={loading || page <= 1}
-              onClick={() => {
-                const next = page - 1;
-                void loadPage(next);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            >
-              ← Précédent
-            </button>
-            <span className="ba-caption shrink-0 tabular-nums px-1">
-              {page} / {pageCount}
-            </span>
-            <button
-              type="button"
-              className="ba-btn ba-btn-tinted flex-1 !min-h-11"
-              disabled={loading || page >= pageCount}
-              onClick={() => {
-                const next = page + 1;
-                void loadPage(next);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            >
-              Suivant →
-            </button>
-          </div>
+        {error ? (
+          <p className="ba-caption mt-3 px-1 text-[var(--destructive,#b00020)]">
+            {error}
+          </p>
+        ) : null}
+
+        {!loading && hasMore ? (
+          <button
+            type="button"
+            className="ba-btn ba-btn-primary mt-5 w-full !min-h-12"
+            disabled={loadingMore}
+            onClick={() => void onLoadMore()}
+          >
+            {loadingMore
+              ? "Chargement…"
+              : `Voir plus de recettes (${Math.min(PAGE_SIZE, Math.max(0, total - explore.length))} suivantes)`}
+          </button>
+        ) : null}
+
+        {!loading && !hasMore && explore.length > 0 ? (
+          <p className="ba-caption mt-5 px-1 text-center">
+            {total > PAGE_SIZE
+              ? `Les ${total} recettes sont affichées.`
+              : null}
+          </p>
         ) : null}
       </div>
     </FadeIn>

@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { HomeCta } from "@/components/HomeCta";
+import { HomeHero } from "@/components/HomeHero";
 import { RecipeImage } from "@/components/RecipeImage";
 import { SiteFooter } from "@/components/SiteFooter";
-import { WeekAppetiteBoard } from "@/components/WeekAppetiteBoard";
 import { featuredRecipes, stores } from "@/lib/catalog-client";
 import { formatEUR } from "@/lib/pricing";
 
@@ -10,7 +9,6 @@ export default function HomePage() {
   const weekPlan = featuredRecipes.filter((r) => r.image).slice(0, 7);
   const weekFallback =
     weekPlan.length >= 5 ? weekPlan : featuredRecipes.slice(0, 7);
-  const heroPhoto = weekFallback[0]?.image;
 
   return (
     <main className="ba-home">
@@ -28,42 +26,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* One composition: brand + thesis + CTA + planning (produit) */}
-      <section className="ba-home-hero" aria-label="Accueil">
-        <div
-          className="ba-home-hero-plane"
-          style={
-            heroPhoto
-              ? { backgroundImage: `url(${heroPhoto})` }
-              : undefined
-          }
-          aria-hidden
-        />
-        <div className="ba-home-hero-veil" aria-hidden />
-
-        <div className="ba-home-hero-inner">
-          <div className="ba-home-hero-copy">
-            <p className="ba-home-brand">
-              BonAppétit<span>!</span>
-            </p>
-            <h1 className="ba-home-h1">
-              Enfin ! Des repas calés sur ton magasin et ton budget.
-            </h1>
-            <p className="ba-home-lede">
-              Menu + liste de courses en deux minutes. Gratuit, sans abonnement.
-            </p>
-            <HomeCta />
-          </div>
-
-          <aside className="ba-home-hero-side" aria-label="Semainier">
-            <WeekAppetiteBoard
-              recipes={weekFallback}
-              variant="board"
-              receipt
-            />
-          </aside>
-        </div>
-      </section>
+      <HomeHero weekRecipes={weekFallback} />
 
       <section className="ba-home-stores" aria-label="Enseignes">
         <p className="ba-home-kicker">Prix calés sur ton enseigne</p>

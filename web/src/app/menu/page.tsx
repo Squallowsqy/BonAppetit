@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { FadeIn } from "@/components/FadeIn";
 import { RecipeImage } from "@/components/RecipeImage";
 import { StarRating } from "@/components/StarRating";
+import { TonightBanner } from "@/components/TonightPanel";
 import { getStore } from "@/lib/catalog-client";
 import {
   selectFavorites,
@@ -24,11 +25,20 @@ import { formatEUR } from "@/lib/pricing";
 import type { RecipeRating, WeekPlan } from "@/lib/types";
 
 export default function MenuWeekPage() {
-  const { plan, setPlan } = useFunnelStore();
+  const { plan, setPlan, markPlanSaved } = useFunnelStore();
   const favorites = useAuthStore(selectFavorites);
   const ratings = useAuthStore(selectRatings);
   const toggleFavoriteAuth = useAuthStore((s) => s.toggleFavorite);
   const setRating = useAuthStore((s) => s.setRating);
+  const sessionUserId = useAuthStore((s) => s.sessionUserId);
+  const vaultHydrated = useAuthStore((s) => s.vaultHydrated);
+  const activeBasket = useAuthStore((s) => {
+    if (!s.sessionUserId) return null;
+    const id = s.vault.activeBasketId;
+    return (
+      s.vault.baskets.find((b) => b.id === id) || s.vault.baskets[0] || null
+    );
+  });
   const { requireAuth } = useRequireAuth();
   const [swapping, setSwapping] = useState<string | null>(null);
   const [swapError, setSwapError] = useState<string | null>(null);
@@ -38,6 +48,20 @@ export default function MenuWeekPage() {
     () => (plan ? groupDinnersByWeek(plan.dinners) : []),
     [plan]
   );
+
+  // Menu validé (coffre) → alimente le brouillon local si vide
+  useEffect(() => {
+    if (plan || !sessionUserId || !vaultHydrated || !activeBasket?.plan) return;
+    setPlan(activeBasket.plan);
+    markPlanSaved();
+  }, [
+    plan,
+    sessionUserId,
+    vaultHydrated,
+    activeBasket,
+    setPlan,
+    markPlanSaved,
+  ]);
 
   useEffect(() => {
     if (!plan?.dinners?.length) return;
@@ -60,7 +84,6 @@ export default function MenuWeekPage() {
 
   const getTasteSignals = useAuthStore((s) => s.getTasteSignals);
   const recordTaste = useAuthStore((s) => s.recordTaste);
-  const sessionUserId = useAuthStore((s) => s.sessionUserId);
 
   async function onSwap(dateKey: string) {
     if (!plan) return;
@@ -102,7 +125,8 @@ export default function MenuWeekPage() {
 
   return (
     <FadeIn className="py-4">
-      <h1 className="ba-title text-[1.75rem]">{planTitle(plan)}</h1>
+      <TonightBanner />
+      <h1 className="ba-title mt-4 text-[1.75rem]">{planTitle(plan)}</h1>
       <p className="ba-body mt-1">
         <span className="font-semibold tabular-nums text-[var(--basil)]">
           {formatEUR(plan.totalCost)}

@@ -157,7 +157,14 @@ export default function MenuWeekPage() {
                         <RecipeImage src={d.image} alt={d.title_fr} />
                       </div>
                       <div className="min-w-0">
-                        <p className="ba-caption">{dayLabel}</p>
+                        <p className="ba-caption">
+                          {dayLabel}
+                          {d.freshDays != null && d.freshDays <= 2 ? (
+                            <span className="ml-2 inline-block rounded-full bg-[color-mix(in_srgb,var(--tomato)_14%,white)] px-2 py-0.5 text-[0.68rem] font-semibold text-[var(--tomato)]">
+                              à cuisiner tôt
+                            </span>
+                          ) : null}
+                        </p>
                         <p className="ba-headline truncate text-[var(--label)]">
                           {d.title_fr}
                         </p>

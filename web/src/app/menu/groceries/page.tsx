@@ -24,15 +24,26 @@ import { formatEUR } from "@/lib/pricing";
 import { useRequireAuth } from "@/lib/use-require-auth";
 import type { GrocerySnapshotLine } from "@/lib/types";
 
-type GroceryLine = {
-  key: string;
-  name: string;
-  aisle: string;
-  aisleLabel: string;
-  qty: number;
-  unit: string;
-  estEUR: number | null;
+type GroceryLine = GrocerySnapshotLine & {
+  qtyLabel?: string;
+  usedEUR?: number | null;
+  optional?: boolean;
 };
+
+type GroceryPayload = {
+  storeName: string | null;
+  totalEst: number;
+  usedEst?: number;
+  leftoverEst?: number;
+  optionalEst?: number;
+  lines: GroceryLine[];
+};
+
+const VERY_FRESH_DAYS = 3;
+
+function sectionKey(l: GroceryLine) {
+  return l.sectionLabel || "Liste";
+}
 
 export default function GroceriesPage() {
   const { plan, groceryChecked, toggleGrocery, setPlan, markPlanSaved } =
@@ -52,6 +63,8 @@ export default function GroceriesPage() {
   const [lines, setLines] = useState<GroceryLine[]>([]);
   const [storeName, setStoreName] = useState<string | null>(null);
   const [totalEst, setTotalEst] = useState(0);
+  const [leftoverEst, setLeftoverEst] = useState(0);
+  const [optionalEst, setOptionalEst] = useState(0);
   const [loading, setLoading] = useState(false);
   const [viewMode, setViewMode] = useState<"current" | "saved">("current");
   const [flash, setFlash] = useState<string | null>(null);
@@ -66,6 +79,8 @@ export default function GroceriesPage() {
       setLines(activeSaved.lines as GroceryLine[]);
       setStoreName(activeSaved.storeName);
       setTotalEst(activeSaved.totalEst);
+      setLeftoverEst(0);
+      setOptionalEst(0);
       return;
     }
     if (!plan) return;
@@ -76,10 +91,12 @@ export default function GroceriesPage() {
       body: JSON.stringify(plan),
     })
       .then((r) => r.json())
-      .then((data) => {
+      .then((data: GroceryPayload) => {
         setLines(data.lines || []);
         setStoreName(data.storeName);
         setTotalEst(data.totalEst || 0);
+        setLeftoverEst(data.leftoverEst || 0);
+        setOptionalEst(data.optionalEst || 0);
       })
       .finally(() => setLoading(false));
   }, [plan, viewMode, activeSaved]);
@@ -109,6 +126,13 @@ export default function GroceriesPage() {
       qty: l.qty,
       unit: l.unit,
       estEUR: l.estEUR,
+      section: l.section,
+      sectionLabel: l.sectionLabel,
+      packs: l.packs,
+      packLabel: l.packLabel,
+      shelfDays: l.shelfDays,
+      useDays: l.useDays,
+      estimated: l.estimated,
     }));
     const horizon = planHorizon(plan);
     const label = `${groceryListTitle(horizon)} · ${basketLabelFromPlan(plan)}${
@@ -178,12 +202,19 @@ export default function GroceriesPage() {
     );
   }
 
-  const byAisle = lines.reduce<Record<string, GroceryLine[]>>((acc, line) => {
-    (acc[line.aisleLabel] ||= []).push(line);
-    return acc;
-  }, {});
+  // Sections (frais par semaine → fond de placard → déjà au placard), puis rayons
+  const sections = lines.reduce<Record<string, Record<string, GroceryLine[]>>>(
+    (acc, line) => {
+      const s = (acc[sectionKey(line)] ||= {});
+      (s[line.aisleLabel] ||= []).push(line);
+      return acc;
+    },
+    {}
+  );
+  const sectionNames = Object.keys(sections);
 
-  const remaining = lines.filter((l) => !checkedMap[l.key]).length;
+  const countable = lines.filter((l) => l.section !== "staples");
+  const remaining = countable.filter((l) => !checkedMap[l.key]).length;
 
   return (
     <FadeIn className="py-4">
@@ -201,16 +232,29 @@ export default function GroceriesPage() {
           ? ` · ${plan.dinners.length} dîners`
           : ""}
       </p>
-      {lines.length > 0 && (
+      {leftoverEst > 0 && (
+        <p className="ba-footnote mt-1">
+          Quantités arrondies au conditionnement : ~{formatEUR(leftoverEst)} de restes
+          réutilisables (fromage, crème, féculents…).
+          {optionalEst > 0
+            ? ` Basiques « déjà au placard ? » non comptés : +${formatEUR(optionalEst)} s'il faut les racheter.`
+            : ""}
+        </p>
+      )}
+      {countable.length > 0 && (
         <div
           className="ba-progress mt-3 rounded-full"
           role="progressbar"
           aria-label="Avancement des courses"
           aria-valuemin={0}
-          aria-valuemax={lines.length}
-          aria-valuenow={lines.length - remaining}
+          aria-valuemax={countable.length}
+          aria-valuenow={countable.length - remaining}
         >
-          <i style={{ width: `${((lines.length - remaining) / lines.length) * 100}%` }} />
+          <i
+            style={{
+              width: `${((countable.length - remaining) / countable.length) * 100}%`,
+            }}
+          />
         </div>
       )}
       {flash && (
@@ -324,44 +368,124 @@ export default function GroceriesPage() {
         </p>
       )}
 
-      <div className="mt-4 space-y-4 pb-4">
-        {Object.entries(byAisle).map(([aisle, items]) => (
-          <div key={aisle}>
-            <p className="ba-caption ba-grocery-aisle uppercase tracking-[0.04em]">{aisle}</p>
-            <ul className="ba-grouped">
-              {items.map((item) => {
-                const checked = Boolean(checkedMap[item.key]);
-                return (
-                  <li key={item.key}>
-                    <label className="ba-row ba-grocery-item cursor-pointer justify-between">
-                      <span className="flex min-w-0 flex-1 items-start gap-3">
-                        <input
-                          type="checkbox"
-                          checked={checked}
-                          onChange={() => onToggle(item.key)}
-                          className="mt-1 size-[1.2rem] shrink-0 accent-[var(--basil)]"
-                        />
-                        <span className={`min-w-0 ${checked ? "line-through opacity-45" : ""}`}>
-                          <span className="ba-headline block">{item.name}</span>
-                          <span className="ba-caption">
-                            {Math.round(item.qty * 10) / 10} {item.unit}
-                          </span>
-                        </span>
-                      </span>
-                      {item.estEUR != null && (
-                        <span className="ba-grocery-meta">
-                          <span className="ba-caption ba-price tabular-nums font-semibold text-[var(--basil)]">
-                            {formatEUR(item.estEUR)}
-                          </span>
-                        </span>
-                      )}
-                    </label>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+      <div className="mt-4 space-y-6 pb-4">
+        {sectionNames.map((sectionName) => {
+          const aisles = sections[sectionName];
+          const first = Object.values(aisles)[0]?.[0];
+          const isStaples = first?.section === "staples";
+          const isFresh = first?.section === "week";
+          const sectionTotal = Object.values(aisles)
+            .flat()
+            .reduce((s, l) => s + (l.estEUR || 0), 0);
+          return (
+            <section key={sectionName} aria-label={sectionName}>
+              {sectionNames.length > 1 && (
+                <div className="mb-2 flex items-baseline justify-between gap-2 px-1">
+                  <h2 className="ba-headline text-[1.05rem]">
+                    {sectionName}
+                  </h2>
+                  <span className="ba-caption tabular-nums">
+                    {isStaples ? `+${formatEUR(sectionTotal)} si à racheter` : formatEUR(sectionTotal)}
+                  </span>
+                </div>
+              )}
+              {isStaples && (
+                <p className="ba-footnote mb-2 px-1">
+                  Sel, huile, vinaigre, sucre… utilisés en petite quantité. Coche ce qui manque.
+                </p>
+              )}
+              {isFresh && first?.sectionLabel?.includes("semaine") && (
+                <p className="ba-footnote mb-2 px-1">
+                  À acheter en début de semaine. Les produits marqués « frais » se gardent 2–3 jours :
+                  prends-les au plus près du jour indiqué.
+                </p>
+              )}
+              <div className="space-y-4">
+                {Object.entries(aisles).map(([aisle, items]) => (
+                  <div key={aisle}>
+                    <p className="ba-caption ba-grocery-aisle uppercase tracking-[0.04em]">
+                      {aisle}
+                    </p>
+                    <ul className="ba-grouped">
+                      {items.map((item) => {
+                        const checked = Boolean(checkedMap[item.key]);
+                        const veryFresh =
+                          item.shelfDays != null && item.shelfDays <= VERY_FRESH_DAYS;
+                        const packsLabel =
+                          item.packs && item.packs > 0
+                            ? `${item.packs} × ${item.packLabel || "pack"}`
+                            : null;
+                        const qtyText = item.qtyLabel
+                          ? item.qtyLabel
+                          : item.qty
+                            ? `${Math.round(item.qty * 10) / 10} ${item.unit}`
+                            : "";
+                        return (
+                          <li key={item.key}>
+                            <label
+                              className={`ba-row ba-grocery-item cursor-pointer justify-between ${
+                                item.optional ? "opacity-80" : ""
+                              }`}
+                            >
+                              <span className="flex min-w-0 flex-1 items-start gap-3">
+                                <input
+                                  type="checkbox"
+                                  checked={checked}
+                                  onChange={() => onToggle(item.key)}
+                                  className="mt-1 size-[1.2rem] shrink-0 accent-[var(--basil)]"
+                                />
+                                <span
+                                  className={`min-w-0 ${
+                                    checked ? "line-through opacity-45" : ""
+                                  }`}
+                                >
+                                  <span className="ba-headline block">
+                                    {item.name}
+                                    {veryFresh && !item.optional ? (
+                                      <span className="ml-2 inline-block rounded-full bg-[color-mix(in_srgb,var(--tomato)_14%,white)] px-2 py-0.5 align-middle text-[0.7rem] font-semibold text-[var(--tomato)]">
+                                        frais · {item.shelfDays} j
+                                      </span>
+                                    ) : null}
+                                  </span>
+                                  <span className="ba-caption">
+                                    {packsLabel ? (
+                                      <span className="font-semibold text-[var(--label)]">
+                                        {packsLabel}
+                                      </span>
+                                    ) : null}
+                                    {packsLabel && qtyText ? " · " : ""}
+                                    {qtyText ? `besoin : ${qtyText}` : ""}
+                                    {item.useDays && item.useDays.length > 0
+                                      ? ` · ${item.useDays.join(", ")}`
+                                      : ""}
+                                  </span>
+                                </span>
+                              </span>
+                              {item.estEUR != null && (
+                                <span className="ba-grocery-meta">
+                                  <span
+                                    className={`ba-caption ba-price tabular-nums font-semibold ${
+                                      item.optional
+                                        ? "text-[var(--secondary-label)]"
+                                        : "text-[var(--basil)]"
+                                    }`}
+                                  >
+                                    {item.estimated ? "~" : ""}
+                                    {formatEUR(item.estEUR)}
+                                  </span>
+                                </span>
+                              )}
+                            </label>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
     </FadeIn>
   );

@@ -1,4 +1,4 @@
-import { recipes } from "@/lib/catalog";
+import { getIngredient, recipes } from "@/lib/catalog";
 import { recipeCost, servingsFromHousehold } from "@/lib/pricing";
 import {
   cosine,
@@ -288,6 +288,116 @@ function candidatePool(answers: FunnelAnswers): Recipe[] {
   });
 }
 
+/* ------------------------------------------------------------------ */
+/* Périssabilité                                                       */
+/* ------------------------------------------------------------------ */
+
+const freshCache = new Map<string, { min: number | null; veryFresh: number }>();
+
+/**
+ * Conservation la plus courte (jours) parmi les ingrédients de la recette, et
+ * nombre d'ingrédients très périssables (≤ 3 j). Sel/poivre et « au goût »
+ * sont ignorés.
+ */
+export function recipeFreshness(recipe: Recipe): { min: number | null; veryFresh: number } {
+  const cached = freshCache.get(recipe.id);
+  if (cached) return cached;
+  let min: number | null = null;
+  let veryFresh = 0;
+  for (const line of recipe.ingredients) {
+    if (!line.qty) continue;
+    const ing = getIngredient(line.ingredientId);
+    if (!ing || ing.staple || ing.shelf_days == null) continue;
+    if (min == null || ing.shelf_days < min) min = ing.shelf_days;
+    if (ing.shelf_days <= 3) veryFresh += 1;
+  }
+  const out = { min, veryFresh };
+  freshCache.set(recipe.id, out);
+  return out;
+}
+
+export function recipeFreshDays(recipe: Recipe): number | null {
+  return recipeFreshness(recipe).min;
+}
+
+function freshRank(recipe: Recipe): number {
+  const f = recipeFreshness(recipe);
+  // plus c'est petit, plus c'est à cuisiner tôt ; les très périssables multiples passent devant
+  return (f.min ?? 99) * 10 - Math.min(f.veryFresh, 9);
+}
+
+function pairBreaks(prev: Recipe | undefined, cur: Recipe | undefined) {
+  if (!prev || !cur) return false;
+  return breaksRedMeatRule(prev, cur) || breaksAdjacentVariety(prev, cur);
+}
+
+function countAdjacencyIssues(list: { recipe: Recipe }[]): number {
+  let n = 0;
+  for (let i = 1; i < list.length; i++) {
+    if (pairBreaks(list[i - 1].recipe, list[i].recipe)) n += 1;
+  }
+  return n;
+}
+
+/**
+ * Dans chaque semaine, place en premier les plats dont les ingrédients
+ * s'abîment le plus vite (poisson, viande hachée, herbes, salade…), puis
+ * répare les enchaînements trop proches par échanges à l'intérieur de la
+ * semaine — en choisissant l'échange qui déplace le moins la fraîcheur.
+ */
+function orderPerishablesFirst(
+  picked: { recipe: Recipe; cost: number }[],
+  perWeek: number
+) {
+  const size = Math.max(1, perWeek);
+  for (let start = 0; start < picked.length; start += size) {
+    const end = Math.min(picked.length, start + size);
+    const chunk = picked.slice(start, end);
+    chunk.sort((a, b) => freshRank(a.recipe) - freshRank(b.recipe));
+    for (let k = 0; k < chunk.length; k++) picked[start + k] = chunk[k];
+  }
+
+  const weekOf = (i: number) => Math.floor(i / size);
+
+  for (let pass = 0; pass < 3; pass++) {
+    let issues = countAdjacencyIssues(picked);
+    if (issues === 0) return;
+    for (let i = 1; i < picked.length && issues > 0; i++) {
+      if (!pairBreaks(picked[i - 1].recipe, picked[i].recipe)) continue;
+      let best: number | null = null;
+      let bestScore = Infinity;
+      // On peut déplacer l'un ou l'autre des deux plats fautifs, chacun
+      // uniquement à l'intérieur de sa propre semaine (gère aussi le
+      // passage vendredi → lundi entre deux semaines).
+      for (const j of [i - 1, i]) {
+        const wkStart = weekOf(j) * size;
+        const wkEnd = Math.min(picked.length, wkStart + size);
+        for (let m = wkStart; m < wkEnd; m++) {
+          if (m === j) continue;
+          const a = Math.min(j, m);
+          const b = Math.max(j, m);
+          const trial = picked.slice();
+          [trial[a], trial[b]] = [trial[b], trial[a]];
+          const after = countAdjacencyIssues(trial);
+          if (after >= issues) continue;
+          const penalty =
+            after * 100 + Math.abs(freshRank(trial[a].recipe) - freshRank(trial[b].recipe));
+          if (penalty < bestScore) {
+            bestScore = penalty;
+            best = a * 1000 + b;
+          }
+        }
+      }
+      if (best != null) {
+        const a = Math.floor(best / 1000);
+        const b = best % 1000;
+        [picked[a], picked[b]] = [picked[b], picked[a]];
+        issues = countAdjacencyIssues(picked);
+      }
+    }
+  }
+}
+
 function toDinner(
   p: { recipe: Recipe; cost: number },
   i: number,
@@ -302,6 +412,7 @@ function toDinner(
     prepMin: p.recipe.prepMin,
     image: p.recipe.image ?? null,
     cost: Math.round(p.cost * 100) / 100,
+    freshDays: recipeFreshDays(p.recipe),
   };
 }
 
@@ -405,6 +516,7 @@ export function generateWeekPlan(answers: FunnelAnswers): WeekPlan {
   }
 
   repairPlanVariety(picked, source, used, usedFamilies);
+  orderPerishablesFirst(picked, answers.dinners);
 
   const dinners = picked.slice(0, n).map((p, i) => toDinner(p, i, answers));
   return {
@@ -576,6 +688,7 @@ export function generateWeekPlanML(
   }
 
   repairPlanVariety(picked, fallbackPool, used, usedFamilies);
+  orderPerishablesFirst(picked, answers.dinners);
 
   const dinners = picked.slice(0, n).map((p, i) => toDinner(p, i, answers));
   return {
@@ -727,6 +840,7 @@ export function swapDinner(plan: WeekPlan, dateKey: string, signals?: TasteSigna
           prepMin: next!.recipe.prepMin,
           image: next!.recipe.image ?? null,
           cost: Math.round(next!.cost * 100) / 100,
+          freshDays: recipeFreshDays(next!.recipe),
         }
       : d
   );

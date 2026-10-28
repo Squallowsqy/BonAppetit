@@ -10,10 +10,20 @@ export type Store = {
 export type Ingredient = {
   id: string;
   name_fr: string;
+  /** Unité de référence du catalogue (g, ml, unit, sachet(s)…). */
   unit: string;
   aisle: string;
+  /** Quantité par conditionnement, dans `unit`. */
   pack_qty: number | null;
   price_eur: number | null;
+  /** Poids approximatif d'un conditionnement quand `unit` est un emballage (sachet, pot…). */
+  pack_grams?: number;
+  /** Jours de conservation après achat (ouverture incluse). */
+  shelf_days?: number;
+  /** Prix/pack estimés (pas de relevé enseigne). */
+  estimated?: boolean;
+  /** Fond de placard non chiffré (sel, poivre). */
+  staple?: boolean;
 };
 
 export type RecipeIngredient = {
@@ -74,6 +84,8 @@ export type PlannedDinner = {
   cost: number;
   prepMin?: number | null;
   image?: string | null;
+  /** Conservation la plus courte parmi les ingrédients (jours) — pilote l'ordre dans la semaine. */
+  freshDays?: number | null;
 };
 
 export type WeekPlan = {
@@ -95,7 +107,21 @@ export type GrocerySnapshotLine = {
   qty: number;
   unit: string;
   estEUR: number | null;
+  /** Section d'achat : `s1`…`s4` (frais, par semaine), `pantry` (longue conservation), `staples`. */
+  section?: GrocerySection;
+  sectionLabel?: string;
+  /** Nombre de conditionnements à acheter et libellé (« 2 × pot 200 g »). */
+  packs?: number;
+  packLabel?: string | null;
+  /** Jours de conservation ; ≤ 3 → à acheter au plus près de l'usage. */
+  shelfDays?: number | null;
+  /** Jours d'utilisation dans le plan (« lun », « jeu »). */
+  useDays?: string[];
+  /** Prix estimé faute de relevé enseigne. */
+  estimated?: boolean;
 };
+
+export type GrocerySection = "week" | "pantry" | "staples";
 
 export type SavedGroceryList = {
   id: string;

@@ -17,7 +17,7 @@ import {
 } from "@/lib/plan-labels";
 import { useRequireAuth } from "@/lib/use-require-auth";
 import { formatEUR } from "@/lib/pricing";
-import type { WeekPlan } from "@/lib/types";
+import type { GrocerySnapshotLine, WeekPlan } from "@/lib/types";
 
 export default function RevealPage() {
   const router = useRouter();
@@ -114,15 +114,7 @@ export default function RevealPage() {
           storeName: data.storeName || null,
           totalEst: data.totalEst || 0,
           lines: (data.lines || []).map(
-            (l: {
-              key: string;
-              name: string;
-              aisle: string;
-              aisleLabel: string;
-              qty: number;
-              unit: string;
-              estEUR: number | null;
-            }) => ({
+            (l: GrocerySnapshotLine & { aisleLabel: string }) => ({
               key: l.key,
               name: l.name,
               aisle: l.aisle,
@@ -130,6 +122,13 @@ export default function RevealPage() {
               qty: l.qty,
               unit: l.unit,
               estEUR: l.estEUR,
+              section: l.section,
+              sectionLabel: l.sectionLabel,
+              packs: l.packs,
+              packLabel: l.packLabel,
+              shelfDays: l.shelfDays,
+              useDays: l.useDays,
+              estimated: l.estimated,
             })
           ),
           checked: {},
@@ -181,8 +180,9 @@ export default function RevealPage() {
           {underBudget ? " ✓" : " — swap un plat"}
         </p>
         <p className="ba-footnote mt-1">
-          Estimation ±10% · touche un plat pour voir la recette avant de
-          sauvegarder
+          Estimation ±10% · les plats aux ingrédients les plus fragiles (poisson,
+          viande hachée, herbes) sont placés en début de semaine · touche un plat
+          pour voir la recette
         </p>
 
         {swapError && (
@@ -230,7 +230,14 @@ export default function RevealPage() {
                         <RecipeImage src={d.image} alt="" />
                       </div>
                       <div className="min-w-0">
-                        <p className="ba-caption">{dayLabel}</p>
+                        <p className="ba-caption">
+                          {dayLabel}
+                          {d.freshDays != null && d.freshDays <= 2 ? (
+                            <span className="ml-2 inline-block rounded-full bg-[color-mix(in_srgb,var(--tomato)_14%,white)] px-2 py-0.5 text-[0.68rem] font-semibold text-[var(--tomato)]">
+                              à cuisiner tôt
+                            </span>
+                          ) : null}
+                        </p>
                         <p className="ba-headline truncate text-[var(--label)]">
                           {d.title_fr}
                         </p>
